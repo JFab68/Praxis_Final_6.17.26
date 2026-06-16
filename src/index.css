@@ -1,0 +1,317 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 210 33% 4%;
+    --foreground: 30 14% 92%;
+    --card: 210 33% 4%;
+    --card-foreground: 30 14% 92%;
+    --popover: 210 33% 4%;
+    --popover-foreground: 30 14% 92%;
+    --primary: 190 70% 50%;
+    --primary-foreground: 210 33% 4%;
+    --secondary: 210 10% 12%;
+    --secondary-foreground: 30 14% 92%;
+    --muted: 210 10% 12%;
+    --muted-foreground: 240 5% 55%;
+    --accent: 210 10% 12%;
+    --accent-foreground: 30 14% 92%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 210 10% 15%;
+    --input: 210 10% 15%;
+    --ring: 190 70% 50%;
+    --radius: 0.625rem;
+
+    /* Praxis Brand Colors */
+    --praxis-navy: #000080;
+    --praxis-maroon: #800000;
+    --praxis-white: #FFFFFF;
+    --praxis-charcoal: #1F2933;
+    --praxis-lightgray: #F5F7FA;
+    --praxis-teal: #008C8C;
+    --praxis-purple: #5B3C88;
+    --praxis-void: #050A0F;
+    --praxis-ivory: #EDE8E4;
+
+    /* Accessible text variants for dark backgrounds */
+    --praxis-teal-light: #00CCCC;
+    --praxis-purple-light: #B088D8;
+    --praxis-maroon-light: #E05555;
+  }
+
+  html {
+    scroll-behavior: auto;
+  }
+
+  body {
+    font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+    background-color: #050A0F;
+    color: #FFFFFF;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.7;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Cinzel', 'Georgia', serif;
+    word-break: keep-all;
+  }
+
+  ::selection {
+    background-color: rgba(0, 140, 140, 0.3);
+    color: #FFFFFF;
+  }
+
+  /* Focus-visible: clear outline for keyboard navigation */
+  :focus-visible {
+    outline: 2px solid #008C8C;
+    outline-offset: 2px;
+  }
+
+  /* Placeholder styling for dark backgrounds */
+  ::placeholder {
+    color: rgba(255, 255, 255, 0.35);
+    opacity: 1;
+  }
+
+  /* Input autofill fix for dark backgrounds */
+  input:-webkit-autofill,
+  input:-webkit-autofill:hover,
+  input:-webkit-autofill:focus,
+  textarea:-webkit-autofill,
+  textarea:-webkit-autofill:hover,
+  textarea:-webkit-autofill:focus {
+    -webkit-text-fill-color: #FFFFFF;
+    -webkit-box-shadow: 0 0 0px 1000px #111820 inset;
+    box-shadow: 0 0 0px 1000px #111820 inset;
+    transition: background-color 5000s ease-in-out 0s;
+  }
+}
+
+@layer components {
+  .font-serif-display {
+    font-family: 'Cinzel', 'Georgia', serif;
+  }
+
+  .font-sans-body {
+    font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+  }
+
+  .font-mono-data {
+    font-family: 'JetBrains Mono', 'Courier New', monospace;
+  }
+
+  .text-shadow-hero {
+    text-shadow: 0 2px 24px rgba(0,0,0,0.45);
+  }
+
+  .eyebrow-label {
+    font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+    font-size: 12px;
+    letter-spacing: 0.25em;
+    color: rgba(255,255,255,0.9);
+    text-transform: uppercase;
+    font-weight: 400;
+  }
+
+  .page-section {
+    position: relative;
+    z-index: 2;
+  }
+
+  .btn-praxis {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 16px 36px;
+    font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    border-radius: 40px;
+    cursor: pointer;
+    transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255,255,255,0.4);
+    background: linear-gradient(135deg, rgba(255,255,255,0.12) 0%, rgba(255,255,255,0.04) 50%, rgba(255,255,255,0.1) 100%);
+    color: #ffffff;
+    text-decoration: none;
+    box-shadow:
+      0 4px 24px rgba(0,140,140,0.15),
+      0 1px 3px rgba(0,0,0,0.3),
+      inset 0 1px 0 rgba(255,255,255,0.1),
+      0 0 40px rgba(0,204,204,0.12);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .btn-praxis::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.08), transparent);
+    transition: left 0.6s ease;
+  }
+
+  .btn-praxis:hover {
+    background: linear-gradient(135deg, rgba(0,204,204,0.18) 0%, rgba(0,140,140,0.06) 50%, rgba(0,204,204,0.14) 100%);
+    border-color: rgba(0,204,204,0.7);
+    box-shadow:
+      0 6px 32px rgba(0,140,140,0.3),
+      0 2px 6px rgba(0,0,0,0.3),
+      inset 0 1px 0 rgba(255,255,255,0.15),
+      0 0 20px rgba(0,204,204,0.2);
+    transform: translateY(-2px);
+  }
+
+  .btn-praxis:hover::before {
+    left: 100%;
+  }
+
+  .btn-praxis:active {
+    transform: translateY(0px);
+    box-shadow:
+      0 2px 12px rgba(0,140,140,0.2),
+      0 1px 2px rgba(0,0,0,0.3),
+      inset 0 1px 0 rgba(255,255,255,0.08);
+    transition: all 0.1s ease;
+  }
+
+  .btn-praxis:focus-visible {
+    outline: 2px solid #008C8C;
+    outline-offset: 2px;
+  }
+
+  .btn-praxis-solid {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 16px 36px;
+    font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    border-radius: 40px;
+    cursor: pointer;
+    transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255,255,255,0.4);
+    background: linear-gradient(135deg, rgba(255,255,255,0.12) 0%, rgba(255,255,255,0.04) 50%, rgba(255,255,255,0.1) 100%);
+    color: #ffffff;
+    text-decoration: none;
+    box-shadow:
+      0 4px 24px rgba(200,40,40,0.15),
+      0 1px 3px rgba(0,0,0,0.3),
+      inset 0 1px 0 rgba(255,255,255,0.1),
+      0 0 40px rgba(224,85,85,0.12);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .btn-praxis-solid::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.08), transparent);
+    transition: left 0.6s ease;
+  }
+
+  .btn-praxis-solid:hover {
+    background: linear-gradient(135deg, rgba(224,85,85,0.18) 0%, rgba(180,40,40,0.06) 50%, rgba(224,85,85,0.14) 100%);
+    border-color: rgba(224,85,85,0.7);
+    box-shadow:
+      0 6px 32px rgba(200,40,40,0.35),
+      0 2px 6px rgba(0,0,0,0.3),
+      inset 0 1px 0 rgba(255,255,255,0.15),
+      0 0 20px rgba(224,85,85,0.25);
+    transform: translateY(-2px);
+  }
+
+  .btn-praxis-solid:hover::before {
+    left: 100%;
+  }
+
+  .btn-praxis-solid:active {
+    transform: translateY(0px);
+    box-shadow:
+      0 2px 12px rgba(200,40,40,0.2),
+      0 1px 2px rgba(0,0,0,0.3),
+      inset 0 1px 0 rgba(255,255,255,0.08);
+    transition: all 0.1s ease;
+  }
+
+  .btn-praxis-solid:focus-visible {
+    outline: 2px solid #E05555;
+    outline-offset: 2px;
+  }
+
+  .btn-praxis-maroon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 14px 32px;
+    font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    border-radius: 40px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 1px solid #800000;
+    background: #800000;
+    color: #FFFFFF;
+    text-decoration: none;
+  }
+
+  .btn-praxis-maroon:hover {
+    background: #660000;
+    transform: translateY(-1px);
+  }
+
+  .btn-praxis-maroon:focus-visible {
+    outline: 2px solid #E05555;
+    outline-offset: 2px;
+  }
+
+  .section-padding {
+    padding: 120px 0;
+  }
+
+  @media (max-width: 768px) {
+    .section-padding {
+      padding: 64px 0;
+    }
+  }
+
+  .content-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 6vw;
+  }
+
+  .content-container-narrow {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 6vw;
+  }
+}
