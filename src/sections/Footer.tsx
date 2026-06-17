@@ -1,13 +1,32 @@
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
+import { Loader2, CheckCircle } from 'lucide-react';
+import { submitForm } from '../lib/api';
 
 export default function Footer() {
   const [email, setEmail] = useState('');
+  const [submitting, setSubmitting] = useState(false);
+  const [subscribed, setSubscribed] = useState(false);
+  const [newsletterError, setNewsletterError] = useState('');
 
-  const handleNewsletterSubmit = (e: React.FormEvent) => {
+  const handleNewsletterSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    alert('Thank you for signing up! This is a demo - newsletter functionality would be integrated with Action Network or similar platform.');
-    setEmail('');
+    setNewsletterError('');
+    setSubmitting(true);
+
+    const result = await submitForm({
+      form: 'newsletter',
+      email,
+    });
+
+    setSubmitting(false);
+
+    if (result.success) {
+      setSubscribed(true);
+      setEmail('');
+    } else {
+      setNewsletterError(result.message);
+    }
   };
 
   return (
@@ -240,48 +259,62 @@ export default function Footer() {
             >
               Get updates on oversight, legislation, training, and community action.
             </p>
-            <form onSubmit={handleNewsletterSubmit} style={{ display: 'flex', gap: '8px' }}>
-              <input
-                type="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                placeholder="Enter your email"
-                required
-                className="font-sans-body"
-                style={{
-                  flex: 1,
-                  padding: '10px 14px',
-                  background: 'rgba(255,255,255,0.14)',
-                  border: '1px solid rgba(255,255,255,0.15)',
-                  borderRadius: '6px',
-                  color: '#FFFFFF',
-                  fontSize: '13px',
-                  outline: 'none',
-                }}
-              />
-              <button
-                type="submit"
-                className="font-sans-body"
-                style={{
-                  padding: '10px 18px',
-                  background: '#008C8C',
-                  border: 'none',
-                  borderRadius: '6px',
-                  color: '#FFFFFF',
-                  fontSize: '12px',
-                  fontWeight: 500,
-                  letterSpacing: '0.1em',
-                  textTransform: 'uppercase',
-                  cursor: 'pointer',
-                  transition: 'background 0.3s ease',
-                  whiteSpace: 'nowrap',
-                }}
-                onMouseEnter={(e) => { e.currentTarget.style.background = '#006666'; }}
-                onMouseLeave={(e) => { e.currentTarget.style.background = '#008C8C'; }}
-              >
-                Sign Up
-              </button>
-            </form>
+            {subscribed ? (
+              <div style={{ display: 'flex', alignItems: 'center', gap: '8px', color: '#008C8C' }}>
+                <CheckCircle size={16} />
+                <span className="font-sans-body" style={{ fontSize: '13px' }}>You're signed up!</span>
+              </div>
+            ) : (
+              <>
+                {newsletterError && (
+                  <p className="font-sans-body" style={{ fontSize: '12px', color: '#E05555', marginBottom: '8px' }}>{newsletterError}</p>
+                )}
+                <form onSubmit={handleNewsletterSubmit} style={{ display: 'flex', gap: '8px' }}>
+                  <input
+                    type="email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    placeholder="Enter your email"
+                    required
+                    className="font-sans-body"
+                    style={{
+                      flex: 1,
+                      padding: '10px 14px',
+                      background: 'rgba(255,255,255,0.14)',
+                      border: '1px solid rgba(255,255,255,0.15)',
+                      borderRadius: '6px',
+                      color: '#FFFFFF',
+                      fontSize: '13px',
+                      outline: 'none',
+                    }}
+                  />
+                  <button
+                    type="submit"
+                    className="font-sans-body"
+                    disabled={submitting}
+                    style={{
+                      padding: '10px 18px',
+                      background: '#008C8C',
+                      border: 'none',
+                      borderRadius: '6px',
+                      color: '#FFFFFF',
+                      fontSize: '12px',
+                      fontWeight: 500,
+                      letterSpacing: '0.1em',
+                      textTransform: 'uppercase',
+                      cursor: submitting ? 'default' : 'pointer',
+                      transition: 'background 0.3s ease',
+                      whiteSpace: 'nowrap',
+                      opacity: submitting ? 0.7 : 1,
+                    }}
+                    onMouseEnter={(e) => { if (!submitting) e.currentTarget.style.background = '#006666'; }}
+                    onMouseLeave={(e) => { if (!submitting) e.currentTarget.style.background = '#008C8C'; }}
+                  >
+                    {submitting ? 'Sending...' : 'Sign Up'}
+                  </button>
+                </form>
+              </>
+            )}
           </div>
         </div>
 
@@ -309,7 +342,7 @@ export default function Footer() {
 
           <div style={{ display: 'flex', gap: '24px', flexWrap: 'wrap' }}>
             <Link
-              to="/contact"
+              to="/privacy-policy"
               style={{
                 color: 'rgba(237,232,228,0.35)',
                 fontSize: '12px',
@@ -322,7 +355,7 @@ export default function Footer() {
               Privacy Policy
             </Link>
             <Link
-              to="/contact"
+              to="/terms-of-use"
               style={{
                 color: 'rgba(237,232,228,0.35)',
                 fontSize: '12px',
@@ -335,7 +368,7 @@ export default function Footer() {
               Terms of Use
             </Link>
             <Link
-              to="/contact"
+              to="/accessibility"
               style={{
                 color: 'rgba(237,232,228,0.35)',
                 fontSize: '12px',
@@ -357,7 +390,7 @@ export default function Footer() {
               textAlign: 'right',
             }}
           >
-            501(c)(3) nonprofit. Contributions tax-deductible.
+            Praxis Initiative is a registered 501(c)(3) nonprofit organization. EIN: 85-2496398. All contributions are tax-deductible to the extent permitted by law.
           </p>
         </div>
       </div>

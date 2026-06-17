@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { FileText, Download, ExternalLink, BookOpen, Gavel, Heart, Users, Mic, FolderOpen, Eye } from 'lucide-react';
 import PageHero from '../components/PageHero';
 import PageQuote from '../components/PageQuote';
+import SEOHead from '../components/SEOHead';
 
 interface Resource {
   title: string;
@@ -61,6 +62,7 @@ export default function ResourcesPage() {
 
   return (
     <div style={{ position: 'relative', zIndex: 2, background: '#050A0F' }}>
+      <SEOHead title="Resources Hub" description="Access public education materials, research, advocacy toolkits, and community resources from Praxis Initiative — Arizona's system-impacted criminal legal reform organization." path="/resources" />
       <PageHero
         eyebrow="Resource Hub"
         title="Resources"

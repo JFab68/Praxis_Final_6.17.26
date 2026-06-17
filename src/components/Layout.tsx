@@ -11,7 +11,7 @@ export default function Layout() {
     <div style={{ position: 'relative' }}>
       {isHome && <FluidBackground isActive={true} />}
       <Navigation />
-      <main>
+      <main id="main-content">
         <Outlet />
       </main>
       <Footer />

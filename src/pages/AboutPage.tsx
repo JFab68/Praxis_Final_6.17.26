@@ -5,6 +5,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { ArrowRight, CheckCircle } from 'lucide-react';
 import PageHero from '../components/PageHero';
 import PageQuote from '../components/PageQuote';
+import SEOHead from '../components/SEOHead';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -49,6 +50,11 @@ export default function AboutPage() {
 
   return (
     <div style={{ position: 'relative', zIndex: 2, background: '#050A0F' }}>
+      <SEOHead
+        title="About Us"
+        description="Praxis Initiative is built by people who know the system firsthand. Learn about our origin, leadership, values, and the meaning of Praxis — turning lived experience into reform."
+        path="/about"
+      />
       <PageHero
         eyebrow="About Us"
         title="Praxis Initiative Is Built by People Who Know the System Firsthand"
@@ -81,7 +87,7 @@ export default function AboutPage() {
             <h2 className="font-serif-display" style={{ fontSize: 'clamp(24px, 3vw, 36px)', fontWeight: 300, color: '#ffffff', marginBottom: '40px' }}>Leadership</h2>
             <div style={{ display: 'grid', gridTemplateColumns: '1fr 2fr', gap: '60px', alignItems: 'start' }} className="bio-grid">
               <div>
-                <img src="/images/john-fabricius.jpg" alt="John Fabricius" style={{ width: '100%', aspectRatio: '3/4', objectFit: 'cover', borderRadius: '4px' }} />
+                <img src="/images/john-fabricius.jpg" alt="John Fabricius" loading="lazy" style={{ width: '100%', aspectRatio: '3/4', objectFit: 'cover', borderRadius: '4px' }} />
               </div>
               <div>
                 <h3 className="font-serif-display" style={{ fontSize: '28px', fontWeight: 400, color: '#ffffff', marginBottom: '8px' }}>John Fabricius</h3>
@@ -101,7 +107,7 @@ export default function AboutPage() {
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '24px' }}>
               {team.map((member) => (
                 <div key={member.name} style={{ padding: '28px', background: 'rgba(255,255,255,0.12)', border: '1px solid rgba(255,255,255,0.15)', borderRadius: '4px' }}>
-                  <h4 className="font-serif-display" style={{ fontSize: '17px', fontWeight: 400, color: '#ffffff', marginBottom: '8px' }}>{member.name}</h4>
+                  <h3 className="font-serif-display" style={{ fontSize: '17px', fontWeight: 400, color: '#ffffff', marginBottom: '8px' }}>{member.name}</h3>
                   <p className="font-sans-body" style={{ fontSize: '13px', lineHeight: 1.6, color: 'rgba(255,255,255,0.55)' }}>{member.role}</p>
                 </div>
               ))}

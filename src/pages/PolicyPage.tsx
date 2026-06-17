@@ -5,6 +5,7 @@ import { Target, Users, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import PageHero from '../components/PageHero';
 import PageQuote from '../components/PageQuote';
+import SEOHead from '../components/SEOHead';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -58,6 +59,7 @@ export default function PolicyPage() {
 
   return (
     <div style={{ position: 'relative', zIndex: 2, background: '#050A0F' }}>
+      <SEOHead title="Policy & Advocacy" description="Praxis Initiative advances bipartisan criminal legal system reform in Arizona — sentencing reform, reentry, probation and parole, drug policy, and coalition advocacy." path="/policy" />
       <PageHero
         eyebrow="Policy & Advocacy"
         title="Policy Change Requires More Than Good Intentions"
@@ -147,7 +149,7 @@ export default function PolicyPage() {
               <p className="font-sans-body" style={{ fontSize: '15px', lineHeight: 1.9, color: 'rgba(255,255,255,0.75)' }}>
                 Praxis helps convene, coordinate, and support coalitions that include people across political, professional, and lived-experience lines. We believe lasting reform requires diverse stakeholders working together toward common goals. Our coalition partners include lawmakers, attorneys, advocates, families, correctional staff, faith leaders, and directly impacted people.
               </p>
-              <img src="/images/coalition-meeting.jpg" alt="Coalition meeting" style={{ width: '100%', aspectRatio: '16/10', objectFit: 'cover', borderRadius: '4px' }} />
+              <img src="/images/coalition-meeting.jpg" alt="Coalition meeting" loading="lazy" style={{ width: '100%', aspectRatio: '16/10', objectFit: 'cover', borderRadius: '4px' }} />
             </div>
           </div>
 

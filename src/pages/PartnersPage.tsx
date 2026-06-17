@@ -4,6 +4,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { ExternalLink, Handshake } from 'lucide-react';
 import PageHero from '../components/PageHero';
 import PageQuote from '../components/PageQuote';
+import SEOHead from '../components/SEOHead';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -89,6 +90,7 @@ export default function PartnersPage() {
 
   return (
     <div style={{ position: 'relative', zIndex: 2, background: '#050A0F' }}>
+      <SEOHead title="Coalition Partners" description="Praxis Initiative partners with organizations across Arizona advancing criminal legal system reform, prison oversight, and community advocacy. Join our coalition." path="/partners" />
       <PageHero
         eyebrow="Our Network"
         title="Partners"

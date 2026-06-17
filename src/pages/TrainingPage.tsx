@@ -5,6 +5,7 @@ import { GraduationCap, Monitor, Cpu, ArrowRight, CheckCircle } from 'lucide-rea
 import { Link } from 'react-router-dom';
 import PageHero from '../components/PageHero';
 import PageQuote from '../components/PageQuote';
+import SEOHead from '../components/SEOHead';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -108,6 +109,7 @@ export default function TrainingPage() {
 
   return (
     <div style={{ position: 'relative', zIndex: 2, background: '#050A0F' }}>
+      <SEOHead title="Skills Training for Returning Citizens" description="Praxis Initiative provides digital literacy, civic advocacy, and AI skills training for returning citizens in Arizona. Building workforce readiness and civic engagement." path="/training" />
       <PageHero
         eyebrow="Training Programs"
         title="Skills Training for Returning Citizens"

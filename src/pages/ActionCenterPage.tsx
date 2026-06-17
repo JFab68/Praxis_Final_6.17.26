@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom';
 import PageHero from '../components/PageHero';
 import PageQuote from '../components/PageQuote';
 import ActionNetworkEmbed from '../components/ActionNetworkEmbed';
+import SEOHead from '../components/SEOHead';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -78,6 +79,11 @@ export default function ActionCenterPage() {
 
   return (
     <div style={{ position: 'relative', zIndex: 2, background: '#050A0F' }}>
+      <SEOHead
+        title="Action Center"
+        description="Take action with Praxis Initiative. Sign petitions, attend events, and join the movement for independent prison oversight and criminal legal system reform in Arizona."
+        path="/action"
+      />
       <PageHero
         eyebrow="Take Action"
         title="Action Center"

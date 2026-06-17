@@ -5,6 +5,7 @@ import { ArrowRight, Heart, Users, Brain, Sparkles, Music, Move } from 'lucide-r
 import { Link } from 'react-router-dom';
 import PageHero from '../components/PageHero';
 import PageQuote from '../components/PageQuote';
+import SEOHead from '../components/SEOHead';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -44,6 +45,7 @@ export default function ArtsPage() {
 
   return (
     <div style={{ position: 'relative', zIndex: 2, background: '#050A0F' }}>
+      <SEOHead title="Arts in Prison" description="Praxis Initiative supports music, movement, and creative programming inside Arizona prisons — helping people build identity, connection, emotional regulation, and purpose." path="/arts" />
       <PageHero
         eyebrow="Arts in Prison"
         title="Creativity Is Part of Rehabilitation"
@@ -62,7 +64,7 @@ export default function ArtsPage() {
           {/* Why Arts Matter */}
           <div className="reveal-up" style={{ marginBottom: '80px' }}>
             <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '60px', alignItems: 'center' }} className="arts-grid">
-              <img src="/images/arts-music.jpg" alt="Music education in prison" style={{ width: '100%', aspectRatio: '16/10', objectFit: 'cover', borderRadius: '4px' }} />
+              <img src="/images/arts-music.jpg" alt="Music education in prison" loading="lazy" style={{ width: '100%', aspectRatio: '16/10', objectFit: 'cover', borderRadius: '4px' }} />
               <div>
                 <h2 className="font-serif-display" style={{ fontSize: 'clamp(24px, 3vw, 36px)', fontWeight: 300, color: '#ffffff', marginBottom: '20px' }}>Why Arts Inside Matter</h2>
                 <p className="font-sans-body" style={{ fontSize: '15px', lineHeight: 1.9, color: 'rgba(255,255,255,0.75)', marginBottom: '20px' }}>
@@ -102,7 +104,7 @@ export default function ArtsPage() {
                   The program has been well received and has shown meaningful results in emotional regulation, stress management, and community building. Praxis Initiative proudly sponsors and partners on Think Motion and intends to continue supporting its expansion.
                 </p>
               </div>
-              <img src="/images/think-motion.jpg" alt="Think Motion movement class" style={{ width: '100%', aspectRatio: '16/10', objectFit: 'cover', borderRadius: '4px' }} />
+              <img src="/images/think-motion.jpg" alt="Think Motion movement class" loading="lazy" style={{ width: '100%', aspectRatio: '16/10', objectFit: 'cover', borderRadius: '4px' }} />
             </div>
           </div>
 
@@ -120,7 +122,7 @@ export default function ArtsPage() {
                 border: '1px solid rgba(91,60,136,0.12)',
               }}
             >
-              <img src="/images/music-theory.jpg" alt="Music Theory Initiative" style={{ width: '100%', aspectRatio: '16/10', objectFit: 'cover', borderRadius: '4px' }} />
+              <img src="/images/music-theory.jpg" alt="Music Theory Initiative" loading="lazy" style={{ width: '100%', aspectRatio: '16/10', objectFit: 'cover', borderRadius: '4px' }} />
               <div>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '20px' }}>
                   <Music size={28} style={{ color: '#B088D8' }} />

@@ -4,6 +4,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { ArrowRight, Calendar } from 'lucide-react';
 import PageHero from '../components/PageHero';
 import PageQuote from '../components/PageQuote';
+import SEOHead from '../components/SEOHead';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -98,6 +99,7 @@ export default function NewsPage() {
 
   return (
     <div style={{ position: 'relative', zIndex: 2, background: '#050A0F' }}>
+      <SEOHead title="News & Updates" description="Stay informed on Arizona criminal legal system reform. Latest news, campaign updates, and stories from Praxis Initiative." path="/news" />
       <PageHero
         eyebrow="News & Updates"
         title="News & Blog"
@@ -152,7 +154,7 @@ export default function NewsPage() {
                     <span className="font-sans-body" style={{ fontSize: '13px', color: 'rgba(255,255,255,0.5)' }}>{featuredPost.date}</span>
                   </div>
                 </div>
-                <img src={featuredPost.image} alt={featuredPost.title} style={{ width: '100%', aspectRatio: '16/10', objectFit: 'cover', borderRadius: '4px' }} />
+                <img src={featuredPost.image} alt={featuredPost.title} loading="lazy" style={{ width: '100%', aspectRatio: '16/10', objectFit: 'cover', borderRadius: '4px' }} />
               </div>
             </div>
           )}
@@ -182,7 +184,7 @@ export default function NewsPage() {
                   e.currentTarget.style.transform = 'translateY(0)';
                 }}
               >
-                <img src={post.image} alt={post.title} style={{ width: '100%', aspectRatio: '16/9', objectFit: 'cover' }} />
+                <img src={post.image} alt={post.title} loading="lazy" style={{ width: '100%', aspectRatio: '16/9', objectFit: 'cover' }} />
                 <div style={{ padding: '24px' }}>
                   <span className="font-mono-data" style={{ fontSize: '10px', letterSpacing: '0.15em', color: '#008C8C', textTransform: 'uppercase' }}>
                     {post.category}

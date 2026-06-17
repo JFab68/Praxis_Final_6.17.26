@@ -1,7 +1,9 @@
 import { useState } from 'react';
-import { Mail, MapPin, Send, CheckCircle } from 'lucide-react';
+import { Mail, MapPin, Send, CheckCircle, AlertCircle, Loader2 } from 'lucide-react';
 import PageHero from '../components/PageHero';
 import PageQuote from '../components/PageQuote';
+import SEOHead from '../components/SEOHead';
+import { submitForm } from '../lib/api';
 
 const contactReasons = [
   'Media',
@@ -16,6 +18,8 @@ const contactReasons = [
 
 export default function ContactPage() {
   const [submitted, setSubmitted] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+  const [error, setError] = useState('');
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -26,9 +30,28 @@ export default function ContactPage() {
     consent: false,
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setSubmitted(true);
+    setError('');
+    setSubmitting(true);
+
+    const result = await submitForm({
+      form: 'contact',
+      name: formData.name,
+      email: formData.email,
+      phone: formData.phone,
+      organization: formData.organization,
+      reason: formData.reason,
+      message: formData.message,
+    });
+
+    setSubmitting(false);
+
+    if (result.success) {
+      setSubmitted(true);
+    } else {
+      setError(result.message);
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
@@ -41,6 +64,11 @@ export default function ContactPage() {
 
   return (
     <div style={{ position: 'relative', zIndex: 2, background: '#050A0F' }}>
+      <SEOHead
+        title="Contact Us"
+        description="Contact Praxis Initiative for media inquiries, coalition partnerships, training requests, speaking engagements, or general information about our work."
+        path="/contact"
+      />
       <PageHero
         eyebrow="Get in Touch"
         title="Contact Praxis"
@@ -62,7 +90,7 @@ export default function ContactPage() {
               <div style={{ marginBottom: '48px' }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '16px' }}>
                   <MapPin size={20} style={{ color: '#008C8C' }} />
-                  <h3 className="font-serif-display" style={{ fontSize: '18px', fontWeight: 400, color: '#ffffff' }}>Location</h3>
+                  <h2 className="font-serif-display" style={{ fontSize: '18px', fontWeight: 400, color: '#ffffff' }}>Location</h2>
                 </div>
                 <p className="font-sans-body" style={{ fontSize: '15px', lineHeight: 1.8, color: 'rgba(255,255,255,0.65)', paddingLeft: '32px' }}>
                   Phoenix, Arizona
@@ -72,7 +100,7 @@ export default function ContactPage() {
               <div style={{ marginBottom: '48px' }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '16px' }}>
                   <Mail size={20} style={{ color: '#008C8C' }} />
-                  <h3 className="font-serif-display" style={{ fontSize: '18px', fontWeight: 400, color: '#ffffff' }}>Email</h3>
+                  <h2 className="font-serif-display" style={{ fontSize: '18px', fontWeight: 400, color: '#ffffff' }}>Email</h2>
                 </div>
                 <a href="mailto:info@praxisinitiative.org" style={{ fontSize: '15px', color: '#008C8C', textDecoration: 'none', paddingLeft: '32px' }}>
                   info@praxisinitiative.org
@@ -80,7 +108,7 @@ export default function ContactPage() {
               </div>
 
               <div style={{ padding: '32px', background: 'rgba(0,140,140,0.06)', borderRadius: '8px', borderLeft: '3px solid #008C8C' }}>
-                <h3 className="font-serif-display" style={{ fontSize: '18px', fontWeight: 400, color: '#ffffff', marginBottom: '12px' }}>Response Time</h3>
+                <h2 className="font-serif-display" style={{ fontSize: '18px', fontWeight: 400, color: '#ffffff', marginBottom: '12px' }}>Response Time</h2>
                 <p className="font-sans-body" style={{ fontSize: '14px', lineHeight: 1.7, color: 'rgba(255,255,255,0.6)' }}>
                   We aim to respond to all inquiries within 2-3 business days. For urgent media requests, please note "URGENT" in your message.
                 </p>
@@ -99,6 +127,12 @@ export default function ContactPage() {
                 </div>
               ) : (
                 <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
+                  {error && (
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '8px', padding: '12px 16px', background: 'rgba(224,85,85,0.12)', border: '1px solid rgba(224,85,85,0.3)', borderRadius: '6px' }}>
+                      <AlertCircle size={16} style={{ color: '#E05555', flexShrink: 0 }} />
+                      <p className="font-sans-body" style={{ fontSize: '13px', color: '#E05555', margin: 0 }}>{error}</p>
+                    </div>
+                  )}
                   <div>
                     <label className="font-sans-body" style={{ fontSize: '12px', letterSpacing: '0.1em', color: 'rgba(255,255,255,0.5)', textTransform: 'uppercase', display: 'block', marginBottom: '8px' }}>Name *</label>
                     <input type="text" name="name" value={formData.name} onChange={handleChange} required className="font-sans-body" style={{ width: '100%', padding: '12px 16px', background: 'rgba(255,255,255,0.14)', border: '1px solid rgba(255,255,255,0.12)', borderRadius: '6px', color: '#FFFFFF', fontSize: '15px', outline: 'none' }} />
@@ -142,8 +176,8 @@ export default function ContactPage() {
                     </label>
                   </div>
 
-                  <button type="submit" className="btn-praxis-solid" style={{ display: 'inline-flex', alignSelf: 'flex-start', marginTop: '8px' }}>
-                    <Send size={16} /> Send Message
+                  <button type="submit" className="btn-praxis-solid" style={{ display: 'inline-flex', alignSelf: 'flex-start', marginTop: '8px' }} disabled={submitting}>
+                    {submitting ? <><Loader2 size={16} style={{ animation: 'spin 1s linear infinite' }} /> Sending...</> : <><Send size={16} /> Send Message</>}
                   </button>
                 </form>
               )}

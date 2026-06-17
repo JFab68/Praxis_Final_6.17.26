@@ -6,6 +6,7 @@ import { ArrowRight, Eye, Scale, Users, Music } from 'lucide-react';
 import PhilosophyCarousel from '../sections/PhilosophyCarousel';
 import MediumsGlossary from '../sections/MediumsGlossary';
 import PageQuote from '../components/PageQuote';
+import SEOHead from '../components/SEOHead';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -427,7 +428,7 @@ function LeadershipSection() {
         </div>
         <div className="reveal-up" style={{ display: 'grid', gridTemplateColumns: '280px 1fr', gap: '48px', alignItems: 'start', marginBottom: '64px', padding: '40px', background: '#111820', borderRadius: '6px' }}>
           <div>
-            <img src="/images/john-fabricius.jpg" alt="John Fabricius" style={{ width: '100%', aspectRatio: '3/4', objectFit: 'cover', borderRadius: '4px', filter: 'brightness(1.2) contrast(1.05)' }} />
+            <img src="/images/john-fabricius.jpg" alt="John Fabricius" loading="lazy" style={{ width: '100%', aspectRatio: '3/4', objectFit: 'cover', borderRadius: '4px', filter: 'brightness(1.2) contrast(1.05)' }} />
           </div>
           <div>
             <h3 className="font-serif-display" style={{ fontSize: '24px', fontWeight: 400, color: '#ffffff', marginBottom: '6px' }}>John Fabricius</h3>
@@ -688,6 +689,11 @@ function FinalCTA() {
 export default function HomePage() {
   return (
     <>
+      <SEOHead
+        title="Arizona Criminal Legal System Reform"
+        description="Praxis Initiative is a 100% system-impacted Arizona nonprofit advancing independent prison oversight, criminal legal system reform, overdose prevention, civic advocacy training, and arts in prison programming."
+        path="/"
+      />
       <HeroSection />
       <PageQuote
         quote="People closest to the problem are closest to the solution but furthest from power and resources."

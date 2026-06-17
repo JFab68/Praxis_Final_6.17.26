@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Sitemap: https://praxisinitiative.org/sitemap.xml
+
+# Crawl-delay: 5

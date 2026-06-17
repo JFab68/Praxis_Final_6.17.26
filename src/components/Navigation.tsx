@@ -74,6 +74,27 @@ export default function Navigation() {
 
   return (
     <>
+      <a
+        href="#main-content"
+        style={{
+          position: 'absolute',
+          top: '-100%',
+          left: '16px',
+          background: '#008C8C',
+          color: '#FFFFFF',
+          padding: '12px 20px',
+          borderRadius: '6px',
+          fontSize: '14px',
+          fontWeight: 500,
+          textDecoration: 'none',
+          zIndex: 200,
+          transition: 'top 0.2s ease',
+        }}
+        onFocus={(e) => { e.currentTarget.style.top = '16px'; }}
+        onBlur={(e) => { e.currentTarget.style.top = '-100%'; }}
+      >
+        Skip to Content
+      </a>
       <nav
         ref={navRef}
         style={{

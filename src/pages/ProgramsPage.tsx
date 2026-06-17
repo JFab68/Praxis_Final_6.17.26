@@ -5,6 +5,7 @@ import { Eye, Scale, Users, Music, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import PageHero from '../components/PageHero';
 import PageQuote from '../components/PageQuote';
+import SEOHead from '../components/SEOHead';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -116,9 +117,14 @@ export default function ProgramsPage() {
 
   return (
     <div style={{ position: 'relative', zIndex: 2, background: '#050A0F' }}>
+      <SEOHead
+        title="Programs"
+        description="Explore Praxis Initiative's four pillars of reform: independent prison oversight, criminal legal system reform, skills training for returning citizens, and arts in prison programming."
+        path="/programs"
+      />
       <PageHero
         eyebrow="Our Work"
-        title="Programs"
+        title="Four Pillars of Reform"
         subtitle="Praxis Initiative operates across four core program areas, each grounded in lived experience and directed toward measurable, durable reform."
         backgroundImage="/images/arizona-landscape.jpg"
         gradientAccent="#008C8C"
@@ -149,7 +155,7 @@ export default function ProgramsPage() {
             >
               {index % 2 !== 0 && (
                 <div>
-                  <img src={program.image} alt={program.title} style={{ width: '100%', aspectRatio: '16/10', objectFit: 'cover', borderRadius: '4px' }} />
+                  <img src={program.image} alt={program.title} loading="lazy" style={{ width: '100%', aspectRatio: '16/10', objectFit: 'cover', borderRadius: '4px' }} />
                 </div>
               )}
               <div>
@@ -174,7 +180,7 @@ export default function ProgramsPage() {
               </div>
               {index % 2 === 0 && (
                 <div>
-                  <img src={program.image} alt={program.title} style={{ width: '100%', aspectRatio: '16/10', objectFit: 'cover', borderRadius: '4px' }} />
+                  <img src={program.image} alt={program.title} loading="lazy" style={{ width: '100%', aspectRatio: '16/10', objectFit: 'cover', borderRadius: '4px' }} />
                 </div>
               )}
             </div>

@@ -4,6 +4,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { AlertTriangle, CheckCircle, DollarSign, FileText } from 'lucide-react';
 import PageHero from '../components/PageHero';
 import PageQuote from '../components/PageQuote';
+import SEOHead from '../components/SEOHead';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -57,9 +58,52 @@ export default function OversightPage() {
 
   return (
     <div style={{ position: 'relative', zIndex: 2, background: '#050A0F' }}>
+      <SEOHead
+        title="Independent Prison Oversight"
+        description="Praxis Initiative leads the fight for independent, funded prison oversight in Arizona. Learn about the Office of Correctional Oversight, SB 1507, and how oversight protects public safety."
+        path="/oversight"
+        schema={{
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "What is independent prison oversight?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Independent prison oversight is an external, impartial body that monitors conditions inside correctional facilities, investigates complaints, and reports findings to the public and lawmakers. It ensures accountability, transparency, and public safety by providing objective oversight of prison operations."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Why does Arizona need independent prison oversight?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Arizona has faced serious documented issues inside its prisons including unsafe conditions, inadequate healthcare, and lack of transparency. Independent oversight provides external accountability that internal reviews cannot deliver. It protects incarcerated people, correctional staff, and taxpayer interests."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What is SB 1507?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "SB 1507 is the Arizona legislation that created the Office of Correctional Oversight. Passed in 2025 with bipartisan support, it establishes an independent oversight office to monitor conditions inside Arizona Department of Corrections facilities and report findings publicly."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How can I support independent prison oversight in Arizona?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "You can support independent prison oversight by donating to Praxis Initiative, signing our petitions, contacting your legislators, and spreading awareness about the importance of transparency and accountability in corrections."
+              }
+            }
+          ]
+        }}
+      />
       <PageHero
         eyebrow="Priority Campaign"
-        title="Independent Prison Oversight Is Not Optional. It Is Basic Public Accountability."
+        title="Arizona Needs Independent Prison Oversight"
         subtitle="Arizona spends enormous public resources on incarceration. The public has a right to know what is happening inside prisons, whether conditions are safe, whether taxpayer funds are used responsibly, and whether the state is meeting constitutional and statutory obligations."
         backgroundImage="/images/oversight-spotlight.jpg"
         gradientAccent="#008C8C"
