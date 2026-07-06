@@ -199,10 +199,10 @@ function ImpactStatement() {
         <div className="reveal-up" style={{ position: 'relative', padding: '32px 0' }}>
           <div style={{ width: '40px', height: '1px', background: 'rgba(0,140,140,0.6)', margin: '0 auto 32px' }} />
           <p className="font-serif-display" style={{ fontSize: 'clamp(20px, 2.5vw, 28px)', fontWeight: 300, lineHeight: 1.6, color: '#ffffff', fontStyle: 'italic', marginBottom: '16px', maxWidth: '700px', marginLeft: 'auto', marginRight: 'auto' }}>
-            "Those closest to the problem are closest to the solution."
+            "The arc of the moral universe bends toward justice, but it needs hands that have been there to pull it."
           </p>
           <p className="font-sans-body" style={{ fontSize: '14px', letterSpacing: '0.15em', color: 'rgba(0,140,140,0.8)', textTransform: 'uppercase' }}>
-            — Glenn E. Martin
+            — Praxis Initiative
           </p>
         </div>
       </div>

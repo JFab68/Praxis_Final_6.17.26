@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
 
 interface PageHeroProps {
   eyebrow: string;
@@ -11,6 +11,10 @@ interface PageHeroProps {
   gradientAccent?: string;
 }
 
+const CSS_BLOB_DURATION_PRIMARY = 12;
+const CSS_BLOB_DURATION_SECONDARY = 16;
+const CSS_BLOB_DURATION_TERTIARY = 20;
+
 export default function PageHero({
   eyebrow,
   title,
@@ -21,108 +25,47 @@ export default function PageHero({
   overlayOpacity = 0.67,
   gradientAccent = '#008C8C',
 }: PageHeroProps) {
-  const canvasRef = useRef<HTMLCanvasElement>(null);
-  const animRef = useRef<number>(0);
-  const mouseRef = useRef({ x: 0.5, y: 0.5 });
   const [ready, setReady] = useState(false);
-  const [reduced, setReduced] = useState(false);
+  const [reduced, setReduced] = useState(() =>
+    typeof window !== 'undefined' && window.matchMedia('(prefers-reduced-motion: reduce)').matches
+  );
 
   useEffect(() => {
     const mq = window.matchMedia('(prefers-reduced-motion: reduce)');
-    setReduced(mq.matches);
     const handler = (e: MediaQueryListEvent) => setReduced(e.matches);
     mq.addEventListener('change', handler);
-    return () => mq.removeEventListener('change', handler);
+
+    const t = setTimeout(() => setReady(true), 50);
+    return () => {
+      mq.removeEventListener('change', handler);
+      clearTimeout(t);
+    };
   }, []);
 
-  useEffect(() => {
-    const canvas = canvasRef.current;
-    if (!canvas) return;
-    const ctx = canvas.getContext('2d');
-    if (!ctx) return;
-
-    let w = 0;
-    let h = 0;
-    let time = 0;
-
-    const resize = () => {
-      const rect = canvas.parentElement?.getBoundingClientRect();
-      if (rect) {
-        w = canvas.width = rect.width;
-        h = canvas.height = rect.height;
-      }
+  const blobStyle = (i: number): React.CSSProperties => {
+    const positions: Record<number, { top: string; left: string }> = {
+      0: { top: '25%', left: '20%' },
+      1: { top: '60%', left: '70%' },
+      2: { top: '45%', left: '45%' },
     };
-
-    resize();
-    window.addEventListener('resize', resize);
-
-    const handleMouse = (e: MouseEvent) => {
-      const rect = canvas.getBoundingClientRect();
-      mouseRef.current.x = (e.clientX - rect.left) / rect.width;
-      mouseRef.current.y = (e.clientY - rect.top) / rect.height;
+    const colors = [gradientAccent, '#B088D8', '#E05555'];
+    const durations = [CSS_BLOB_DURATION_PRIMARY, CSS_BLOB_DURATION_SECONDARY, CSS_BLOB_DURATION_TERTIARY];
+    const { top, left } = positions[i] ?? { top: '50%', left: '50%' };
+    return {
+      position: 'absolute',
+      top,
+      left,
+      width: 'clamp(280px, 45vw, 600px)',
+      height: 'clamp(280px, 45vw, 600px)',
+      borderRadius: '50%',
+      background: `radial-gradient(circle, ${colors[i]} 0%, transparent 70%)`,
+      opacity: 0.22,
+      filter: 'blur(60px)',
+      transform: 'translate(-50%, -50%) scale(1)',
+      animation: reduced ? 'none' : `blobFloat${i} ${durations[i]}s ease-in-out infinite`,
+      pointerEvents: 'none',
     };
-    canvas.parentElement?.addEventListener('mousemove', handleMouse);
-
-    const step = () => {
-      if (!reduced) time += 0.003;
-      const mx = mouseRef.current.x;
-      const my = mouseRef.current.y;
-
-      const blobs = [
-        { x: 0.2 + Math.sin(time * 0.7) * 0.15 + (mx - 0.5) * 0.1, y: 0.3 + Math.cos(time * 0.5) * 0.1 + (my - 0.5) * 0.1, r: 0.4, color: gradientAccent },
-        { x: 0.7 + Math.cos(time * 0.6) * 0.15 - (mx - 0.5) * 0.08, y: 0.6 + Math.sin(time * 0.8) * 0.12 - (my - 0.5) * 0.08, r: 0.35, color: '#B088D8' },
-        { x: 0.5 + Math.sin(time * 0.4) * 0.2, y: 0.5 + Math.cos(time * 0.3) * 0.15, r: 0.5, color: '#E05555' },
-      ];
-
-      const imageData = ctx.createImageData(w, h);
-      const data = imageData.data;
-
-      for (let py = 0; py < h; py += 2) {
-        for (let px = 0; px < w; px += 2) {
-          const nx = px / w;
-          const ny = py / h;
-          let intensity = 0;
-
-          for (const blob of blobs) {
-            const dx = nx - blob.x;
-            const dy = ny - blob.y;
-            const dist = Math.sqrt(dx * dx + dy * dy);
-            intensity += Math.exp(-dist * dist / (blob.r * blob.r * 2));
-          }
-
-          intensity = Math.min(intensity, 1);
-          const alpha = Math.floor(intensity * 25);
-
-          for (let dy = 0; dy < 2 && py + dy < h; dy++) {
-            for (let dx = 0; dx < 2 && px + dx < w; dx++) {
-              const i = ((py + dy) * w + (px + dx)) * 4;
-              data[i] = 0;
-              data[i + 1] = Math.floor(alpha * 0.6);
-              data[i + 2] = Math.floor(alpha * 0.6);
-              data[i + 3] = alpha;
-            }
-          }
-        }
-      }
-
-      ctx.putImageData(imageData, 0, 0);
-      animRef.current = requestAnimationFrame(step);
-    };
-
-    animRef.current = requestAnimationFrame(step);
-
-    const onReady = () => setReady(true);
-
-    if (document.readyState === 'complete') onReady();
-    else window.addEventListener('load', onReady);
-
-    return () => {
-      cancelAnimationFrame(animRef.current);
-      window.removeEventListener('resize', resize);
-      canvas.parentElement?.removeEventListener('mousemove', handleMouse);
-      window.removeEventListener('load', onReady);
-    };
-  }, [gradientAccent, reduced]);
+  };
 
   const baseSection: React.CSSProperties = {
     position: 'relative',
@@ -161,18 +104,19 @@ export default function PageHero({
       {backgroundImage && <div style={backdrop} />}
       <div style={overlay} />
 
-      <canvas
-        ref={canvasRef}
+      <div
         style={{
           position: 'absolute',
-          top: 0,
-          left: 0,
-          width: '100%',
-          height: '100%',
+          inset: 0,
           pointerEvents: 'none',
           mixBlendMode: 'screen',
+          overflow: 'hidden',
         }}
-      />
+      >
+        {[0, 1, 2].map((i) => (
+          <div key={i} style={blobStyle(i)} />
+        ))}
+      </div>
 
       <div
         style={{
@@ -243,6 +187,23 @@ export default function PageHero({
         )}
         <div style={{ ...reveal, transitionDelay: reduced ? '0s' : '0.35s' }}>{children}</div>
       </div>
+
+      <style>{`
+        @keyframes blobFloat0 {
+          0%, 100% { transform: translate(-50%, -50%) translate(0, 0) scale(1); }
+          33% { transform: translate(-50%, -50%) translate(40px, -30px) scale(1.1); }
+          66% { transform: translate(-50%, -50%) translate(-20px, 30px) scale(0.95); }
+        }
+        @keyframes blobFloat1 {
+          0%, 100% { transform: translate(-50%, -50%) translate(0, 0) scale(1); }
+          33% { transform: translate(-50%, -50%) translate(-30px, 40px) scale(0.95); }
+          66% { transform: translate(-50%, -50%) translate(25px, -35px) scale(1.08); }
+        }
+        @keyframes blobFloat2 {
+          0%, 100% { transform: translate(-50%, -50%) translate(0, 0) scale(1); }
+          50% { transform: translate(-50%, -50%) translate(35px, 20px) scale(1.12); }
+        }
+      `}</style>
     </section>
   );
 }

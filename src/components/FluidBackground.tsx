@@ -207,9 +207,11 @@ export default function FluidBackground({ isActive = true }: FluidBackgroundProp
   const mouseRef = useRef({ x: 0, y: 0, px: 0, py: 0 });
   const mouseTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const isActiveRef = useRef(isActive);
+  const startLoopRef = useRef<() => void>(() => {});
 
   useEffect(() => {
     isActiveRef.current = isActive;
+    if (isActive) startLoopRef.current();
   }, [isActive]);
 
   useEffect(() => {
@@ -280,11 +282,14 @@ export default function FluidBackground({ isActive = true }: FluidBackgroundProp
     const camera = new THREE.OrthographicCamera(-1, 1, 1, -1, 0, 1);
 
     const startTime = performance.now();
+    let running = false;
 
     const animate = () => {
+      if (!isActiveRef.current) {
+        running = false;
+        return;
+      }
       animFrameRef.current = requestAnimationFrame(animate);
-
-      if (!isActiveRef.current) return;
 
       const elapsed = (performance.now() - startTime) / 1000;
 
@@ -314,7 +319,13 @@ export default function FluidBackground({ isActive = true }: FluidBackgroundProp
       renderer.render(displayScene, camera);
     };
 
-    animate();
+    const startLoop = () => {
+      if (running) return;
+      running = true;
+      animFrameRef.current = requestAnimationFrame(animate);
+    };
+    startLoopRef.current = startLoop;
+    startLoop();
 
     const onPointerMove = (e: PointerEvent) => {
       mouseRef.current.px = mouseRef.current.x;

@@ -80,9 +80,11 @@ export default function PhilosophyCarousel() {
         width: '100%',
         overflow: 'hidden',
       }}
+      className="philosophy-section"
     >
       {/* Main content area — left/right split, transparent so fluid shader shows through */}
       <div
+        className="philosophy-inner"
         style={{
           width: '100%',
           minHeight: '100vh',
@@ -92,12 +94,14 @@ export default function PhilosophyCarousel() {
       >
         {/* Left 30% — text panel */}
         <div
+          className="philosophy-text-panel"
           style={{
             flex: '0 0 30%',
             position: 'relative',
           }}
         >
           <div
+            className="philosophy-text-sticky"
             style={{
               position: 'sticky',
               top: 0,
@@ -157,12 +161,14 @@ export default function PhilosophyCarousel() {
 
         {/* Right 70% — rolling text ring */}
         <div
+          className="philosophy-ring-panel"
           style={{
             flex: '0 0 70%',
             position: 'relative',
           }}
         >
           <div
+            className="philosophy-ring-wrapper desktop-ring"
             style={{
               position: 'sticky',
               top: 0,
@@ -208,7 +214,7 @@ export default function PhilosophyCarousel() {
                       style={{
                         display: 'inline-block',
                         fontFamily: "'Noto Serif SC', Georgia, serif",
-                        fontSize: 'clamp(42px, 8vw, 100px)',
+                        fontSize: 'clamp(28px, 6vw, 80px)',
                         fontWeight: 300,
                         color: '#ffffff',
                         letterSpacing: '0.06em',
@@ -224,9 +230,69 @@ export default function PhilosophyCarousel() {
               })}
             </div>
           </div>
+
+          {/* Mobile-friendly stacked words */}
+          <div
+            className="mobile-words"
+            style={{
+              display: 'none',
+              position: 'relative',
+              width: '100%',
+              padding: '60px 8vw',
+              flexDirection: 'column',
+              alignItems: 'center',
+              gap: '24px',
+            }}
+          >
+            {WORDS.map((word, i) => (
+              <span
+                key={`mobile-${i}`}
+                style={{
+                  fontFamily: "'Noto Serif SC', Georgia, serif",
+                  fontSize: 'clamp(28px, 9vw, 52px)',
+                  fontWeight: 300,
+                  color: '#ffffff',
+                  letterSpacing: '0.08em',
+                  textAlign: 'center',
+                  textShadow: '0 2px 24px rgba(0,0,0,0.55)',
+                  opacity: 0.92,
+                }}
+              >
+                {word}
+              </span>
+            ))}
+          </div>
         </div>
       </div>
 
+      <style>{`
+        @media (max-width: 768px) {
+          .philosophy-inner {
+            flex-direction: column !important;
+          }
+          .philosophy-text-panel {
+            flex: none !important;
+            width: 100% !important;
+          }
+          .philosophy-text-sticky {
+            position: relative !important;
+            height: auto !important;
+            min-height: 60vh !important;
+            padding: 80px 8vw !important;
+            justify-content: flex-end !important;
+          }
+          .philosophy-ring-panel {
+            flex: none !important;
+            width: 100% !important;
+          }
+          .desktop-ring {
+            display: none !important;
+          }
+          .mobile-words {
+            display: flex !important;
+          }
+        }
+      `}</style>
     </section>
   );
 }

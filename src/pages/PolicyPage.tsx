@@ -27,7 +27,7 @@ const sevenPs = [
   { letter: 'P', word: 'Probation', desc: 'Community supervision and probation reform' },
   { letter: 'P', word: 'Prison', desc: 'Conditions, programming, and oversight' },
   { letter: 'P', word: 'Post-Release', desc: 'Reentry, employment, and housing support' },
-  { letter: 'P', word: 'Power', desc: 'Civic engagement and community leadership' },
+  { letter: 'P', word: 'Parity', desc: 'Review and assessment of how much parity has been recovered since release' },
 ];
 
 export default function PolicyPage() {

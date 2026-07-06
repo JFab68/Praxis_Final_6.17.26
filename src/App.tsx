@@ -1,15 +1,15 @@
-import { lazy, Suspense } from 'react';
-import { useEffect } from 'react';
+import { lazy, Suspense, useEffect } from 'react';
 import { Routes, Route, useLocation } from 'react-router-dom';
 import Lenis from 'lenis';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Layout from './components/Layout';
 
-// Eager-loaded — always needed for first paint
+gsap.registerPlugin(ScrollTrigger);
+
+// Eager-loaded for first paint
 import HomePage from './pages/HomePage';
 
-// Lazy-loaded page chunks
 const AboutPage = lazy(() => import('./pages/AboutPage'));
 const ProgramsPage = lazy(() => import('./pages/ProgramsPage'));
 const OversightPage = lazy(() => import('./pages/OversightPage'));
@@ -27,12 +27,19 @@ const TermsOfUsePage = lazy(() => import('./pages/TermsOfUsePage'));
 const AccessibilityPage = lazy(() => import('./pages/AccessibilityPage'));
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage'));
 
-gsap.registerPlugin(ScrollTrigger);
-
 function PageLoader() {
   return (
     <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', padding: '120px 0', background: '#050A0F' }}>
-      <div style={{ width: '32px', height: '32px', border: '3px solid rgba(255,255,255,0.15)', borderTopColor: '#008C8C', borderRadius: '50%', animation: 'spin 0.8s linear infinite' }} />
+      <div
+        style={{
+          width: '32px',
+          height: '32px',
+          border: "3px solid rgba(255,255,255,0.15)",
+          borderTopColor: '#008C8C',
+          borderRadius: '50%',
+          animation: 'spin 0.8s linear infinite',
+        }}
+      />
       <style>{`@keyframes spin { to { transform: rotate(360deg); } }`}</style>
     </div>
   );
@@ -48,11 +55,14 @@ function ScrollToTop() {
 
 function App() {
   useEffect(() => {
-    const lenis = new Lenis({ lerp: 0.1 });
+    const lenis = new Lenis({ lerp: 0.2 });
     lenis.on('scroll', ScrollTrigger.update);
-    gsap.ticker.add((time) => { lenis.raf(time * 1000); });
-    gsap.ticker.lagSmoothing(0);
-    return () => { lenis.destroy(); };
+    const tick = (time: number) => lenis.raf(time * 1000);
+    gsap.ticker.add(tick);
+    return () => {
+      gsap.ticker.remove(tick);
+      lenis.destroy();
+    };
   }, []);
 
   return (

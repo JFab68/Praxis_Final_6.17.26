@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useLayoutEffect, useRef, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 
 const NAV_LINKS = [
@@ -21,17 +21,17 @@ export default function Navigation() {
   const navRef = useRef<HTMLElement>(null);
   const location = useLocation();
 
-  const closeMobile = () => setMobileOpen(false);
+  // Close mobile menu whenever the route changes
+  useLayoutEffect(() => {
+    const t = setTimeout(() => setMobileOpen(false), 0);
+    return () => clearTimeout(t);
+  }, [location.pathname]);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 80);
     window.addEventListener('scroll', onScroll, { passive: true });
     return () => window.removeEventListener('scroll', onScroll);
-  });
-
-  useEffect(() => {
-    closeMobile();
-  }, [location.pathname]);
+  }, []);
 
   useEffect(() => {
     if (!mobileOpen) return
