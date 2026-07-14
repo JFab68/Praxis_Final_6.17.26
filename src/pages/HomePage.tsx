@@ -490,12 +490,12 @@ function DonationSection() {
         <div className="reveal-up" style={{ display: 'flex', gap: '10px', justifyContent: 'center', flexWrap: 'wrap', marginBottom: '28px' }}>
           {amounts.map((amount) => (
             <Link key={amount} to="/donate" style={{ padding: '12px 24px', background: 'rgba(255,255,255,0.12)', border: '1px solid rgba(255,255,255,0.3)', borderRadius: '40px', color: '#ffffff', fontFamily: 'Inter, sans-serif', fontSize: '14px', fontWeight: 500, textDecoration: 'none', transition: 'all 0.3s ease' }}
-              onMouseEnter={(e) => { e.currentTarget.style.background = 'rgba(255,255,255,0.9)'; e.currentTarget.style.color = '#CC3333'; }}
-              onMouseLeave={(e) => { e.currentTarget.style.background = 'rgba(255,255,255,0.12)'; e.currentTarget.style.color = '#ffffff'; }}>{amount}</Link>
+              onMouseEnter={(e) => { e.currentTarget.style.background = 'rgba(255,255,255,0.9)'; e.currentTarget.style.color = '#CC3333'; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.9)'; }}
+              onMouseLeave={(e) => { e.currentTarget.style.background = 'rgba(255,255,255,0.12)'; e.currentTarget.style.color = '#ffffff'; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.3)'; }}>{amount}</Link>
           ))}
-          <Link to="/donate" style={{ padding: '12px 24px', background: 'transparent', border: '1px solid rgba(255,255,255,0.3)', borderRadius: '40px', color: '#ffffff', fontFamily: 'Inter, sans-serif', fontSize: '14px', fontWeight: 500, textDecoration: 'none', transition: 'all 0.3s ease' }}
-            onMouseEnter={(e) => { e.currentTarget.style.background = 'rgba(255,255,255,0.9)'; e.currentTarget.style.color = '#CC3333'; }}
-            onMouseLeave={(e) => { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.color = '#ffffff'; }}>Other</Link>
+          <Link to="/donate" style={{ padding: '12px 24px', background: 'transparent', border: '1px solid rgba(255,255,255,0.3)', borderRadius: '40px', color: '#ffffff', fontFamily: 'Inter, sans-serif', fontSize: '14px', fontWeight: 500, textDecoration: 'none', transition: 'background 0.3s ease, border-color 0.3s ease, color 0.3s ease' }}
+            onMouseEnter={(e) => { e.currentTarget.style.background = 'rgba(255,255,255,0.9)'; e.currentTarget.style.color = '#CC3333'; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.9)'; }}
+            onMouseLeave={(e) => { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.color = '#ffffff'; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.3)'; }}>Other</Link>
         </div>
         <Link to="/donate" className="reveal-up btn-praxis-solid" style={{ background: '#ffffff', color: '#E05555' }}>Donate Now</Link>
       </div>

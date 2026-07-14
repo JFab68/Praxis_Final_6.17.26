@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { philosophyConfig } from '../config';
@@ -12,11 +12,21 @@ export default function PhilosophyCarousel() {
   const rotationRef = useRef({ value: 0 });
   const speedRef = useRef({ value: 0 });
   const rafRef = useRef<number>(0);
+  const [reducedMotion, setReducedMotion] = useState(() =>
+    typeof window !== 'undefined' && window.matchMedia('(prefers-reduced-motion: reduce)').matches
+  );
+
+  useEffect(() => {
+    const mq = window.matchMedia('(prefers-reduced-motion: reduce)');
+    const handler = (e: MediaQueryListEvent) => setReducedMotion(e.matches);
+    mq.addEventListener('change', handler);
+    return () => mq.removeEventListener('change', handler);
+  }, []);
 
   useEffect(() => {
     const section = sectionRef.current;
     const ring = ringRef.current;
-    if (!section || !ring) return;
+    if (!section || !ring || reducedMotion) return;
 
     const ctx = gsap.context(() => {
       gsap.to(rotationRef.current, {
@@ -66,7 +76,7 @@ export default function PhilosophyCarousel() {
       cancelAnimationFrame(rafRef.current);
       ctx.revert();
     };
-  }, []);
+  }, [reducedMotion]);
 
   const totalItems = WORDS.length * 2;
   const angleStep = 360 / totalItems;
@@ -82,6 +92,46 @@ export default function PhilosophyCarousel() {
       }}
       className="philosophy-section"
     >
+      {/* Reduced-motion static word banner */}
+      {reducedMotion && (
+        <div
+          className="reduced-motion-banner"
+          style={{
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            width: '100%',
+            minHeight: '100vh',
+            zIndex: 3,
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            justifyContent: 'center',
+            gap: '24px',
+            padding: '80px 8vw',
+            pointerEvents: 'none',
+          }}
+        >
+          {WORDS.map((word, i) => (
+            <span
+              key={`static-${i}`}
+              style={{
+                fontFamily: "'Noto Serif SC', Georgia, serif",
+                fontSize: 'clamp(28px, 6vw, 80px)',
+                fontWeight: 300,
+                color: '#ffffff',
+                letterSpacing: '0.06em',
+                textAlign: 'center',
+                textShadow: '0 2px 30px rgba(0,0,0,0.55)',
+                opacity: 0.9,
+              }}
+            >
+              {word}
+            </span>
+          ))}
+        </div>
+      )}
+
       {/* Main content area — left/right split, transparent so fluid shader shows through */}
       <div
         className="philosophy-inner"
@@ -89,7 +139,7 @@ export default function PhilosophyCarousel() {
           width: '100%',
           minHeight: '100vh',
           background: 'transparent',
-          display: 'flex',
+          display: reducedMotion ? 'none' : 'flex',
         }}
       >
         {/* Left 30% — text panel */}
@@ -290,6 +340,11 @@ export default function PhilosophyCarousel() {
           }
           .mobile-words {
             display: flex !important;
+          }
+          .reduced-motion-banner {
+            position: relative !important;
+            min-height: auto !important;
+            padding: 100px 8vw !important;
           }
         }
       `}</style>
