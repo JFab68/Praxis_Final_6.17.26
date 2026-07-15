@@ -116,13 +116,23 @@ export default function AboutPage() {
 
           <div className="reveal-up" style={{ marginBottom: '100px' }}>
             <h2 className="font-serif-display" style={{ fontSize: 'clamp(24px, 3vw, 36px)', fontWeight: 300, color: '#ffffff', marginBottom: '40px' }}>Our Values</h2>
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '20px' }}>
-              {values.map((value) => (
-                <div key={value} style={{ display: 'flex', alignItems: 'flex-start', gap: '12px', padding: '20px', background: 'rgba(255,255,255,0.10)', borderRadius: '4px' }}>
-                  <CheckCircle size={20} style={{ color: '#008C8C', flexShrink: 0, marginTop: '2px' }} />
-                  <span className="font-sans-body" style={{ fontSize: '15px', color: 'rgba(255,255,255,0.8)' }}>{value}</span>
-                </div>
-              ))}
+            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '20px' }}>
+              <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '20px' }}>
+                {values.slice(0, 3).map((value) => (
+                  <div key={value} style={{ display: 'flex', alignItems: 'flex-start', gap: '12px', padding: '20px', background: 'rgba(255,255,255,0.10)', borderRadius: '4px', width: '240px' }}>
+                    <CheckCircle size={20} style={{ color: '#008C8C', flexShrink: 0, marginTop: '2px' }} />
+                    <span className="font-sans-body" style={{ fontSize: '15px', color: 'rgba(255,255,255,0.8)' }}>{value}</span>
+                  </div>
+                ))}
+              </div>
+              <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '20px' }}>
+                {values.slice(3).map((value) => (
+                  <div key={value} style={{ display: 'flex', alignItems: 'flex-start', gap: '12px', padding: '20px', background: 'rgba(255,255,255,0.10)', borderRadius: '4px', width: '240px' }}>
+                    <CheckCircle size={20} style={{ color: '#008C8C', flexShrink: 0, marginTop: '2px' }} />
+                    <span className="font-sans-body" style={{ fontSize: '15px', color: 'rgba(255,255,255,0.8)' }}>{value}</span>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
 

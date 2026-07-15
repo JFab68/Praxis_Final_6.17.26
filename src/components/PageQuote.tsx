@@ -17,7 +17,7 @@ export default function PageQuote({
         background: '#0D1B2A',
         borderTop: '1px solid rgba(255,255,255,0.15)',
         borderBottom: '1px solid rgba(255,255,255,0.15)',
-        padding: '56px 0',
+        padding: '56px 0 100px',
       }}
     >
       <div className="content-container-narrow">

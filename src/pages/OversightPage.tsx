@@ -132,12 +132,21 @@ export default function OversightPage() {
               <AlertTriangle size={24} style={{ color: '#E05555' }} />
               <h2 className="font-serif-display" style={{ fontSize: 'clamp(24px, 3vw, 36px)', fontWeight: 300, color: '#ffffff' }}>The Problem</h2>
             </div>
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '16px' }}>
-              {problems.map((problem) => (
-                <div key={problem} style={{ padding: '20px 24px', background: 'rgba(128,0,0,0.08)', borderLeft: '2px solid #800000' }}>
-                  <p className="font-sans-body" style={{ fontSize: '14px', lineHeight: 1.6, color: 'rgba(255,255,255,0.75)' }}>{problem}</p>
-                </div>
-              ))}
+            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '16px' }}>
+              <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '16px' }}>
+                {problems.slice(0, 3).map((problem) => (
+                  <div key={problem} style={{ padding: '20px 24px', background: 'rgba(128,0,0,0.08)', borderLeft: '2px solid #800000', width: '240px' }}>
+                    <p className="font-sans-body" style={{ fontSize: '14px', lineHeight: 1.6, color: 'rgba(255,255,255,0.75)' }}>{problem}</p>
+                  </div>
+                ))}
+              </div>
+              <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '16px' }}>
+                {problems.slice(3).map((problem) => (
+                  <div key={problem} style={{ padding: '20px 24px', background: 'rgba(128,0,0,0.08)', borderLeft: '2px solid #800000', width: '240px' }}>
+                    <p className="font-sans-body" style={{ fontSize: '14px', lineHeight: 1.6, color: 'rgba(255,255,255,0.75)' }}>{problem}</p>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
 

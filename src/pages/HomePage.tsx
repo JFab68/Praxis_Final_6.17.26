@@ -377,18 +377,28 @@ function WhyPraxis() {
             Lived Experience. Legal Knowledge.<br />Legislative Strategy.
           </h2>
         </div>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '24px' }} className="why-grid">
-          {reasons.map((reason) => (
-            <div key={reason.title} className="reveal-up" style={{ padding: '36px 28px', borderTop: '2px solid #008C8C', background: '#111820' }}>
-              <h3 className="font-serif-display" style={{ fontSize: '18px', fontWeight: 400, color: '#ffffff', marginBottom: '12px', lineHeight: 1.4 }}>{reason.title}</h3>
-              <p className="font-sans-body" style={{ fontSize: '14px', lineHeight: 1.7, color: 'rgba(255,255,255,0.72)' }}>{reason.desc}</p>
+        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '24px' }} className="why-grid">
+              <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '24px' }}>
+                {reasons.slice(0, 1).map((reason) => (
+                  <div key={reason.title} className="reveal-up" style={{ padding: '36px 28px', borderTop: '2px solid #008C8C', background: '#111820', width: '380px' }}>
+                    <h3 className="font-serif-display" style={{ fontSize: '18px', fontWeight: 400, color: '#ffffff', marginBottom: '12px', lineHeight: 1.4 }}>{reason.title}</h3>
+                    <p className="font-sans-body" style={{ fontSize: '14px', lineHeight: 1.7, color: 'rgba(255,255,255,0.72)' }}>{reason.desc}</p>
+                  </div>
+                ))}
+              </div>
+              <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '24px' }}>
+                {reasons.slice(1).map((reason) => (
+                  <div key={reason.title} className="reveal-up" style={{ padding: '36px 28px', borderTop: '2px solid #008C8C', background: '#111820', width: '380px' }}>
+                    <h3 className="font-serif-display" style={{ fontSize: '18px', fontWeight: 400, color: '#ffffff', marginBottom: '12px', lineHeight: 1.4 }}>{reason.title}</h3>
+                    <p className="font-sans-body" style={{ fontSize: '14px', lineHeight: 1.7, color: 'rgba(255,255,255,0.72)' }}>{reason.desc}</p>
+                  </div>
+                ))}
+              </div>
             </div>
-          ))}
-        </div>
       </div>
       <style>{`
-        @media (max-width: 1024px) and (min-width: 769px) { .why-grid { grid-template-columns: 1fr !important; } }
-        @media (max-width: 768px) { .why-grid { grid-template-columns: 1fr !important; } }
+        @media (max-width: 1024px) and (min-width: 769px) { .why-grid { align-items: center !important; } }
+        @media (max-width: 768px) { .why-grid { align-items: center !important; } }
       `}</style>
     </section>
   );

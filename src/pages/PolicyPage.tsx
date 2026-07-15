@@ -126,16 +126,29 @@ export default function PolicyPage() {
             <p className="font-sans-body" style={{ fontSize: '15px', lineHeight: 1.8, color: 'rgba(255,255,255,0.6)', marginBottom: '32px', maxWidth: '640px' }}>
               Our comprehensive framework for understanding and reforming every stage of the criminal legal system:
             </p>
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '16px' }}>
-              {sevenPs.map((item, i) => (
-                <div key={item.word} style={{ padding: '28px 24px', background: 'rgba(255,255,255,0.12)', borderRadius: '4px', textAlign: 'center' }}>
-                  <span className="font-serif-display" style={{ fontSize: '36px', fontWeight: 400, color: ['#008C8C', '#B088D8', '#008C8C', '#B088D8', '#008C8C', '#B088D8', '#E05555'][i], display: 'block', marginBottom: '8px' }}>
-                    {item.letter}
-                  </span>
-                  <p className="font-sans-body" style={{ fontSize: '14px', fontWeight: 500, color: '#ffffff', marginBottom: '6px' }}>{item.word}</p>
-                  <p className="font-sans-body" style={{ fontSize: '12px', lineHeight: 1.5, color: 'rgba(255,255,255,0.5)' }}>{item.desc}</p>
-                </div>
-              ))}
+            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '16px' }}>
+              <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '16px' }}>
+                {sevenPs.slice(0, 3).map((item, i) => (
+                  <div key={item.word} style={{ padding: '28px 24px', background: 'rgba(255,255,255,0.12)', borderRadius: '4px', textAlign: 'center', width: '220px' }}>
+                    <span className="font-serif-display" style={{ fontSize: '36px', fontWeight: 400, color: ['#008C8C', '#B088D8', '#008C8C', '#B088D8', '#008C8C', '#B088D8', '#E05555'][i], display: 'block', marginBottom: '8px' }}>
+                      {item.letter}
+                    </span>
+                    <p className="font-sans-body" style={{ fontSize: '14px', fontWeight: 500, color: '#ffffff', marginBottom: '6px' }}>{item.word}</p>
+                    <p className="font-sans-body" style={{ fontSize: '12px', lineHeight: 1.5, color: 'rgba(255,255,255,0.5)' }}>{item.desc}</p>
+                  </div>
+                ))}
+              </div>
+              <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '16px' }}>
+                {sevenPs.slice(3).map((item, i) => (
+                  <div key={item.word} style={{ padding: '28px 24px', background: 'rgba(255,255,255,0.12)', borderRadius: '4px', textAlign: 'center', width: '220px' }}>
+                    <span className="font-serif-display" style={{ fontSize: '36px', fontWeight: 400, color: ['#008C8C', '#B088D8', '#008C8C', '#B088D8', '#008C8C', '#B088D8', '#E05555'][i + 3], display: 'block', marginBottom: '8px' }}>
+                      {item.letter}
+                    </span>
+                    <p className="font-sans-body" style={{ fontSize: '14px', fontWeight: 500, color: '#ffffff', marginBottom: '6px' }}>{item.word}</p>
+                    <p className="font-sans-body" style={{ fontSize: '12px', lineHeight: 1.5, color: 'rgba(255,255,255,0.5)' }}>{item.desc}</p>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
 
