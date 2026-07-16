@@ -3,6 +3,13 @@ import { useState } from 'react';
 import { CheckCircle } from 'lucide-react';
 import { submitForm } from '../lib/api';
 
+const SOCIAL_LINKS = [
+  { label: 'Facebook', href: 'https://www.facebook.com/profile.php?id=61570241575216', icon: 'FB' },
+  { label: 'Instagram', href: 'https://www.instagram.com/praxis_in_az/', icon: 'IG' },
+  { label: 'X (Twitter)', href: 'https://x.com/PraxisInAZ', icon: '𝕏' },
+  { label: 'LinkedIn', href: 'https://www.linkedin.com/company/praxis-initiative-az', icon: 'in' },
+];
+
 export default function Footer() {
   const [email, setEmail] = useState('');
   const [submitting, setSubmitting] = useState(false);
@@ -231,6 +238,61 @@ export default function Footer() {
               >
                 info@praxisinitiative.org
               </a>
+            </div>
+          </div>
+
+          {/* Social Links Column */}
+          <div>
+            <p
+              className="font-sans-body"
+              style={{
+                fontSize: '11px',
+                letterSpacing: '0.25em',
+                color: 'rgba(237,232,228,0.3)',
+                textTransform: 'uppercase',
+                marginBottom: '16px',
+              }}
+            >
+              Follow Us
+            </p>
+            <div style={{ display: 'flex', gap: '16px', flexWrap: 'wrap' }}>
+              {SOCIAL_LINKS.map((link) => (
+                <a
+                  key={link.label}
+                  href={link.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={link.label}
+                  title={link.label}
+                  style={{
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    width: '36px',
+                    height: '36px',
+                    borderRadius: '6px',
+                    background: 'rgba(255,255,255,0.06)',
+                    border: '1px solid rgba(255,255,255,0.12)',
+                    color: 'rgba(237,232,228,0.6)',
+                    fontSize: '13px',
+                    fontWeight: 600,
+                    textDecoration: 'none',
+                    transition: 'all 0.3s ease',
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.background = 'rgba(0,140,140,0.15)';
+                    e.currentTarget.style.borderColor = '#008C8C';
+                    e.currentTarget.style.color = '#FFFFFF';
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.background = 'rgba(255,255,255,0.06)';
+                    e.currentTarget.style.borderColor = 'rgba(255,255,255,0.12)';
+                    e.currentTarget.style.color = 'rgba(237,232,228,0.6)';
+                  }}
+                >
+                  {link.icon}
+                </a>
+              ))}
             </div>
           </div>
 

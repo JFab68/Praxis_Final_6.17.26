@@ -3,7 +3,14 @@ import gsap from 'gsap';
 import { mediumsConfig } from '../config';
 import type { MediumItem } from '../config';
 
-function GooeyTextRow({ item, filterId, onHover, onLeaveHover }: { item: MediumItem; filterId: string; onHover: () => void; onLeaveHover: () => void }) {
+function GooeyTextRow({ item, filterId, onHover, onLeaveHover, isActive, onTap }: {
+  item: MediumItem;
+  filterId: string;
+  onHover: () => void;
+  onLeaveHover: () => void;
+  isActive: boolean;
+  onTap: () => void;
+}) {
   const rowRef = useRef<HTMLDivElement>(null);
   const text1Ref = useRef<SVGTextElement>(null);
   const text2Ref = useRef<SVGTextElement>(null);
@@ -31,7 +38,6 @@ function GooeyTextRow({ item, filterId, onHover, onLeaveHover }: { item: MediumI
       },
     });
 
-    // stdDeviation 0 -> 1.5
     tl.to(primitiveValues.current, {
       duration: 0.5,
       ease: 'none',
@@ -39,35 +45,30 @@ function GooeyTextRow({ item, filterId, onHover, onLeaveHover }: { item: MediumI
       startAt: { stdDeviation: 0 },
     }, 0);
 
-    // stdDeviation 1.5 -> 0
     tl.to(primitiveValues.current, {
       duration: 0.5,
       ease: 'none',
       stdDeviation: 0,
     });
 
-    // text_1 opacity fade out
     tl.to(text1Ref.current, {
       duration: 1,
       ease: 'none',
       opacity: 0,
     }, 0);
 
-    // text_2 opacity fade in
     tl.to(text2Ref.current, {
       duration: 1,
       ease: 'none',
       opacity: 1,
     }, 0);
 
-    // text_1 slide right
     tl.to(text1Ref.current, {
       duration: 1,
       ease: 'Power2.easeInOut',
       x: 8,
     }, 0);
 
-    // text_2 slide from left
     tl.to(text2Ref.current, {
       duration: 1,
       ease: 'Power2.easeInOut',
@@ -79,7 +80,6 @@ function GooeyTextRow({ item, filterId, onHover, onLeaveHover }: { item: MediumI
   }, []);
 
   useEffect(() => {
-    // Set initial state
     if (text2Ref.current) {
       gsap.set(text2Ref.current, { opacity: 0 });
     }
@@ -89,6 +89,22 @@ function GooeyTextRow({ item, filterId, onHover, onLeaveHover }: { item: MediumI
       if (tlRef.current) tlRef.current.kill();
     };
   }, [buildTimeline]);
+
+  // Play/reverse based on isActive (for mobile tap) or hover (for desktop)
+  useEffect(() => {
+    if (!tlRef.current) return;
+    if (isActive) {
+      if (textsGroupRef.current) {
+        textsGroupRef.current.style.filter = `url(#${filterId})`;
+      }
+      tlRef.current.play();
+    } else {
+      if (textsGroupRef.current) {
+        textsGroupRef.current.style.filter = `url(#${filterId})`;
+      }
+      tlRef.current.reverse();
+    }
+  }, [isActive, filterId]);
 
   const onEnter = () => {
     isHovered.current = true;
@@ -113,9 +129,10 @@ function GooeyTextRow({ item, filterId, onHover, onLeaveHover }: { item: MediumI
       ref={rowRef}
       onMouseEnter={onEnter}
       onMouseLeave={onLeave}
+      onClick={onTap}
       style={{
         cursor: 'pointer',
-        borderBottom: '1px solid rgba(255,255,255,0.08)',
+        borderBottom: `1px solid ${isActive ? 'rgba(48,176,208,0.3)' : 'rgba(255,255,255,0.08)'}`,
         padding: '28px 0',
         transition: 'border-color 0.4s',
       }}
@@ -174,9 +191,26 @@ function GooeyTextRow({ item, filterId, onHover, onLeaveHover }: { item: MediumI
 }
 
 export default function MediumsGlossary() {
-  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
   const mediums = mediumsConfig.items;
-  const hovered = hoveredIndex !== null ? mediums[hoveredIndex] : null;
+  // Desktop: hover-based. Mobile: tap-to-toggle
+  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+  const [tappedIndex, setTappedIndex] = useState<number | null>(null);
+  const [isMobile, setIsMobile] = useState(() =>
+    typeof window !== 'undefined' && window.innerWidth <= 768
+  );
+
+  useEffect(() => {
+    const onResize = () => setIsMobile(window.innerWidth <= 768);
+    window.addEventListener('resize', onResize);
+    return () => window.removeEventListener('resize', onResize);
+  }, []);
+
+  const activeIndex = isMobile ? tappedIndex : hoveredIndex;
+  const hovered = activeIndex !== null ? mediums[activeIndex] : null;
+
+  const handleTap = (idx: number) => {
+    setTappedIndex((prev) => (prev === idx ? null : idx));
+  };
 
   if (mediums.length === 0) {
     return null;
@@ -195,9 +229,10 @@ export default function MediumsGlossary() {
         padding: '16vh 8vw',
         gap: '8vw',
       }}
+      className="mediums-section"
     >
       {/* Left — titles */}
-      <div style={{ flex: '0 0 50%' }}>
+      <div className="mediums-left" style={{ flex: '0 0 50%' }}>
         <p
           className="font-sans-body"
           style={{
@@ -218,13 +253,16 @@ export default function MediumsGlossary() {
               filterId={`goo-suliu-${idx}`}
               onHover={() => setHoveredIndex(idx)}
               onLeaveHover={() => setHoveredIndex(null)}
+              isActive={activeIndex === idx}
+              onTap={() => handleTap(idx)}
             />
           ))}
         </div>
       </div>
 
-      {/* Right — description on hover */}
+      {/* Right — description */}
       <div
+        className="mediums-right"
         style={{
           flex: '1 1 50%',
           display: 'flex',
@@ -269,6 +307,30 @@ export default function MediumsGlossary() {
           )}
         </div>
       </div>
+
+      <style>{`
+        @media (max-width: 768px) {
+          .mediums-section {
+            flex-direction: column !important;
+            padding: 10vh 6vw !important;
+            min-height: auto !important;
+          }
+          .mediums-left {
+            flex: none !important;
+            width: 100% !important;
+          }
+          .mediums-right {
+            flex: none !important;
+            width: 100% !important;
+            min-height: 120px !important;
+            padding: 24px 0 !important;
+            align-items: flex-start !important;
+          }
+          .mediums-right > div {
+            max-width: 100% !important;
+          }
+        }
+      `}</style>
     </section>
   );
 }

@@ -15,6 +15,8 @@ export default function PhilosophyCarousel() {
   const [reducedMotion, setReducedMotion] = useState(() =>
     typeof window !== 'undefined' && window.matchMedia('(prefers-reduced-motion: reduce)').matches
   );
+  // Mobile cycling word index
+  const [mobileWordIndex, setMobileWordIndex] = useState(0);
 
   useEffect(() => {
     const mq = window.matchMedia('(prefers-reduced-motion: reduce)');
@@ -22,6 +24,15 @@ export default function PhilosophyCarousel() {
     mq.addEventListener('change', handler);
     return () => mq.removeEventListener('change', handler);
   }, []);
+
+  // Mobile word cycling animation
+  useEffect(() => {
+    if (WORDS.length <= 1) return;
+    const interval = setInterval(() => {
+      setMobileWordIndex((prev) => (prev + 1) % WORDS.length);
+    }, 2200);
+    return () => clearInterval(interval);
+  }, [WORDS.length]);
 
   useEffect(() => {
     const section = sectionRef.current;
@@ -281,36 +292,68 @@ export default function PhilosophyCarousel() {
             </div>
           </div>
 
-          {/* Mobile-friendly stacked words */}
+          {/* Mobile — cycling word with fade transitions */}
           <div
             className="mobile-words"
             style={{
               display: 'none',
               position: 'relative',
               width: '100%',
-              padding: '60px 8vw',
+              minHeight: '50vh',
               flexDirection: 'column',
               alignItems: 'center',
-              gap: '24px',
+              justifyContent: 'center',
+              padding: '60px 8vw',
             }}
           >
-            {WORDS.map((word, i) => (
-              <span
-                key={`mobile-${i}`}
-                style={{
-                  fontFamily: "'Noto Serif SC', Georgia, serif",
-                  fontSize: 'clamp(28px, 9vw, 52px)',
-                  fontWeight: 300,
-                  color: '#ffffff',
-                  letterSpacing: '0.08em',
-                  textAlign: 'center',
-                  textShadow: '0 2px 24px rgba(0,0,0,0.55)',
-                  opacity: 0.92,
-                }}
-              >
-                {word}
-              </span>
-            ))}
+            <div
+              style={{
+                position: 'relative',
+                width: '100%',
+                minHeight: '120px',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+              }}
+            >
+              {WORDS.map((word, i) => (
+                <span
+                  key={`mobile-${i}`}
+                  style={{
+                    position: 'absolute',
+                    fontFamily: "'Noto Serif SC', Georgia, serif",
+                    fontSize: 'clamp(36px, 12vw, 64px)',
+                    fontWeight: 300,
+                    color: '#ffffff',
+                    letterSpacing: '0.06em',
+                    textAlign: 'center',
+                    textShadow: '0 2px 30px rgba(0,0,0,0.55)',
+                    opacity: mobileWordIndex === i ? 1 : 0,
+                    transform: mobileWordIndex === i ? 'translateY(0) scale(1)' : 'translateY(16px) scale(0.95)',
+                    transition: 'opacity 0.6s ease, transform 0.6s ease',
+                    pointerEvents: 'none',
+                  }}
+                >
+                  {word}
+                </span>
+              ))}
+            </div>
+            {/* Dot indicators */}
+            <div style={{ display: 'flex', gap: '10px', marginTop: '28px' }}>
+              {WORDS.map((_, i) => (
+                <div
+                  key={`dot-${i}`}
+                  style={{
+                    width: '8px',
+                    height: '8px',
+                    borderRadius: '50%',
+                    background: mobileWordIndex === i ? '#008C8C' : 'rgba(255,255,255,0.25)',
+                    transition: 'background 0.4s ease, transform 0.4s ease',
+                    transform: mobileWordIndex === i ? 'scale(1.3)' : 'scale(1)',
+                  }}
+                />
+              ))}
+            </div>
           </div>
         </div>
       </div>
@@ -327,8 +370,8 @@ export default function PhilosophyCarousel() {
           .philosophy-text-sticky {
             position: relative !important;
             height: auto !important;
-            min-height: 60vh !important;
-            padding: 80px 8vw !important;
+            min-height: 40vh !important;
+            padding: 80px 8vw 40px !important;
             justify-content: flex-end !important;
           }
           .philosophy-ring-panel {

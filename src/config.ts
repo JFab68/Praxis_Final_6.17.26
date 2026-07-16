@@ -241,7 +241,7 @@ export const footerConfig: FooterConfig = {
       heading: "ACTION",
       entries: [
         { text: "Donate", href: "/donate" },
-        { text: "Join the Movement", href: "/contact" },
+        { text: "Join the Movement", href: "/action" },
         { text: "News & Updates", href: "/news" },
         { text: "Resources", href: "/resources" },
       ],

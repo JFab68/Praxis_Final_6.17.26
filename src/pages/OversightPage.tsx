@@ -1,4 +1,5 @@
 import { useEffect, useRef } from 'react';
+import { Link } from 'react-router-dom';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { AlertTriangle, CheckCircle, DollarSign, FileText } from 'lucide-react';
@@ -212,8 +213,8 @@ export default function OversightPage() {
               Independent oversight is a small investment compared to the cost of unchecked failure. Join us in demanding real accountability.
             </p>
             <div style={{ display: 'flex', gap: '16px', justifyContent: 'center', flexWrap: 'wrap' }}>
-              <a href="/contact" className="btn-praxis-solid" style={{ background: '#ffffff', color: '#E05555' }}>Take Action</a>
-              <a href="/donate" className="btn-praxis">Donate to Support</a>
+              <Link to="/contact" className="btn-praxis-solid" style={{ background: '#ffffff', color: '#E05555' }}>Take Action</Link>
+              <Link to="/donate" className="btn-praxis">Donate to Support</Link>
             </div>
           </div>
         </div>

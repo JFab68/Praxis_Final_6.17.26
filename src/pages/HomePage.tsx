@@ -110,7 +110,7 @@ function HeroSection() {
           </p>
           <div style={{ display: 'flex', gap: '16px', flexWrap: 'wrap' }}>
             <Link to="/donate" className="btn-praxis-solid">Donate</Link>
-            <Link to="/contact" className="btn-praxis">Join the Movement</Link>
+            <Link to="/action" className="btn-praxis">Join the Movement</Link>
           </div>
           <p
             className="font-mono-data"
@@ -670,7 +670,7 @@ function JusticeManifesto() {
 
         <div className="reveal-up" style={{ display: 'flex', gap: '12px', justifyContent: 'center', flexWrap: 'wrap' }}>
           <Link to="/about" className="btn-praxis">Read Our Full Philosophy</Link>
-          <Link to="/contact" className="btn-praxis">Join the Movement</Link>
+          <Link to="/action" className="btn-praxis">Join the Movement</Link>
         </div>
       </div>
     </section>
@@ -687,7 +687,7 @@ function FinalCTA() {
         </h2>
         <div style={{ display: 'flex', gap: '12px', justifyContent: 'center', flexWrap: 'wrap' }}>
           <Link to="/donate" className="btn-praxis-solid">Donate</Link>
-          <Link to="/contact" className="btn-praxis">Join the Movement</Link>
+          <Link to="/action" className="btn-praxis">Join the Movement</Link>
           <Link to="/contact" className="btn-praxis">Contact Praxis</Link>
         </div>
       </div>
