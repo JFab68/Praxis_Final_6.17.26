@@ -2,73 +2,19 @@ import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { ArrowRight, Calendar } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import PageHero from '../components/PageHero';
 import PageQuote from '../components/PageQuote';
 import SEOHead from '../components/SEOHead';
+import { getFeaturedArticle, getAllArticles } from '../data/articles';
 
 gsap.registerPlugin(ScrollTrigger);
 
-const blogPosts = [
-  {
-    title: 'Why Arizona Must Fund Independent Prison Oversight',
-    excerpt: 'Creating an office on paper is not enough. Without adequate funding, independent oversight becomes symbolic rather than transformative.',
-    date: '2025',
-    category: 'Oversight',
-    image: '/images/oversight-spotlight.jpg',
-    featured: true,
-  },
-  {
-    title: 'Oversight on Paper Is Not Oversight in Practice',
-    excerpt: 'The difference between symbolic oversight and real accountability comes down to funding, staffing, authority, and public access.',
-    date: '2025',
-    category: 'Oversight',
-    image: '/images/policy-documents.jpg',
-    featured: false,
-  },
-  {
-    title: 'What Returning Citizens Know About Public Policy That Lawmakers Need to Hear',
-    excerpt: 'People who have experienced incarceration firsthand bring perspectives that no policy brief can replicate.',
-    date: '2025',
-    category: 'Advocacy',
-    image: '/images/civic-training.jpg',
-    featured: false,
-  },
-  {
-    title: 'The Real Cost of Ignoring Prison Conditions',
-    excerpt: 'When prisons operate without meaningful oversight, the human and financial costs compound over time.',
-    date: '2025',
-    category: 'Conditions',
-    image: '/images/family-impact.jpg',
-    featured: false,
-  },
-  {
-    title: 'Why Home Confinement Is a Public Safety Strategy',
-    excerpt: 'Allowing eligible individuals to transition home under supervision strengthens families and communities while reducing costs.',
-    date: '2025',
-    category: 'Reform',
-    image: '/images/home-confinement.jpg',
-    featured: false,
-  },
-  {
-    title: 'Drug Policy Should Reduce Death, Not Recycle People Through Jail',
-    excerpt: 'A health-centered approach to drug policy saves lives, reduces stigma, and connects people to support.',
-    date: '2025',
-    category: 'Drug Policy',
-    image: '/images/overdose-prevention.jpg',
-    featured: false,
-  },
-  {
-    title: 'Arts Programming Inside Prisons Is Not a Luxury',
-    excerpt: 'Music, movement, and creativity are essential tools for rehabilitation, emotional regulation, and building purpose.',
-    date: '2025',
-    category: 'Arts',
-    image: '/images/arts-music.jpg',
-    featured: false,
-  },
-];
-
 export default function NewsPage() {
   const contentRef = useRef<HTMLDivElement>(null);
+
+  const featuredPost = getFeaturedArticle();
+  const regularPosts = getAllArticles().filter((p) => !p.featured).slice(0, 6);
 
   useEffect(() => {
     const content = contentRef.current;
@@ -80,22 +26,20 @@ export default function NewsPage() {
         { y: 30 },
         {
           y: 0,
-        duration: 0.8,
-        stagger: 0.1,
-        ease: 'power3.out',
-        scrollTrigger: {
-          trigger: content,
-          start: 'top 80%',
-          toggleActions: 'play none none none',
-        },
-      });
+          duration: 0.8,
+          stagger: 0.1,
+          ease: 'power3.out',
+          scrollTrigger: {
+            trigger: content,
+            start: 'top 80%',
+            toggleActions: 'play none none none',
+          },
+        }
+      );
     });
 
     return () => ctx.revert();
   }, []);
-
-  const featuredPost = blogPosts.find((p) => p.featured);
-  const regularPosts = blogPosts.filter((p) => !p.featured);
 
   return (
     <div style={{ position: 'relative', zIndex: 2, background: '#050A0F' }}>
@@ -117,7 +61,11 @@ export default function NewsPage() {
         <div className="content-container">
           {/* Featured Post */}
           {featuredPost && (
-            <div className="blog-card" style={{ marginBottom: '60px', cursor: 'pointer' }}>
+            <Link
+              to={`/news/${featuredPost.slug}`}
+              className="blog-card"
+              style={{ display: 'block', marginBottom: '60px', textDecoration: 'none' }}
+            >
               <div
                 style={{
                   display: 'grid',
@@ -129,6 +77,7 @@ export default function NewsPage() {
                   borderRadius: '8px',
                   border: '1px solid rgba(255,255,255,0.15)',
                   transition: 'all 0.4s ease',
+                  cursor: 'pointer',
                 }}
                 onMouseEnter={(e) => {
                   e.currentTarget.style.background = 'rgba(255,255,255,0.14)';
@@ -151,21 +100,24 @@ export default function NewsPage() {
                   </p>
                   <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
                     <Calendar size={14} style={{ color: 'rgba(255,255,255,0.4)' }} />
-                    <span className="font-sans-body" style={{ fontSize: '13px', color: 'rgba(255,255,255,0.5)' }}>{featuredPost.date}</span>
+                    <span className="font-sans-body" style={{ fontSize: '13px', color: 'rgba(255,255,255,0.5)' }}>{new Date(featuredPost.date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</span>
                   </div>
                 </div>
                 <img src={featuredPost.image} alt={featuredPost.title} loading="lazy" style={{ width: '100%', aspectRatio: '16/10', objectFit: 'cover', borderRadius: '4px' }} />
               </div>
-            </div>
+            </Link>
           )}
 
           {/* Blog Grid */}
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))', gap: '24px' }}>
             {regularPosts.map((post) => (
-              <div
-                key={post.title}
+              <Link
+                key={post.slug}
+                to={`/news/${post.slug}`}
                 className="blog-card"
                 style={{
+                  display: 'block',
+                  textDecoration: 'none',
                   background: 'rgba(255,255,255,0.10)',
                   border: '1px solid rgba(255,255,255,0.15)',
                   borderRadius: '4px',
@@ -198,14 +150,14 @@ export default function NewsPage() {
                   <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
                     <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
                       <Calendar size={12} style={{ color: 'rgba(255,255,255,0.4)' }} />
-                      <span className="font-sans-body" style={{ fontSize: '12px', color: 'rgba(255,255,255,0.5)' }}>{post.date}</span>
+                      <span className="font-sans-body" style={{ fontSize: '12px', color: 'rgba(255,255,255,0.5)' }}>{new Date(post.date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</span>
                     </div>
                     <span style={{ color: '#008C8C', display: 'flex', alignItems: 'center' }}>
                       <ArrowRight size={16} />
                     </span>
                   </div>
                 </div>
-              </div>
+              </Link>
             ))}
           </div>
         </div>

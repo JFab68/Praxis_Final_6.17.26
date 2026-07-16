@@ -25,6 +25,7 @@ const PartnersPage = lazy(() => import('./pages/PartnersPage'));
 const PrivacyPolicyPage = lazy(() => import('./pages/PrivacyPolicyPage'));
 const TermsOfUsePage = lazy(() => import('./pages/TermsOfUsePage'));
 const AccessibilityPage = lazy(() => import('./pages/AccessibilityPage'));
+const BlogArticlePage = lazy(() => import('./pages/BlogArticlePage'));
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage'));
 
 function PageLoader() {
@@ -80,6 +81,7 @@ function App() {
             <Route path="/arts" element={<ArtsPage />} />
             <Route path="/resources" element={<ResourcesPage />} />
             <Route path="/news" element={<NewsPage />} />
+            <Route path="/news/:slug" element={<BlogArticlePage />} />
             <Route path="/contact" element={<ContactPage />} />
             <Route path="/donate" element={<DonatePage />} />
             <Route path="/action" element={<ActionCenterPage />} />
