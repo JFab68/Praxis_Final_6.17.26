@@ -46,6 +46,41 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://praxisinitiative.org/news/sb1507-explained</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://praxisinitiative.org/news/phantom-watchdog</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://praxisinitiative.org/news/anatomy-of-accountability</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://praxisinitiative.org/news/lewis-prison-lock-disaster</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://praxisinitiative.org/news/right-to-petition</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://praxisinitiative.org/news/mass-incarceration-legacy</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://praxisinitiative.org/news/legislature-2025</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://praxisinitiative.org/contact</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -64,5 +99,20 @@
     <loc>https://praxisinitiative.org/partners</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://praxisinitiative.org/privacy-policy</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://praxisinitiative.org/terms-of-use</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://praxisinitiative.org/accessibility</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.3</priority>
   </url>
 </urlset>

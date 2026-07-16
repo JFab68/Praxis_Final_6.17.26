@@ -45,7 +45,38 @@ export default function ArtsPage() {
 
   return (
     <div style={{ position: 'relative', zIndex: 2, background: '#050A0F' }}>
-      <SEOHead title="Arts in Prison" description="Praxis Initiative supports music, movement, and creative programming inside Arizona prisons — helping people build identity, connection, emotional regulation, and purpose." path="/arts" />
+      <SEOHead title="Arts in Prison" description="Praxis Initiative supports music, movement, and creative programming inside Arizona prisons — helping people build identity, connection, emotional regulation, and purpose." path="/arts"
+        schema={{
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "What arts programming does Praxis Initiative offer in Arizona prisons?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Praxis Initiative supports music, movement, and creative programming inside Arizona prisons. These programs include music education, contemporary dance and movement, creative writing, and visual arts. Arts programming helps incarcerated people build identity, connection, emotional regulation, and purpose."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Why are arts programs important in prisons?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Arts programming inside prisons helps people build identity, connection, emotional regulation, and purpose through disciplined creative practice. Research shows that arts programs reduce behavioral infractions, improve mental health outcomes, and support successful reentry by developing skills in self-expression, collaboration, and perseverance."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How can I support arts in prison programming?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "You can support arts in prison programming by donating to Praxis Initiative, volunteering as an arts instructor or mentor, donating musical instruments and art supplies, and advocating for expanded arts programming in correctional facilities. Contact Praxis for more information about how to get involved."
+              }
+            }
+          ]
+        }}
+      />
       <PageHero
         eyebrow="Arts in Prison"
         title="Creativity Is Part of Rehabilitation"

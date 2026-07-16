@@ -192,6 +192,7 @@ export default function Navigation() {
           }}
           className="mobile-hamburger"
           aria-label="Toggle menu"
+          aria-expanded={mobileOpen}
         >
           <div style={{ width: '20px', height: '2px', background: '#FFFFFF', transition: 'all 0.3s ease', transform: mobileOpen ? 'rotate(45deg) translateY(5px)' : 'none' }} />
           <div style={{ width: '20px', height: '2px', background: '#FFFFFF', margin: '5px 0', transition: 'all 0.3s ease', opacity: mobileOpen ? 0 : 1 }} />

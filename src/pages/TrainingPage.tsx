@@ -109,7 +109,38 @@ export default function TrainingPage() {
 
   return (
     <div style={{ position: 'relative', zIndex: 2, background: '#050A0F' }}>
-      <SEOHead title="Skills Training for Returning Citizens" description="Praxis Initiative provides digital literacy, civic advocacy, and AI skills training for returning citizens in Arizona. Building workforce readiness and civic engagement." path="/training" />
+      <SEOHead title="Skills Training for Returning Citizens" description="Praxis Initiative provides digital literacy, civic advocacy, and AI skills training for returning citizens in Arizona. Building workforce readiness and civic engagement." path="/training"
+        schema={{
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "What training programs does Praxis Initiative offer for returning citizens?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Praxis Initiative offers digital literacy training, civic advocacy education, AI literacy programs (Intro to AI and Practical AI for Returning Citizens), and modern workforce skills development. Programs are designed to help returning citizens build marketable skills, understand their civic rights, and successfully re-enter their communities."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Who can participate in Praxis Initiative training programs?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Training programs are designed for returning citizens in Arizona, with particular emphasis on older adults, people returning after long incarceration, and people who have been excluded from modern tools and technology. Programs are accessible, hands-on, and built for participants at all skill levels."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What is civic advocacy training?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Civic advocacy training teaches returning citizens to understand government, tell their stories strategically, engage lawmakers, use digital advocacy tools, and participate in public policy. The training emphasizes authentic participation and leadership rather than tokenism."
+              }
+            }
+          ]
+        }}
+      />
       <PageHero
         eyebrow="Training Programs"
         title="Skills Training for Returning Citizens"
@@ -157,6 +188,7 @@ export default function TrainingPage() {
                   <img
                     src={program.image}
                     alt={program.title}
+                    loading="lazy"
                     style={{
                       width: '100%',
                       aspectRatio: '16/10',
@@ -233,6 +265,7 @@ export default function TrainingPage() {
                   <img
                     src={program.image}
                     alt={program.title}
+                    loading="lazy"
                     style={{
                       width: '100%',
                       aspectRatio: '16/10',

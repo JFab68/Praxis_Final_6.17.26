@@ -271,6 +271,7 @@ export default function Footer() {
                 )}
                 <form onSubmit={handleNewsletterSubmit} style={{ display: 'flex', gap: '8px' }}>
                   <input
+                    id="newsletter-email"
                     type="email"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}

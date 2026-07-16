@@ -121,6 +121,44 @@ export default function ProgramsPage() {
         title="Programs"
         description="Explore Praxis Initiative's four pillars of reform: independent prison oversight, criminal legal system reform, skills training for returning citizens, and arts in prison programming."
         path="/programs"
+        schema={{
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "What programs does Praxis Initiative offer?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Praxis Initiative operates across four core pillars: independent prison oversight, criminal legal system reform, skills training for returning citizens, and arts in prison programming. Each pillar is grounded in lived experience and directed toward measurable, durable reform."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What is independent prison oversight?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Independent prison oversight is an external body that monitors conditions inside correctional facilities, investigates complaints, and reports findings publicly. It ensures accountability, transparency, and public safety by providing objective, external monitoring of prison operations."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What skills training does Praxis provide for returning citizens?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Praxis Initiative provides digital literacy training, civic advocacy education, AI literacy programs, and modern workforce skills development for returning citizens. These programs help people build marketable skills, understand their civic rights, and successfully re-enter their communities."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Does Praxis Initiative offer arts programming in prisons?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes. Praxis supports music, movement, and creative programming inside Arizona prisons. Arts programming helps people build identity, connection, emotional regulation, and purpose through disciplined creative practice."
+              }
+            }
+          ]
+        }}
       />
       <PageHero
         eyebrow="Our Work"

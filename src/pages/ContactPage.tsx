@@ -134,29 +134,29 @@ export default function ContactPage() {
                     </div>
                   )}
                   <div>
-                    <label className="font-sans-body" style={{ fontSize: '12px', letterSpacing: '0.1em', color: 'rgba(255,255,255,0.5)', textTransform: 'uppercase', display: 'block', marginBottom: '8px' }}>Name *</label>
-                    <input type="text" name="name" value={formData.name} onChange={handleChange} required className="font-sans-body" style={{ width: '100%', padding: '12px 16px', background: 'rgba(255,255,255,0.14)', border: '1px solid rgba(255,255,255,0.12)', borderRadius: '6px', color: '#FFFFFF', fontSize: '15px', outline: 'none' }} />
+                    <label htmlFor="contact-name" className="font-sans-body" style={{ fontSize: '12px', letterSpacing: '0.1em', color: 'rgba(255,255,255,0.5)', textTransform: 'uppercase', display: 'block', marginBottom: '8px' }}>Name *</label>
+                    <input id="contact-name" type="text" name="name" value={formData.name} onChange={handleChange} required className="font-sans-body" style={{ width: '100%', padding: '12px 16px', background: 'rgba(255,255,255,0.14)', border: '1px solid rgba(255,255,255,0.12)', borderRadius: '6px', color: '#FFFFFF', fontSize: '15px', outline: 'none' }} />
                   </div>
 
                   <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '20px' }}>
                     <div>
-                      <label className="font-sans-body" style={{ fontSize: '12px', letterSpacing: '0.1em', color: 'rgba(255,255,255,0.5)', textTransform: 'uppercase', display: 'block', marginBottom: '8px' }}>Email *</label>
-                      <input type="email" name="email" value={formData.email} onChange={handleChange} required className="font-sans-body" style={{ width: '100%', padding: '12px 16px', background: 'rgba(255,255,255,0.14)', border: '1px solid rgba(255,255,255,0.12)', borderRadius: '6px', color: '#FFFFFF', fontSize: '15px', outline: 'none' }} />
+                      <label htmlFor="contact-email" className="font-sans-body" style={{ fontSize: '12px', letterSpacing: '0.1em', color: 'rgba(255,255,255,0.5)', textTransform: 'uppercase', display: 'block', marginBottom: '8px' }}>Email *</label>
+                      <input id="contact-email" type="email" name="email" value={formData.email} onChange={handleChange} required className="font-sans-body" style={{ width: '100%', padding: '12px 16px', background: 'rgba(255,255,255,0.14)', border: '1px solid rgba(255,255,255,0.12)', borderRadius: '6px', color: '#FFFFFF', fontSize: '15px', outline: 'none' }} />
                     </div>
                     <div>
-                      <label className="font-sans-body" style={{ fontSize: '12px', letterSpacing: '0.1em', color: 'rgba(255,255,255,0.5)', textTransform: 'uppercase', display: 'block', marginBottom: '8px' }}>Phone</label>
-                      <input type="tel" name="phone" value={formData.phone} onChange={handleChange} className="font-sans-body" style={{ width: '100%', padding: '12px 16px', background: 'rgba(255,255,255,0.14)', border: '1px solid rgba(255,255,255,0.12)', borderRadius: '6px', color: '#FFFFFF', fontSize: '15px', outline: 'none' }} />
+                      <label htmlFor="contact-phone" className="font-sans-body" style={{ fontSize: '12px', letterSpacing: '0.1em', color: 'rgba(255,255,255,0.5)', textTransform: 'uppercase', display: 'block', marginBottom: '8px' }}>Phone</label>
+                      <input id="contact-phone" type="tel" name="phone" value={formData.phone} onChange={handleChange} className="font-sans-body" style={{ width: '100%', padding: '12px 16px', background: 'rgba(255,255,255,0.14)', border: '1px solid rgba(255,255,255,0.12)', borderRadius: '6px', color: '#FFFFFF', fontSize: '15px', outline: 'none' }} />
                     </div>
                   </div>
 
                   <div>
-                    <label className="font-sans-body" style={{ fontSize: '12px', letterSpacing: '0.1em', color: 'rgba(255,255,255,0.5)', textTransform: 'uppercase', display: 'block', marginBottom: '8px' }}>Organization</label>
-                    <input type="text" name="organization" value={formData.organization} onChange={handleChange} className="font-sans-body" style={{ width: '100%', padding: '12px 16px', background: 'rgba(255,255,255,0.14)', border: '1px solid rgba(255,255,255,0.12)', borderRadius: '6px', color: '#FFFFFF', fontSize: '15px', outline: 'none' }} />
+                    <label htmlFor="contact-org" className="font-sans-body" style={{ fontSize: '12px', letterSpacing: '0.1em', color: 'rgba(255,255,255,0.5)', textTransform: 'uppercase', display: 'block', marginBottom: '8px' }}>Organization</label>
+                    <input id="contact-org" type="text" name="organization" value={formData.organization} onChange={handleChange} className="font-sans-body" style={{ width: '100%', padding: '12px 16px', background: 'rgba(255,255,255,0.14)', border: '1px solid rgba(255,255,255,0.12)', borderRadius: '6px', color: '#FFFFFF', fontSize: '15px', outline: 'none' }} />
                   </div>
 
                   <div>
-                    <label className="font-sans-body" style={{ fontSize: '12px', letterSpacing: '0.1em', color: 'rgba(255,255,255,0.5)', textTransform: 'uppercase', display: 'block', marginBottom: '8px' }}>Reason for Contact *</label>
-                    <select name="reason" value={formData.reason} onChange={handleChange} required className="font-sans-body" style={{ width: '100%', padding: '12px 16px', background: 'rgba(255,255,255,0.14)', border: '1px solid rgba(255,255,255,0.12)', borderRadius: '6px', color: '#FFFFFF', fontSize: '15px',  appearance: 'none' }}>
+                    <label htmlFor="contact-reason" className="font-sans-body" style={{ fontSize: '12px', letterSpacing: '0.1em', color: 'rgba(255,255,255,0.5)', textTransform: 'uppercase', display: 'block', marginBottom: '8px' }}>Reason for Contact *</label>
+                    <select id="contact-reason" name="reason" value={formData.reason} onChange={handleChange} required className="font-sans-body" style={{ width: '100%', padding: '12px 16px', background: 'rgba(255,255,255,0.14)', border: '1px solid rgba(255,255,255,0.12)', borderRadius: '6px', color: '#FFFFFF', fontSize: '15px',  appearance: 'none' }}>
                       <option value="">Select a reason</option>
                       {contactReasons.map((reason) => (
                         <option key={reason} value={reason}>{reason}</option>
@@ -165,8 +165,8 @@ export default function ContactPage() {
                   </div>
 
                   <div>
-                    <label className="font-sans-body" style={{ fontSize: '12px', letterSpacing: '0.1em', color: 'rgba(255,255,255,0.5)', textTransform: 'uppercase', display: 'block', marginBottom: '8px' }}>Message *</label>
-                    <textarea name="message" value={formData.message} onChange={handleChange} required rows={5} className="font-sans-body" style={{ width: '100%', padding: '12px 16px', background: 'rgba(255,255,255,0.14)', border: '1px solid rgba(255,255,255,0.12)', borderRadius: '6px', color: '#FFFFFF', fontSize: '15px',  resize: 'vertical' }} />
+                    <label htmlFor="contact-message" className="font-sans-body" style={{ fontSize: '12px', letterSpacing: '0.1em', color: 'rgba(255,255,255,0.5)', textTransform: 'uppercase', display: 'block', marginBottom: '8px' }}>Message *</label>
+                    <textarea id="contact-message" name="message" value={formData.message} onChange={handleChange} required rows={5} className="font-sans-body" style={{ width: '100%', padding: '12px 16px', background: 'rgba(255,255,255,0.14)', border: '1px solid rgba(255,255,255,0.12)', borderRadius: '6px', color: '#FFFFFF', fontSize: '15px',  resize: 'vertical' }} />
                   </div>
 
                   <div style={{ display: 'flex', alignItems: 'flex-start', gap: '12px' }}>

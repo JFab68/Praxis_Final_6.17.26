@@ -59,7 +59,38 @@ export default function PolicyPage() {
 
   return (
     <div style={{ position: 'relative', zIndex: 2, background: '#050A0F' }}>
-      <SEOHead title="Policy & Advocacy" description="Praxis Initiative advances bipartisan criminal legal system reform in Arizona — sentencing reform, reentry, probation and parole, drug policy, and coalition advocacy." path="/policy" />
+      <SEOHead title="Policy & Advocacy" description="Praxis Initiative advances bipartisan criminal legal system reform in Arizona — sentencing reform, reentry, probation and parole, drug policy, and coalition advocacy." path="/policy"
+        schema={{
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "What criminal legal system reforms does Praxis Initiative advocate for?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Praxis Initiative advocates for bipartisan reforms across the criminal legal system including sentencing reform, reentry support, probation and parole improvements, drug policy reform, home confinement expansion, and independent prison oversight. Our approach is built on lived experience and coalition partnership."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How does Praxis Initiative approach legislative advocacy?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Praxis works with lawmakers, directly impacted people, families, attorneys, advocates, and bipartisan partners to advance practical reforms. We focus on reforms that can survive contact with reality — grounded in data, centered on human dignity, and built through broad coalition support."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What is home confinement reform?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Home confinement allows eligible individuals to transition back to their communities under supervision while maintaining family connections and employment. Praxis advocates for expanding home confinement as a smart, cost-effective alternative to unnecessary incarceration that improves public safety outcomes."
+              }
+            }
+          ]
+        }}
+      />
       <PageHero
         eyebrow="Policy & Advocacy"
         title="Policy Change Requires More Than Good Intentions"
