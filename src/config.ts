@@ -4,27 +4,6 @@ export interface SiteConfig {
   siteDescription: string
 }
 
-export interface NavLink {
-  label: string
-  targetId: string
-}
-
-export interface NavigationConfig {
-  brandMark: string
-  links: NavLink[]
-}
-
-export interface HeroConfig {
-  wordmarkText: string
-  eyebrow: string
-  titleLine1: string
-  titleLine2: string
-  descriptionLine1: string
-  descriptionLine2: string
-  ctaText: string
-  ctaTargetId: string
-}
-
 export interface PhilosophyConfig {
   eyebrow: string
   title: string
@@ -83,35 +62,10 @@ export interface FooterConfig {
   videoPath: string
 }
 
-export interface ProjectDetailConfig {
-  backLabel: string
-}
-
 export const siteConfig: SiteConfig = {
   language: "en",
   siteTitle: "Praxis Initiative | Arizona Criminal Legal System Reform",
   siteDescription: "Praxis Initiative is a 100% system-impacted Arizona nonprofit advancing independent prison oversight, criminal legal system reform, overdose prevention, civic advocacy training, and arts in prison programming.",
-}
-
-export const navigationConfig: NavigationConfig = {
-  brandMark: "PI",
-  links: [
-    { label: "About", targetId: "about" },
-    { label: "Programs", targetId: "programs" },
-    { label: "Impact", targetId: "impact" },
-    { label: "Contact", targetId: "footer" },
-  ],
-}
-
-export const heroConfig: HeroConfig = {
-  wordmarkText: "PRAXIS",
-  eyebrow: "ARIZONA REFORM",
-  titleLine1: "Without Us,",
-  titleLine2: "There Is No Justice.",
-  descriptionLine1: "System-impacted leadership transforming",
-  descriptionLine2: "Arizona's criminal legal system.",
-  ctaText: "Join Us",
-  ctaTargetId: "philosophy",
 }
 
 export const philosophyConfig: PhilosophyConfig = {
@@ -256,10 +210,6 @@ export const footerConfig: FooterConfig = {
   ],
   copyright: "© 2025 Praxis Initiative. 501(c)(3) nonprofit.",
   videoPath: "",
-}
-
-export const projectDetailConfig: ProjectDetailConfig = {
-  backLabel: "← Back",
 }
 
 export function getProjectById(id: string): ProjectData | undefined {

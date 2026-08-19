@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { FileText, Download, ExternalLink, BookOpen, Gavel, Heart, Users, Mic, FolderOpen, Eye } from 'lucide-react';
+import { FileText, Download, ExternalLink, Mail, BookOpen, Gavel, Heart, Users, Mic, FolderOpen, Eye } from 'lucide-react';
 import PageHero from '../components/PageHero';
 import PageQuote from '../components/PageQuote';
 import SEOHead from '../components/SEOHead';
@@ -9,7 +9,11 @@ interface Resource {
   description: string;
   category: string;
   type: 'document' | 'link' | 'report';
+  /** Direct URL to the resource. When absent, the card falls back to a "Request Access" email link. */
+  url?: string;
 }
+
+const CONTACT_EMAIL = 'info@praxisinitiative.org';
 
 const categories = [
   { id: 'all', label: 'All Resources' },
@@ -104,54 +108,68 @@ export default function ResourcesPage() {
 
           {/* Resources Grid */}
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(320px, 1fr))', gap: '20px' }}>
-            {filteredResources.map((resource) => (
-              <div
-                key={resource.title}
-                style={{
-                  padding: '28px',
-                  background: 'rgba(255,255,255,0.10)',
-                  border: '1px solid rgba(255,255,255,0.15)',
-                  borderRadius: '4px',
-                  transition: 'all 0.3s ease',
-                  cursor: 'pointer',
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.background = 'rgba(255,255,255,0.12)';
-                  e.currentTarget.style.borderColor = 'rgba(0,140,140,0.2)';
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.background = 'rgba(255,255,255,0.10)';
-                  e.currentTarget.style.borderColor = 'rgba(255,255,255,0.15)';
-                }}
-              >
-                <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '12px' }}>
-                  <span style={{ color: '#008C8C' }}>{categoryIcons[resource.category]}</span>
-                  <span className="font-mono-data" style={{ fontSize: '10px', letterSpacing: '0.15em', color: 'rgba(255,255,255,0.4)', textTransform: 'uppercase' }}>
-                    {categories.find((c) => c.id === resource.category)?.label}
-                  </span>
-                </div>
-                <h3 className="font-serif-display" style={{ fontSize: '17px', fontWeight: 400, color: '#ffffff', marginBottom: '8px', lineHeight: 1.4 }}>
-                  {resource.title}
-                </h3>
-                <p className="font-sans-body" style={{ fontSize: '13px', lineHeight: 1.6, color: 'rgba(255,255,255,0.55)', marginBottom: '16px' }}>
-                  {resource.description}
-                </p>
-                <span
-                  className="font-sans-body"
+            {filteredResources.map((resource) => {
+              const isExternal = Boolean(resource.url);
+              const href = resource.url
+                ?? `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(`Resource Request: ${resource.title}`)}`;
+
+              return (
+                <a
+                  key={resource.title}
+                  href={href}
+                  target={isExternal ? '_blank' : undefined}
+                  rel={isExternal ? 'noopener noreferrer' : undefined}
                   style={{
-                    fontSize: '12px',
-                    letterSpacing: '0.1em',
-                    color: '#008C8C',
-                    textTransform: 'uppercase',
-                    display: 'inline-flex',
-                    alignItems: 'center',
-                    gap: '4px',
+                    display: 'block',
+                    padding: '28px',
+                    background: 'rgba(255,255,255,0.10)',
+                    border: '1px solid rgba(255,255,255,0.15)',
+                    borderRadius: '4px',
+                    transition: 'all 0.3s ease',
+                    cursor: 'pointer',
+                    textDecoration: 'none',
+                    color: 'inherit',
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.background = 'rgba(255,255,255,0.12)';
+                    e.currentTarget.style.borderColor = 'rgba(0,140,140,0.2)';
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.background = 'rgba(255,255,255,0.10)';
+                    e.currentTarget.style.borderColor = 'rgba(255,255,255,0.15)';
                   }}
                 >
-                  {resource.type === 'link' ? <><ExternalLink size={12} /> View</> : <><Download size={12} /> Download</>}
-                </span>
-              </div>
-            ))}
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '12px' }}>
+                    <span style={{ color: '#008C8C' }}>{categoryIcons[resource.category]}</span>
+                    <span className="font-mono-data" style={{ fontSize: '10px', letterSpacing: '0.15em', color: 'rgba(255,255,255,0.4)', textTransform: 'uppercase' }}>
+                      {categories.find((c) => c.id === resource.category)?.label}
+                    </span>
+                  </div>
+                  <h3 className="font-serif-display" style={{ fontSize: '17px', fontWeight: 400, color: '#ffffff', marginBottom: '8px', lineHeight: 1.4 }}>
+                    {resource.title}
+                  </h3>
+                  <p className="font-sans-body" style={{ fontSize: '13px', lineHeight: 1.6, color: 'rgba(255,255,255,0.55)', marginBottom: '16px' }}>
+                    {resource.description}
+                  </p>
+                  <span
+                    className="font-sans-body"
+                    style={{
+                      fontSize: '12px',
+                      letterSpacing: '0.1em',
+                      color: '#008C8C',
+                      textTransform: 'uppercase',
+                      display: 'inline-flex',
+                      alignItems: 'center',
+                      gap: '4px',
+                    }}
+                  >
+                    {!resource.url
+                      ? <><Mail size={12} /> Request Access</>
+                      : resource.type === 'link' ? <><ExternalLink size={12} /> View</> : <><Download size={12} /> Download</>}
+                  </span>
+                </a>
+              );
+            })}
           </div>
 
           {filteredResources.length === 0 && (
