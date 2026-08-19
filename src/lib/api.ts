@@ -1,8 +1,8 @@
-// API utility for form submissions
-// Configure your endpoint by setting VITE_FORM_ENDPOINT in your .env file
-// Supports: Formspree, Web3Forms, Netlify Forms, or any POST endpoint
+// API utility for form submissions via Web3Forms
+// Configure by setting VITE_WEB3FORMS_KEY in your Vercel environment variables
 
-const FORM_ENDPOINT = import.meta.env.VITE_FORM_ENDPOINT || '';
+const FORM_ENDPOINT = 'https://api.web3forms.com/submit';
+const ACCESS_KEY = import.meta.env.VITE_WEB3FORMS_KEY || '';
 
 interface FormPayload {
   form: string;
@@ -10,19 +10,22 @@ interface FormPayload {
 }
 
 export async function submitForm(payload: FormPayload): Promise<{ success: boolean; message: string }> {
-  // If no endpoint configured, simulate for local development
-  if (!FORM_ENDPOINT) {
-    console.log('[DEV] Form submission simulated:', payload);
-    // Simulate network delay
+  if (!ACCESS_KEY) {
+    console.log('[DEV] Form submission simulated (no access key):', payload);
     await new Promise((r) => setTimeout(r, 800));
-    return { success: true, message: 'Form submitted (development mode — no email sent). Configure VITE_FORM_ENDPOINT in .env for production.' };
+    return { success: true, message: 'Form submitted (development mode — no email sent). Configure VITE_WEB3FORMS_KEY in .env for production.' };
   }
 
   try {
     const response = await fetch(FORM_ENDPOINT, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-      body: JSON.stringify(payload),
+      body: JSON.stringify({
+        access_key: ACCESS_KEY,
+        subject: `Praxis Initiative — ${payload.form === 'newsletter' ? 'Newsletter Signup' : 'Contact Form'}`,
+        from_name: 'Praxis Initiative Website',
+        ...payload,
+      }),
     });
 
     if (!response.ok) {
