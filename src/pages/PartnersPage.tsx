@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { ExternalLink, Handshake, Heart } from 'lucide-react';
+import { ExternalLink, Handshake, Heart, Star } from 'lucide-react';
 import PageHero from '../components/PageHero';
 import PageQuote from '../components/PageQuote';
 import SEOHead from '../components/SEOHead';
@@ -242,6 +242,64 @@ export default function PartnersPage() {
 
       <section ref={contentRef} style={{ paddingBottom: '120px' }}>
         <div className="content-container">
+
+          {/* ── Major Supporter ── */}
+          <div style={{ marginBottom: '80px' }}>
+            <div style={{ textAlign: 'center', marginBottom: '40px' }}>
+              <p className="eyebrow-label" style={{ marginBottom: '12px' }}>Major Supporter</p>
+            </div>
+            <div
+              className="reveal-up"
+              style={{
+                maxWidth: '720px',
+                margin: '0 auto',
+                padding: '44px 48px',
+                background: 'linear-gradient(135deg, #1a1a0a 0%, #1a1f14 50%, #111820 100%)',
+                border: '1px solid rgba(200, 170, 80, 0.25)',
+                borderLeft: '4px solid #C8AA50',
+                borderRadius: '4px',
+                transition: 'all 0.3s ease',
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.background = 'linear-gradient(135deg, #22220f 0%, #222a1a 50%, #1a2330 100%)';
+                e.currentTarget.style.borderColor = 'rgba(200, 170, 80, 0.4)';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.background = 'linear-gradient(135deg, #1a1a0a 0%, #1a1f14 50%, #111820 100%)';
+                e.currentTarget.style.borderColor = 'rgba(200, 170, 80, 0.25)';
+              }}
+            >
+              <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '16px' }}>
+                <Star size={22} style={{ color: '#C8AA50', fill: '#C8AA50' }} />
+                <span className="font-mono-data" style={{ fontSize: '11px', letterSpacing: '0.2em', color: '#C8AA50', textTransform: 'uppercase' }}>
+                  Major Funder &bull; 2024–2026
+                </span>
+              </div>
+              <h3 className="font-serif-display" style={{ fontSize: '22px', fontWeight: 400, color: '#ffffff', marginBottom: '12px', lineHeight: 1.3 }}>
+                Arnold Ventures
+              </h3>
+              <p className="font-sans-body" style={{ fontSize: '14px', lineHeight: 1.8, color: 'rgba(255,255,255,0.7)', marginBottom: '20px' }}>
+                Arnold Ventures is a philanthropy dedicated to tackling some of the most pressing problems in the United States. Their criminal justice reform portfolio supports evidence-based policies that advance community safety, fairness, and fiscal responsibility. Arnold Ventures has been a foundational funder of Praxis Initiative since our launch, providing critical support that makes our oversight, policy, and advocacy work possible.
+              </p>
+              <a
+                href="https://www.arnoldventures.org"
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{
+                  fontSize: '12px',
+                  letterSpacing: '0.1em',
+                  color: '#C8AA50',
+                  textTransform: 'uppercase',
+                  textDecoration: 'none',
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '4px',
+                }}
+              >
+                Visit Website <ExternalLink size={12} />
+              </a>
+            </div>
+          </div>
 
           {/* ── Coalition Partners ── */}
           <div style={{ marginBottom: '80px' }}>
