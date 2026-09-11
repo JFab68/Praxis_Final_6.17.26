@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 750" width="1200" height="750">
+  <defs>
+    <linearGradient id="bg-capitol" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#0D1B2A"/>
+      <stop offset="60%" stop-color="#0A1118"/>
+      <stop offset="100%" stop-color="#050A0F"/>
+    </linearGradient>
+    <linearGradient id="building-grad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#1A2B3C"/>
+      <stop offset="100%" stop-color="#0F1B28"/>
+    </linearGradient>
+    <linearGradient id="dome-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#B088D8" stop-opacity="0.5"/>
+      <stop offset="100%" stop-color="#5B3C88" stop-opacity="0.3"/>
+    </linearGradient>
+    <radialGradient id="glow-capitol" cx="50%" cy="80%" r="70%">
+      <stop offset="0%" stop-color="#008C8C" stop-opacity="0.15"/>
+      <stop offset="100%" stop-color="#008C8C" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1200" height="750" fill="url(#bg-capitol)"/>
+  <circle cx="600" cy="650" r="450" fill="url(#glow-capitol)"/>
+  
+  <!-- Moon -->
+  <circle cx="1000" cy="120" r="45" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.12)" stroke-width="2"/>
+  
+  <!-- Capitol building silhouette -->
+  <g transform="translate(0, 50)">
+    <!-- Base/steps -->
+    <rect x="320" y="580" width="560" height="80" rx="3" fill="#0F1B28" stroke="rgba(255,255,255,0.08)"/>
+    <rect x="340" y="560" width="520" height="30" rx="2" fill="#132230" stroke="rgba(255,255,255,0.08)"/>
+    <rect x="360" y="540" width="480" height="25" rx="2" fill="#162838" stroke="rgba(255,255,255,0.08)"/>
+    
+    <!-- Main building body -->
+    <rect x="400" y="360" width="400" height="180" fill="url(#building-grad)" stroke="rgba(255,255,255,0.1)" stroke-width="2"/>
+    
+    <!-- Columns -->
+    <rect x="430" y="370" width="24" height="160" fill="#0A1118" stroke="rgba(255,255,255,0.08)"/>
+    <rect x="475" y="370" width="24" height="160" fill="#0A1118" stroke="rgba(255,255,255,0.08)"/>
+    <rect x="520" y="370" width="24" height="160" fill="#0A1118" stroke="rgba(255,255,255,0.08)"/>
+    <rect x="565" y="370" width="24" height="160" fill="#0A1118" stroke="rgba(255,255,255,0.08)"/>
+    <rect x="610" y="370" width="24" height="160" fill="#0A1118" stroke="rgba(255,255,255,0.08)"/>
+    <rect x="655" y="370" width="24" height="160" fill="#0A1118" stroke="rgba(255,255,255,0.08)"/>
+    <rect x="700" y="370" width="24" height="160" fill="#0A1118" stroke="rgba(255,255,255,0.08)"/>
+    <rect x="745" y="370" width="24" height="160" fill="#0A1118" stroke="rgba(255,255,255,0.08)"/>
+    
+    <!-- Roof -->
+    <path d="M380 360 L600 240 L820 360 Z" fill="#1A2B3C" stroke="rgba(255,255,255,0.1)" stroke-width="2"/>
+    
+    <!-- Dome -->
+    <path d="M520 240 Q520 160 600 140 Q680 160 680 240 Z" fill="url(#dome-grad)" stroke="rgba(255,255,255,0.15)" stroke-width="2"/>
+    <line x1="600" y1="140" x2="600" y2="110" stroke="#B088D8" stroke-width="3" stroke-opacity="0.6"/>
+    <circle cx="600" cy="105" r="8" fill="#008C8C" opacity="0.8"/>
+    
+    <!-- Windows -->
+    <rect x="440" y="400" width="30" height="40" rx="2" fill="rgba(0,140,140,0.2)" stroke="#008C8C" stroke-opacity="0.2"/>
+    <rect x="585" y="400" width="30" height="40" rx="2" fill="rgba(0,140,140,0.2)" stroke="#008C8C" stroke-opacity="0.2"/>
+    <rect x="730" y="400" width="30" height="40" rx="2" fill="rgba(0,140,140,0.2)" stroke="#008C8C" stroke-opacity="0.2"/>
+  </g>
+  
+  <!-- Stars -->
+  <circle cx="120" cy="100" r="2" fill="rgba(255,255,255,0.4)"/>
+  <circle cx="180" cy="60" r="1.5" fill="rgba(255,255,255,0.3)"/>
+  <circle cx="80" cy="160" r="1" fill="rgba(255,255,255,0.25)"/>
+  <circle cx="1100" cy="80" r="2" fill="rgba(255,255,255,0.4)"/>
+  <circle cx="1050" cy="140" r="1.5" fill="rgba(255,255,255,0.3)"/>
+</svg>

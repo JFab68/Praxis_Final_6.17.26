@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import { useParams, Link } from 'react-router-dom';
+import { useParams, Link, useNavigate } from 'react-router-dom';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { ArrowLeft, Calendar, Clock, Share2, Twitter, Facebook, Linkedin, ArrowRight } from 'lucide-react';
@@ -32,6 +32,7 @@ function articleSchema(article: ReturnType<typeof getArticle>) {
 
 export default function BlogArticlePage() {
   const { slug } = useParams<{ slug: string }>();
+  const navigate = useNavigate();
   const article = slug ? getArticle(slug) : undefined;
   const contentRef = useRef<HTMLDivElement>(null);
   const progressRef = useRef<HTMLDivElement>(null);
@@ -386,6 +387,16 @@ export default function BlogArticlePage() {
           {/* Main content rendered from HTML */}
           <div
             className="article-content"
+            onClick={(e) => {
+              const target = e.target as HTMLElement;
+              if (target.tagName === 'A') {
+                const href = target.getAttribute('href');
+                if (href && href.startsWith('/')) {
+                  e.preventDefault();
+                  navigate(href);
+                }
+              }
+            }}
             dangerouslySetInnerHTML={{ __html: article.bodyHtml }}
           />
 
@@ -461,46 +472,6 @@ export default function BlogArticlePage() {
               )}
             </blockquote>
           ))}
-
-          {/* Chart/Data visualization suggestions section */}
-          {article.charts.length > 0 && (
-            <div
-              className="reveal-up"
-              style={{
-                marginTop: '64px',
-                padding: '40px',
-                background: 'rgba(0,140,140,0.05)',
-                borderRadius: '8px',
-                border: '1px solid rgba(0,140,140,0.15)',
-              }}
-            >
-              <h3
-                className="font-serif-display"
-                style={{ fontSize: '20px', fontWeight: 300, color: '#ffffff', marginBottom: '20px' }}
-              >
-                Key Data & Visualizations
-              </h3>
-              <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '12px' }}>
-                {article.charts.map((chart, i) => (
-                  <li
-                    key={i}
-                    className="font-sans-body"
-                    style={{
-                      fontSize: '14px',
-                      color: 'rgba(255,255,255,0.65)',
-                      padding: '12px 16px',
-                      background: 'rgba(255,255,255,0.04)',
-                      borderRadius: '4px',
-                      borderLeft: '2px solid rgba(0,140,140,0.3)',
-                    }}
-                  >
-                    <span style={{ color: '#00CCCC', fontWeight: 500, marginRight: '8px' }}>Chart {i + 1}:</span>
-                    {chart}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          )}
 
           {/* Citations */}
           {article.citations.length > 0 && (

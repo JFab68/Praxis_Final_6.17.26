@@ -421,10 +421,26 @@ function LeadershipSection() {
   }, []);
 
   const team = [
-    { name: 'J Alexandria Hunt-Garcia', role: 'Community health, drug policy, and system-change leadership' },
-    { name: 'Jessica Johnson', role: 'Legislative reform and capital mitigation experience' },
-    { name: 'Mindi Kraicinski', role: 'Retired corrections officer providing operational insight' },
-    { name: 'Sherri Skates', role: 'Community organizing and family-impact storytelling' },
+    {
+      name: 'J Alexandria Hunt-Garcia',
+      role: 'Community Health & Harm Reduction',
+      image: '/images/team-alex.png',
+    },
+    {
+      name: 'Jessica Johnson',
+      role: 'Policy Director & Legislative Strategy',
+      image: '/images/team-jessica.png',
+    },
+    {
+      name: 'Mindi Kraicinski',
+      role: 'Corrections Operations & Facility Oversight',
+      image: '/images/team-mindi.webp',
+    },
+    {
+      name: 'Sherri Scates',
+      role: 'Community Organizing & Family Advocacy',
+      image: '/images/team-sherri.png',
+    },
   ];
 
   return (
@@ -453,9 +469,20 @@ function LeadershipSection() {
         </div>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '20px' }} className="team-grid">
           {team.map((member) => (
-            <div key={member.name} className="reveal-up" style={{ padding: '24px', background: '#111820', border: '1px solid rgba(255,255,255,0.18)', borderRadius: '4px' }}>
-              <h4 className="font-serif-display" style={{ fontSize: '15px', fontWeight: 400, color: '#ffffff', marginBottom: '6px' }}>{member.name}</h4>
-              <p className="font-sans-body" style={{ fontSize: '12px', lineHeight: 1.6, color: 'rgba(255,255,255,0.55)' }}>{member.role}</p>
+            <div key={member.name} className="reveal-up" style={{ padding: '20px', background: '#111820', border: '1px solid rgba(255,255,255,0.18)', borderRadius: '6px', display: 'flex', flexDirection: 'column' }}>
+              <div style={{ borderRadius: '4px', overflow: 'hidden', border: '1px solid rgba(255,255,255,0.1)', marginBottom: '14px', height: '220px' }}>
+                <img
+                  src={member.image}
+                  alt={member.name}
+                  loading="lazy"
+                  style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'top center', display: 'block' }}
+                />
+              </div>
+              <h4 className="font-serif-display" style={{ fontSize: '16px', fontWeight: 400, color: '#ffffff', marginBottom: '6px' }}>{member.name}</h4>
+              <p className="font-sans-body" style={{ fontSize: '12px', lineHeight: 1.6, color: 'rgba(255,255,255,0.55)', flexGrow: 1 }}>{member.role}</p>
+              <Link to="/about" style={{ fontSize: '11px', letterSpacing: '0.1em', color: '#008C8C', textTransform: 'uppercase', textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '4px', marginTop: '12px' }}>
+                View Bio <ArrowRight size={11} />
+              </Link>
             </div>
           ))}
         </div>

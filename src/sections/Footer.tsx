@@ -57,6 +57,11 @@ export default function Footer() {
       >
         {/* Vision Statement - Centered */}
         <div style={{ maxWidth: '720px', margin: '0 auto 80px', textAlign: 'center' }}>
+          <img
+            src="/images/praxis-logo-round.png"
+            alt="Praxis Initiative Logo"
+            style={{ width: '64px', height: '64px', objectFit: 'contain', margin: '0 auto 24px', display: 'block' }}
+          />
           <p
             className="font-serif-display"
             style={{
@@ -174,6 +179,7 @@ export default function Footer() {
               {[
                 { label: 'Resources Hub', path: '/resources' },
                 { label: 'News & Blog', path: '/news' },
+                { label: 'Events', path: '/events' },
                 { label: 'Contact Us', path: '/contact' },
                 { label: 'Donate', path: '/donate' },
               ].map((item) => (

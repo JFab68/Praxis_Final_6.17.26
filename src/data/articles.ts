@@ -137,10 +137,9 @@ const articles: Article[] = [
 
 <div class="article-cta-section">
   <h3>What You Can Do</h3>
-  <p>This law was built by ordinary people — formerly incarcerated individuals, family members, correctional staff, and community members — who refused to accept that a system this broken was beyond repair.</p>
-  <p><strong>Contact your state legislators.</strong> Ask them specifically whether they support appropriating $1.5 million to fund the Independent Correctional Oversight Office. Find your legislators at <a href="https://www.azleg.gov/" target="_blank" rel="noopener">azleg.gov</a>.</p>
-  <p><strong>Contact the Governor's office.</strong> Ask Governor Hobbs to include ICOO funding in the executive budget request. Reach the Governor at <a href="https://azgovernor.gov/" target="_blank" rel="noopener">azgovernor.gov</a>.</p>
-  <p><strong>Follow and support the Praxis Initiative.</strong> Learn more at <a href="https://praxisinitiative.org/">praxisinitiative.org</a>.</p>
+  <p>This law was built by ordinary people who refused to accept that a system this broken was beyond repair.</p>
+  <p><strong>Take Action:</strong> Visit our <a href="/action">Action Center</a> to find your legislators and demand they fund the Independent Correctional Oversight Office. You can also support our work directly by making a <a href="/donate">donation</a>.</p>
+  <p><strong>Learn More:</strong> Read about our <a href="/oversight">Independent Oversight</a> initiatives or <a href="/contact">contact us</a> to get involved.</p>
 </div>`,
     charts: [
       'Timeline: "The Road to SB 1507" — Lewis Lock crisis through federal receivership',
@@ -228,9 +227,9 @@ const articles: Article[] = [
 
 <div class="article-cta-section">
   <h3>Accountability Can't Wait</h3>
-  <p>Arizona's lawmakers deserve credit for designing and passing a comprehensive prison oversight framework with SB 1507. But passing a law without funding it is a hollow victory. Every month the ICOO sits empty is another month the state risks expensive lawsuits, unverified contract spending, and preventable institutional crises.</p>
-  <p>An unfunded watchdog is no watchdog at all. For the sake of fiscal responsibility, public safety, and basic human dignity, Arizona cannot wait any longer. The Legislature must fully fund the Independent Correctional Oversight Office.</p>
-  <p><strong>Contact your state legislators.</strong> Find them at <a href="https://www.azleg.gov/" target="_blank" rel="noopener">azleg.gov</a>. Urge them to appropriate the $1.5 million needed to activate the ICOO.</p>
+  <p>Arizona's lawmakers passed a comprehensive prison oversight framework, but an unfunded watchdog is no watchdog at all. For the sake of fiscal responsibility and basic human dignity, the Legislature must fully fund the ICOO.</p>
+  <p><strong>Take Action:</strong> Head to our <a href="/action">Action Center</a> to contact your representatives. Help us sustain this fight by supporting Praxis Initiative through a <a href="/donate">donation</a>.</p>
+  <p><strong>Explore Our Work:</strong> Learn more about our <a href="/policy">Policy & Advocacy</a> work and <a href="/contact">reach out</a> to join the coalition.</p>
 </div>`,
     charts: [
       'Bar chart: $1.5M ICOO budget vs $25M+ Parsons v. Ryan costs',
@@ -259,7 +258,7 @@ const articles: Article[] = [
     category: 'Oversight',
     featured: false,
     image: '/images/coalition-meeting.jpg',
-    images: ['/images/coalition-meeting.jpg', '/images/john-fabricius.jpg', '/images/capitol-night.jpg', '/images/advocacy-speaking.jpg'],
+    images: ['/images/coalition-meeting.jpg', '/images/civic-training.jpg', '/images/advocacy-speaking.jpg', '/images/az-capitol.jpg'],
     excerpt: 'Trace the five-year fight to pass SB 1507 and establish independent oversight of the Arizona Department of Corrections. Learn how coalition building and formerly incarcerated leadership changed state law.',
     seoTitle: 'Independent Oversight of ADCRR | SB 1507 Campaign History | Praxis Initiative',
     seoDescription: 'Trace the five-year fight to pass SB 1507 and establish independent oversight of the ADCRR. Learn how coalition building and formerly incarcerated leadership changed state law.',
@@ -271,9 +270,9 @@ const articles: Article[] = [
     bodyHtml: `
 <p class="article-lede">In early 2019, a small group of advocates sat across from a state lawmaker in a sparse conference room at the Arizona State Capitol. They presented a simple request: allow an external entity to look inside the state's prison system to ensure people were not dying from neglect. The lawmaker leaned back and delivered a common refrain: "The Department of Corrections tells me they handle their problems internally. Why do we need outsiders?"</p>
 <p>Five years later, that same legislature voted to pass Senate Bill 1507. The bill dismantled the Arizona Department of Corrections, Rehabilitation, and Reentry's long-standing practice of investigating itself. It established a statutory framework for independent oversight.</p>
-<p>The distance between that 2019 meeting room and the 2023 legislative victory was not a straight line. It was a grueling, multi-year operation requiring deep research, intense coalition building, strategic setbacks, and a fundamental shift in who was positioned to lead the public conversation. For Praxis Initiative, the fight for SB 1507 represents our core organizational history.</p>
+The distance between that 2019 meeting room and the 2023 legislative victory was not a straight line. It was a grueling, multi-year operation requiring deep research, intense coalition building, strategic setbacks, and a fundamental shift in who was positioned to lead the public conversation. For Praxis Initiative, the fight for SB 1507 represents our core organizational history.</p>
 
-<img src="/images/coalition-meeting.jpg" alt="Coalition partners working together" class="article-full-img" />
+<img src="/images/coalition-meeting.jpg" alt="Praxis Initiative coalition partners collaborating on correctional oversight policy at a conference table" class="article-full-img" />
 
 <h2>The Pre-2019 Vacuum: How Self-Policing Failed</h2>
 <p>For decades, Arizona's prison system relied on an internal affairs model. When an incarcerated person died under suspicious circumstances, when staff used excessive force, or when medical care was denied, ADCRR's own Investigative Operations Unit (IOU) handled the case.</p>
@@ -292,7 +291,7 @@ const articles: Article[] = [
 <p>The campaign's trajectory shifted dramatically in 2020 and 2021 due to two factors: the COVID-19 pandemic and the U.S. Department of Justice. When the pandemic hit ADCRR facilities, the lack of transparency became a public health crisis. In 2020, 314 incarcerated people died in ADCRR custody — a staggering increase from previous years. Then, in November 2021, the DOJ issued its findings: conditions in Arizona's prisons violated the Eighth Amendment, specifically citing excessive force by staff and deliberate indifference to serious medical needs.</p>
 <p>The DOJ findings changed the legislative dynamic. It was no longer just advocates making claims; it was the federal government confirming that Arizona's self-policing model had resulted in unconstitutional, lethal conditions. Lawmakers could no longer credibly claim that the department was handling its problems internally.</p>
 
-<img src="/images/john-fabricius.jpg" alt="John Fabricius, Executive Director of Praxis Initiative" class="article-full-img" />
+<img src="/images/civic-training.jpg" alt="Formerly incarcerated leaders and advocates participating in civic advocacy training and campaign strategy" class="article-full-img" />
 
 <h2>The Strategic Pivot: Formerly Incarcerated Leadership</h2>
 <p>The most significant strategic shift was the elevation of formerly incarcerated leaders to the forefront of the campaign. This was not a symbolic gesture. It was a calculated, necessary response to the failures of standard lobbying.</p>
@@ -302,7 +301,7 @@ const articles: Article[] = [
 <h2>Navigating Institutional and Political Dynamics</h2>
 <p>Armed with DOJ findings and led by those with lived experience, the coalition entered the 2022 and 2023 legislative sessions with renewed leverage. We commissioned research demonstrating that states with independent oversight bodies often save money in the long term. We framed oversight not as a punitive measure against ADCRR, but as a management tool to help the agency improve. We isolated the prison oversight issue from general law enforcement issues, emphasizing that prisons are unique closed environments where individuals are stripped of their liberty.</p>
 
-<img src="/images/advocacy-speaking.jpg" alt="Advocacy speaking engagement" class="article-full-img" />
+<img src="/images/advocacy-speaking.jpg" alt="Advocate testifying at a legislative hearing on criminal justice reform before lawmakers" class="article-full-img" />
 
 <h2>Counterarguments and Rebuttals</h2>
 <p><strong>"We already have internal investigations."</strong> Internal investigations lack statutory independence. The Auditor General conducts financial audits, not real-time investigations into civil rights violations. SB 1507 filled a specific gap.</p>
@@ -313,11 +312,13 @@ const articles: Article[] = [
 <p>In 2023, the strategy culminated in the passage of SB 1507. The bill established a pragmatic, structurally independent office with the authority to receive and investigate complaints, access all ADCRR facilities and records, and publish annual public reports. It passed with bipartisan support. Governor Katie Hobbs signed it into law.</p>
 <p>Passing a law is not the finish line. It is the starting pistol for implementation. The history of criminal legal system reform is littered with strong laws that were hollowed out by resistant bureaucracies during the implementation phase. Praxis Initiative remains committed to ensuring SB 1507 is fully realized.</p>
 
+<img src="/images/az-capitol.jpg" alt="The historic Arizona State Capitol building illuminated at night in Phoenix, where SB 1507 was passed into law" class="article-full-img" />
+
 <div class="article-cta-section">
   <h3>Accountability as an Ongoing Practice</h3>
-  <p>The passage of SB 1507 after five years of sustained advocacy proves that the Arizona criminal legal system is not immune to change. It requires immense effort, strategic coalition building, and the centering of those most directly impacted — but it is possible.</p>
-  <p>The fight is no longer legislative; it is operational. The law is on the books. Now, the state must build the infrastructure to enforce it.</p>
-  <p><strong>Contact your state legislators</strong> and urge them to fully fund the independent oversight office. Support organizations led by formerly incarcerated individuals who monitor implementation.</p>
+  <p>The passage of SB 1507 after five years of sustained advocacy proves that the Arizona criminal legal system is not immune to change. But passing a law is not the finish line.</p>
+  <p><strong>Get Involved:</strong> The fight is now operational. Visit the <a href="/action">Action Center</a> to demand funding. Join our movement by <a href="/contact">contacting our team</a> or making a <a href="/donate">contribution</a>.</p>
+  <p><strong>Our Programs:</strong> Discover how we empower returning citizens through our <a href="/training">Skills Training</a> and <a href="/oversight">Oversight</a> programs.</p>
 </div>`,
     charts: [
       'Line graph: ADCRR in-custody deaths 2015-2023 with 2020-2021 spike',
@@ -405,9 +406,9 @@ const articles: Article[] = [
 
 <div class="article-cta-section">
   <h3>Take Action</h3>
-  <p><strong>Contact your state legislators</strong> and urge them to appropriate funding for the Independent Correctional Oversight Office.</p>
-  <p><strong>Support organizations</strong> like the Praxis Initiative working to bring transparency and accountability to Arizona's prisons.</p>
-  <p><strong>Share this article.</strong> Public awareness is the first step toward change.</p>
+  <p>The Lewis Prison lock disaster was preventable. Oversight — independent, transparent, accountable oversight — ensures that basic safety is not optional.</p>
+  <p><strong>Demand Accountability:</strong> Use our <a href="/action">Action Center</a> to urge legislators to fund independent oversight. Help us prevent future tragedies by <a href="/donate">donating to Praxis Initiative</a>.</p>
+  <p><strong>Learn More:</strong> Read about our <a href="/policy">Systemic Reform</a> efforts or <a href="/contact">contact us</a> if you have a story to share.</p>
 </div>`,
     charts: [
       'Timeline: Arizona prison lock failures 1988-2025 with deaths and investigations',
@@ -489,8 +490,9 @@ const articles: Article[] = [
 
 <div class="article-cta-section">
   <h3>Accountability and the Rule of Law</h3>
-  <p>The right to access the courts is the mechanism by which all other rights are protected. In Arizona, the current system of legal mail handling, digital access, and procedural hurdles creates an environment where the constitutional rights of incarcerated people are routinely compromised. The barriers are not accidental; they are the result of institutional choices that prioritize security and convenience over constitutional compliance.</p>
-  <p>The measure of a justice system is not how it treats the powerful, but how it treats those it has entirely stripped of their liberty. Ensuring meaningful access to the courts for incarcerated people is a fundamental test of Arizona's commitment to the rule of law.</p>
+  <p>The right to access the courts is the mechanism by which all other rights are protected. Ensuring meaningful access to the courts is a fundamental test of Arizona's commitment to the rule of law.</p>
+  <p><strong>Support Legal Access:</strong> Join us in fighting these systemic barriers. Visit our <a href="/action">Action Center</a> to advocate for change, or support our efforts with a <a href="/donate">donation</a>.</p>
+  <p><strong>Get Help:</strong> Check out our <a href="/resources">Resources Hub</a> for advocacy toolkits, or <a href="/contact">contact our team</a> for guidance.</p>
 </div>`,
     charts: [
       'Flowchart: ADCRR Rule 10 grievance process with deadlines and procedural steps',
@@ -570,7 +572,9 @@ const articles: Article[] = [
 
 <div class="article-cta-section">
   <h3>Take Action</h3>
-  <p>It's time to rethink justice in Arizona. Share this article to educate your community. Contact your state legislators to demand an end to mandatory minimums and truth-in-sentencing laws. Support local organizations fighting for evidence-based reentry programs and independent prison oversight.</p>
+  <p>It's time to rethink justice in Arizona. The path forward embraces evidence-based reforms and invests in people rather than prisons.</p>
+  <p><strong>Join the Movement:</strong> Head to the <a href="/action">Action Center</a> to demand an end to truth-in-sentencing laws. Support our community-driven reforms by <a href="/donate">giving to Praxis</a>.</p>
+  <p><strong>Discover Our Programs:</strong> Learn how our <a href="/training">Skills Training</a> and <a href="/arts">Arts in Prison</a> initiatives are building new pathways for returning citizens.</p>
 </div>`,
     charts: [
       'Line chart: Arizona prison population growth 1980-Present vs state population',
@@ -653,9 +657,9 @@ const articles: Article[] = [
 
 <div class="article-cta-section">
   <h3>What You Can Do</h3>
-  <p><strong>For residents:</strong> Attend Judiciary and Appropriations hearings when SB1366 rules are set. Ask if your district's programs are in the December audit.</p>
-  <p><strong>For families:</strong> Request ACIS records to verify program completion is logged.</p>
-  <p><strong>For legislators:</strong> Tie any new private prison funding to earned credit expansion — beds saved offset beds funded.</p>
+  <p>Courtrooms can expose failures, but only the Arizona State Legislature can fund, mandate, or unwind the policies that create them.</p>
+  <p><strong>Advocate for Change:</strong> Visit our <a href="/action">Action Center</a> to find out how to testify at Judiciary and Appropriations hearings. You can sustain our legislative tracking by making a <a href="/donate">donation</a>.</p>
+  <p><strong>Stay Informed:</strong> Review our <a href="/policy">Policy Priorities</a> and <a href="/contact">contact us</a> to join our advocacy network.</p>
 </div>`,
     charts: [
       'Pie chart: ADCRR Budget Breakdown 2026 — 52% operations, 23% health care, 17% private prisons',
@@ -670,6 +674,137 @@ const articles: Article[] = [
       'Jensen v. Shinn federal court findings',
       'DOJ ADA findings & settlement 2023',
       'AZ Auditor General 2024 compliance review',
+    ],
+  },
+
+  {
+    slug: 'independent-oversight-implementation-guide',
+    title: 'Independent Oversight Implementation Guide',
+    headline: 'A Framework for Establishing and Operating Effective Correctional Oversight',
+    subheadline: 'How independent prison oversight brings facts into public view, lowers costs, and prevents constitutional violations.',
+    date: '2026-07-25',
+    category: 'Oversight',
+    featured: false,
+    image: '/images/policy-documents.jpg',
+    images: ['/images/policy-documents.jpg', '/images/capitol-night.jpg'],
+    excerpt: 'An in-depth guide on establishing independent correctional oversight, highlighting best practices, the spectrum of oversight models, and a campaign roadmap for advocates.',
+    seoTitle: 'Independent Oversight Implementation Guide | Praxis Initiative',
+    seoDescription: 'An in-depth guide on establishing independent correctional oversight, highlighting best practices, models, and campaign roadmaps.',
+    pullQuotes: [
+      { quote: 'You should think of oversight the same way you think of maintenance on a fleet vehicle. If you wait for smoke, you already lost money.', attribution: '' },
+      { quote: 'An office without staff is not oversight. It is a promise.', attribution: '' }
+    ],
+    bodyHtml: `
+<p class="article-lede">Prisons are closed institutions. The public pays for them. The Constitution governs them. Yet most people, including lawmakers, rarely see what happens inside. We inspect restaurant kitchens because diners cannot see the freezer, the sink, or the cutting board. Arizona locks more than 35,000 people in state or contracted prisons, spread across 16 facilities, including seven run by private operators, with far less routine public inspection than most industries receive. Independent oversight exists to close that gap. It brings facts into public view, spots danger early, lowers avoidable costs, and gives prison leaders, legislators, families, and people who are incarcerated a way to surface problems before those problems harden into death, injury, scandal, or years of federal litigation.</p>
+<h2>Why oversight matters</h2>
+<p>Transparency is not a public relations project. It is a public safety function. When prisons operate in darkness, harm spreads. Staff work in unsafe places. Families lose contact and trust. Medical neglect goes unseen. Violence gets normalized. Lawmakers end up voting on billion-dollar systems with less real-time information than a county health inspector gets from a surprise visit to a diner. The American Bar Association has urged every level of government to make correctional institutions more transparent and accountable and to create public entities independent of corrections agencies to monitor and report publicly on conditions. Michele Deitch and other oversight scholars have made the same point for years, with special force in Arizona.</p>
+<p>Oversight also saves money. Arizona lawmakers and advocates have argued for years that prison failures drive legal fees, fines, emergency spending, and crisis management costs. Justice Action Network said in 2025 that Arizona had already spent tens of millions of dollars on legal fees tied to federal prison litigation. Independent oversight does not end every lawsuit, and it does not replace management. Still, it helps agencies catch weaknesses early, before judges, monitors, or the press expose them under far worse conditions.</p>
+<p>Arizona offers a plain example. Public reporting in 2019 described broken locks at the Lewis prison complex and state findings later criticized the Department’s slow response. Deitch’s Arizona oversight analysis, drawing on reporting from that period, states that broken cell doors led to serious assaults against staff and people who were incarcerated, including two deaths. The lesson was larger than one complex. When nobody outside the chain of command has routine access, long-running danger stays hidden until it explodes.</p>
+<p>Oversight matters for constitutional compliance as well. Arizona’s prison system has faced long-running federal court intervention over health care, mental health care, and isolation conditions. Court-appointed monitors in Jensen v. Thornell note a permanent injunction entered on April 7, 2023, to address unconstitutional health care and living conditions in maximum custody, detention, or watch. The ACLU’s case summary likewise says the federal court ordered substantial changes so care would meet constitutional standards. Courts matter, but courts are reactive, slow, expensive, and narrow. They address claims after harm has already occurred. Oversight adds something courts do not provide, which is regular, preventive presence.</p>
+<p>You should think of oversight the same way you think of maintenance on a fleet vehicle. If you wait for smoke, you already lost money. If you inspect early, document wear, and fix small failures fast, the engine lasts longer and fewer people end up stranded on the side of the road. Prison oversight works the same way. Good oversight gives the public early warning. It gives agency leaders a factual map of weak points. It gives legislators a basis for targeted fixes instead of panic responses.</p>
+<h2>What effective oversight looks like</h2>
+<p>An oversight office fails when it looks independent on paper but depends on the prison agency for access, staff, money, or permission to speak. The American Bar Association’s 2008 resolution says the monitoring entity should be independent of any correctional agency and should report publicly on conditions. Deitch’s Arizona analysis sharpens the point. She argues for what many practitioners call “golden-key access,” meaning real entry to facilities, records, staff, and people who are incarcerated, without a gatekeeper slowing the work.</p>
+<p>In practice, six elements separate serious oversight from symbolic oversight.</p>
+<p><strong>First, independence.</strong> Arizona’s 2025 law builds part of this foundation. It creates an Independent Correctional Oversight Office, gives the director a five-year term, and limits removal to neglect of duty, misconduct, or inability to perform duties. It also bars appointment of people with recent financial ties to the Department of Corrections. Those are strong starting protections because they reduce direct agency influence over the watchdog.</p>
+<p><strong>Second, unfettered access.</strong> Arizona’s statute gives the office access, in person and with or without prior notice, to all facilities, all areas used by people who are incarcerated, and staff, contractors, and other people for interviews. It also gives the office access to copy relevant records and sets deadlines of 20 business days for ordinary requests and five days for urgent matters involving death, threats of bodily harm, assault, or denial of needed medical treatment. Washington’s statute goes even further in some respects by expressly authorizing private and confidential communication, photography, and video recording during inspections.</p>
+<p><strong>Third, protected communication.</strong> If people fear retaliation, they stop reporting. Arizona’s law requires confidentiality rules and protects complainant identity to the greatest extent practicable. Washington’s law expressly protects confidential communications and includes a section on retaliatory actions. New Jersey’s office describes its own statute as protecting confidential communications and prohibiting retaliation for working with the office. Those features are not window dressing. They are the core of complaint-based oversight. Without them, the mailbox stays empty while the danger stays full.</p>
+<p><strong>Fourth, public reporting.</strong> Oversight has little value if findings die in a drawer. Arizona’s law requires an annual public-facing report with office budget and spending, numbers of complaints received and resolved, major investigations, deaths in custody, suicide attempts, hospital trips, and fatal and nonfatal overdoses. The American Bar Association standards strongly support this approach because public response and public reporting reduce the risk that inspection findings get ignored. HM Inspectorate of Prisons in England and Wales follows the same logic. It publishes reports, identifies priority concerns, and expects an action plan after publication.</p>
+<p><strong>Fifth, adequate funding and staffing.</strong> An office without staff is not oversight. It is a promise. Arizona’s office existed without any employees or budget appropriation as of October 2025, and local reporting in 2026 said the office still had no staff, office, or operating budget. By contrast, New Jersey’s Ombudsperson Office had a fiscal year 2025 budget of $2.806 million, with most of its budget dedicated to staff salaries, and detailed teams for field work, systemic monitoring, outside engagement, and call support. Washington’s office likewise operates under a statute built for full-time activity, not volunteer work.</p>
+<p><strong>Sixth, response without capture.</strong> Oversight offices need working relationships with wardens, line staff, health staff, and central office leaders. They also need distance. Regulatory capture is what happens when a watchdog starts seeing the system through the agency’s eyes, softens criticism to preserve access, and begins to protect the institution from scrutiny instead of protecting the public interest. Oversight offices should share draft factual sections for accuracy checks and hold regular meetings with prison leaders. They should not let prison leaders edit conclusions, choose inspection dates, block interview subjects, or dictate publication timing. Deitch warns against turning oversight into “supra-management,” and HMIP’s practice shows a better line. Inspectors report concerns publicly, then leaders respond through action plans.</p>
+<h2>The spectrum of oversight models</h2>
+<p>No single design fits every state. The best model depends on political culture, prison size, legal structure, and the level of public trust already in place. Still, most models fall on a spectrum.</p>
+<p><strong>The inspectorate model</strong> is built around routine, independent inspections. England and Wales offer the clearest example. HM Inspectorate of Prisons is an independent inspectorate led by the Chief Inspector of Prisons. It conducts mostly full, unannounced inspections, reports publicly, and expects action plans after publication. Inspections use observation, document review, and interviews with detainees, staff, and outside groups, including private and confidential conversations with people in custody. This model is strong when a state wants a disciplined inspection cycle, public scoring, and visible follow-through. It is less centered on resolving large volumes of individual complaints one by one.</p>
+<p><strong>The ombuds model</strong> combines complaint investigation with systemic monitoring. Washington’s Office of the Corrections Ombuds is a strong American example. State law gives the ombuds access to facilities, people, and records, private and confidential communication with people who are incarcerated, and short deadlines for urgent records tied to death, assault, or denial of medical care. The chapter also includes confidentiality rules and a provision on retaliatory actions. This model works well in states where families, legislators, and people inside need a place to bring concrete complaints while the office also studies patterns across facilities.</p>
+<p>New Jersey also uses an ombuds model, with broader public-facing infrastructure than many states. The Office calls itself an independent set of eyes and ears for the public. It says its statute gives “golden-key access” to facilities, people, and records and prohibits retaliation for working with the office. In fiscal year 2025, it received more than 13,000 contacts from people who are incarcerated and their loved ones. In its 2024 annual report, the office said staff were on site in state prisons 995 times in one year, averaging roughly four staff members in prison each weekday. That mix of complaint intake, repeated field presence, inspection reports, and annual public reports makes New Jersey a useful model for states that want a high-contact office with visible public credibility.</p>
+<p><strong>Monitoring bodies</strong> sit somewhat differently on the spectrum. Pennsylvania’s Prison Society describes itself as the only independent oversight body with statutory access for Pennsylvania’s prisons and jails. It reports direct work inside all 85 state and county facilities through trained volunteers, case-by-case issue resolution, walkthroughs, and public reports. This model shows what long-term civic monitoring looks like when a state supports outside eyes with access but not always full state-office structure. It brings breadth and community involvement. It may have less coercive leverage than a statutory ombuds office housed within government, but it often reaches people and families who distrust state agencies.</p>
+<p><strong>Legislative oversight committees</strong> are another model. They hold hearings, request data, issue staff reports, and use budget power. They matter. But on their own, they often struggle with continuity. Members change. Session calendars are short. Committees rarely visit prisons often enough to build a real-time picture of conditions. Arizona’s 2023 Independent Prison Oversight Commission showed both the value and the limit of this approach. Governor Hobbs created it by executive order to inspect prisons, review records, and issue recommendations. Yet the National Resource Center for Correctional Oversight notes the commission had no budget and no staff. That made it useful as a bridge and weak as a lasting implementation model.</p>
+<p><strong>Hybrid models</strong> mix pieces from all of the above. Arizona’s 2025 law is a hybrid leaning toward an ombuds office with inspection duties. It requires complaint intake, data collection, biennial inspections of each correctional facility, quarterly stakeholder meetings, and annual reporting. Hybrids often work best in politically divided states because they let sponsors combine values that appeal across party lines. Conservatives see government accountability, staff safety, and cost control. Civil rights advocates see constitutional visibility, family access, and harm prevention. The design question is not which label sounds best. The design question is which powers will still matter after the next budget fight.</p>
+<h2>Arizona’s path from crisis to statute</h2>
+<p>Arizona did not wake up one morning and decide to create oversight. It got there through years of scandal, organizing, failed bills, public education, executive action, and bipartisan legislative work. Deitch’s Arizona paper, published in 2021, argued for permanent independent oversight and pointed lawmakers toward a model built from then-pending Arizona legislation and lessons from Washington and New Jersey. By January 2023, Governor Katie Hobbs created an Independent Prison Oversight Commission by executive order to improve transparency and accountability and to issue findings and recommendations. That commission marked progress, but it also proved the limit of temporary structures. It had no budget and no staff.</p>
+<p>The durable win came in 2025. Justice Action Network said Arizona lawmakers overwhelmingly approved SB 1507 on June 27, 2025, after years of advocacy and broad bipartisan support. The law created an Independent Correctional Oversight Office in the executive branch with a governor-appointed director, cause-based removal protections, statutory access, complaint channels, inspection duties, and yearly reporting requirements.</p>
+<p>The coalition mattered. Justice Action Network publicly credited work with Senator Shawnna Bolick, Representative Walt Blackman, Praxis Initiative, FAMM, and Dream.org. FAMM’s broader prison oversight work has also highlighted bipartisan backing from conservative and reform groups in other jurisdictions. Arizona’s public record shows a campaign built on cross-ideological language, with sponsors calling the bill a transparency, public safety, and government efficiency measure. That framing helped the bill travel across committee rooms where moral arguments alone would not have carried it.</p>
+<p>Arizona’s next lesson is harder. Passing a bill is not the same as building an office. By late 2025, the National Resource Center for Correctional Oversight reported no budget appropriation and no employees for the new office. Arizona Capitol Times later reported that lawmakers introduced identical bills, HB 2063 and SB 1032, to provide $1.5 million for start-up costs, but funding still failed in the next budget cycle. Local reporting in 2026 described the office as existing on paper only. This is the warning other states should study closely. If you split authorizing language from operating money, the second fight often proves harder than the first.</p>
+<h2>Standing up an office and keeping it alive</h2>
+<p>The first year of implementation should focus on building a machine simple enough to work and strong enough to last. Start with staffing. At minimum, a serious statewide office needs a director, an investigations lead, an inspections or monitoring lead, an intake and data manager, administrative support, and at least one person dedicated to family communication and outside engagement. If the prison system faces major health care concerns, add clinical expertise early, whether through staff or contracted review. New Jersey’s structure offers a useful benchmark. Its office separates field work, systemic monitoring, outside engagement, and call support. Arizona’s statute already assigns all of those functions in substance, even if the office has not yet received funds to perform them.</p>
+<p>Budgeting should match the model. A commission with light staffing will cost far less than a full ombuds office. Recent examples show the range. New Jersey’s Ombudsperson Office received $2.806 million for fiscal year 2025. Arizona lawmakers later proposed $1.5 million to launch their office. Hawaii’s correctional oversight commission profile listed a much smaller fiscal year 2025 budget of $462,134 for a different commission-style structure. Those numbers do not offer a universal formula, but they do show one truth. A statewide office with hotline intake, inspections, records review, data analysis, and public reporting needs dedicated personnel and recurring funds. It will not run on volunteer energy alone.</p>
+<p>The first-year work plan should stay tight. Build the complaint system first. Arizona law already requires a secure telephone hotline and secure online complaint forms for department employees, contractors, people who are incarcerated, and family members. New Jersey’s experience shows why multi-channel access matters. Its office pairs phone lines with in-person meetings, on-site mailboxes, legal mail, and regular prison visits. Intake rules should sort complaints into three lanes on day one: urgent safety and medical issues, individual complaints needing quick fixes, and systemic matters pointing to patterns.</p>
+<p>Then establish inspection protocols. A good protocol sets who attends, what records get reviewed, how private interviews happen, how urgent concerns move up the chain, and how findings become public reports. HM Inspectorate of Prisons offers a strong inspection discipline. It combines observation, private interviews, document review, and post-report action plans. Washington’s law shows the minimum access powers needed for this work, including private meetings, photographs, video, and urgent records access. Arizona should use a risk-based cycle, keep authority for unannounced visits, and complete baseline inspections of every facility before narrowing toward high-risk sites.</p>
+<h2>A campaign roadmap for advocates in other states</h2>
+<p>Start with the problem file. Build a public record of avoidable harm, staff shortages, health failures, deaths, assaults, litigation, and audit gaps. Use court records, inspector general findings, budget hearings, press reporting, and family testimony. In Arizona, advocates had years of material, from Lewis to Jensen to the governor’s own oversight commission. A campaign without a problem file turns into a debate over ideology. A campaign with a problem file turns into a debate over management.</p>
+<p>Choose your model early. Decide whether your state needs an inspectorate, an ombuds office, a civic monitoring body, or a hybrid. If families and people inside have no trusted place to bring complaints, lean toward an ombuds design. If your state already has a strong complaint system but weak routine inspection, lean toward an inspectorate. If politics will only support an incremental start, a hybrid with inspections, complaints, and annual reporting often makes the best opening move.</p>
+<p>Draft the powers before you draft the talking points. Put independence, access, confidentiality, urgent records deadlines, anti-retaliation, public reports, and funding into bill text. The American Bar Association’s 2008 resolution and Deitch’s Arizona guidance remain strong starting points.</p>
+<p>Keep directly impacted people at the center of design. They know where systems hide failure. They know which complaint channels are dead ends. They know why families stop reporting. Their experience sharpens statutory language. It also keeps oversight from drifting into abstract management reform with no human anchor.</p>
+<div class="article-cta-section">
+  <h3>Take Action</h3>
+  <p>Oversight works best when families, returning citizens, lawyers, and researchers push in the same direction, toward sunlight, facts, and a prison system the public is willing to see.</p>
+  <p><strong>Build the Coalition:</strong> Visit our <a href="/action">Action Center</a> to join the fight for implementation. Help us maintain pressure by <a href="/donate">supporting Praxis</a>.</p>
+  <p><strong>Access Resources:</strong> Explore our <a href="/resources">Resources Hub</a> for implementation guides, and <a href="/oversight">learn more about our oversight campaigns</a>.</p>
+</div>
+`,
+    charts: [],
+    citations: [
+      'National Resource Center for Correctional Oversight (prisonoversight.org)',
+      'American Bar Association Resolution on Oversight 104b',
+      'HM Inspectorate of Prisons for England and Wales',
+      'New Jersey Office of the Corrections Ombudsperson Annual Report 2024'
+    ],
+  },
+  {
+    slug: 'arizona-prisons-conditions-report',
+    title: 'Inside Arizona\'s Prisons: A Conditions Report',
+    headline: 'Inside Arizona\'s Prisons: A Conditions Report',
+    subheadline: 'A comprehensive look at health care, extreme heat, understaffing, and the grievance system within ADCRR facilities.',
+    date: '2026-08-16',
+    category: 'Report',
+    featured: false,
+    image: '/images/arizona-landscape.jpg',
+    images: ['/images/arizona-landscape.jpg', '/images/family-impact.jpg'],
+    excerpt: 'This report draws on firsthand accounts and federal litigation to describe what people face inside Arizona prisons regarding health care, heat, staffing, and solitary confinement.',
+    seoTitle: 'Inside Arizona Prisons: A Conditions Report | Praxis Initiative',
+    seoDescription: 'Firsthand accounts and federal litigation document the daily reality inside Arizona prisons, covering healthcare, heat, and solitary confinement.',
+    pullQuotes: [
+      { quote: 'Closed institutions do not produce honest records on their own.', attribution: '' },
+      { quote: 'A lock is more than hardware. It decides whether a person sleeps, uses a toilet, or avoids an assault. When locks fail, the agency loses basic control of safety.', attribution: '' }
+    ],
+    bodyHtml: `
+<p class="article-lede">Arizona prisons hold more than 34,500 people behind walls and fences most Arizonans never see. No cameras go inside. No public inspections happen without warning. The only record of daily life comes from the people who live and work there. This report collects those records. It draws on firsthand accounts from currently and formerly incarcerated people, reports from families, filings and findings from the Jensen v. Thornell federal case, and official agency documents. It describes what people inside face in health care, housing, heat, staffing, mental health care, food, cost, and the grievance process.</p>
+<h2>Why This Report Exists</h2>
+<p>Closed institutions do not produce honest records on their own. Arizona Department of Corrections, Rehabilitation and Reentry (ADCRR) runs ten state prisons and contracts with private operators for additional beds. Each prison holds multiple units. Some units sit far from a city. Public access stops at the parking lot.</p>
+<p>Inside, life runs on paper forms. A person who needs a doctor files a Health Needs Request. A person who needs help with a broken toilet files a grievance. A person who fears for safety files an Informal Complaint. These papers go to staff employed by the same agency named in the complaint. No outside office tracks whether the form gets an answer. No outside office checks whether the answer matches reality.</p>
+<p>Public records requests face delay, denial, and heavy redaction. Family phone calls to administration go unreturned. Press requests for tours get controlled routes and staged views.</p>
+<p>Firsthand accounts fill this gap. People who served time inside Arizona prisons know where water leaks, where air fails, where medicine stops, where locks break. Their memories hold detail no press release includes. When many people, in different prisons, at different times, describe the same pattern, you see a system at work, not a single bad day.</p>
+<h2>Healthcare: The Jensen Litigation and Daily Reality</h2>
+<p>Arizona prison health care has a long history in federal court. In 2012, people incarcerated in ADCRR filed Parsons v. Ryan. The suit alleged unconstitutional denial of medical, dental, and mental health care. A class action followed. In 2015, ADCRR settled and agreed to meet over 100 performance measures for care. For years, the court found ADCRR out of compliance.</p>
+<p>Judges described delays leading to permanent injury and death. Experts documented cancer going untreated, infections left to spread, and people with diabetes denied insulin. The court held ADCRR in contempt.</p>
+<p>In 2022, the parties entered a new agreement, now called the Jensen v. Thornell consent decree after the lead plaintiff and the current ADCRR director. Under the decree, an outside monitor and medical experts inspect care. They issue public reports. The court retains power to enforce.</p>
+<p><strong>Sick call.</strong> To see a provider, a person submits a Health Needs Request, called an HNR. Accounts describe HNRs going unanswered for weeks. Some people file three or four HNRs for the same issue before getting seen. When seen, the visit lasts minutes. Providers rotate often. Continuity breaks.</p>
+<p><strong>Chronic care.</strong> People with asthma, diabetes, hypertension, hepatitis C, and heart disease need regular labs, refills, and follow up. Accounts describe missed labs, expired prescriptions, and refills arriving days after medication runs out. One returning citizen described going 11 days without blood pressure medication after a transfer between units.</p>
+<p><strong>Emergency response.</strong> Accounts describe long waits after pushing an emergency button. In some units, people bang on doors to get officers to call medical staff. Officers then wait for medical staff to arrive from another complex. Night shifts bring the longest delays.</p>
+<h2>Physical Plant and Safety: Buildings, Locks, and Heat</h2>
+<p>Many ADCRR facilities opened decades ago. Florence, Eyman, Perryville, and Douglas include buildings from the 1970s and 1980s. Plumbing fails. Roofs leak. Electrical systems strain under extra load. Maintenance backlogs grow.</p>
+<p>In 2019, reporting revealed broken locks at Lewis prison. Cell doors failed to lock. Some doors opened when hit or pushed. People slept in cells they could not secure. Officers could not secure yards. Violence rose. Broken locks were not isolated to Lewis. Accounts from other complexes describe similar problems at different times. A lock fails, a work order goes in, staff wedge a door or add a padlock, months pass. A lock is more than hardware. It decides whether a person sleeps, uses a toilet, or avoids an assault. When locks fail, the agency loses basic control of safety.</p>
+<p><strong>Extreme Heat.</strong> Most Arizona prison housing units lack air conditioning. Coolers or swamp cooling units lower temperature a few degrees, but interior heat often rises above 100 degrees in summer. Metal bunks hold heat. Concrete radiates it. Heat harms everyone. It harms people on psychiatric medications more. Many psychotropic drugs reduce the body's ability to regulate temperature. People taking these drugs face higher risk of heat stroke, fainting, and heart stress. They often lack access to cool water or shade. Accounts describe limited ice, warm drinking water from taps, and windows with no airflow. People soak shirts in toilet water to stay cool.</p>
+<h2>Staffing: Vacancy, Overtime, and Harm on Both Sides</h2>
+<p>ADCRR reports high vacancy rates for correctional officers. Precise numbers shift by month and complex. Legislative hearings in 2023 and 2024 put statewide officer vacancy near 20 to 30 percent, with some rural complexes higher. To cover empty posts, officers work mandatory overtime, often 16-hour shifts. Some work six or seven days in a row. Fatigue grows. Tempers shorten. Training time shrinks.</p>
+<p>Understaffing harms people who are incarcerated and officers alike. For incarcerated people, fewer officers means slower response to emergencies, more lockdown time, less access to programs, and more time locked in cells. For officers, fewer staff means less backup in a fight, less time for training, and less chance to build professional relationships with people on their units. Morale drops. Turnover rises. The cycle repeats.</p>
+<h2>Mental Health and Solitary Confinement</h2>
+<p>ADCRR uses several forms of restrictive housing. Names change, but patterns hold. Detention, restrictive status housing, maximum custody, and mental health watch units all hold people in cells 22 to 24 hours a day. Court records and monitor reports describe people with serious mental illness spending months or years in these conditions. Cells often have little natural light. Conversation comes through vents or under doors. Out-of-cell time gets canceled when staffing falls short.</p>
+<p>Restrictive housing worsens mental illness. Isolation raises anxiety, depression, and psychosis. It increases self-harm. When people leave restrictive housing directly to the community without step-down support, outcomes get worse, including overdose and suicide risk. Accounts describe a loop: a person with untreated mental illness acts out, staff write a disciplinary, the person moves to detention, mental health access drops, symptoms worsen, another disciplinary follows.</p>
+<h2>The Grievance System: How Complaints Work on Paper and Fail in Practice</h2>
+<p>On paper, ADCRR has a multi-step grievance system. A person files an Informal Complaint, then a Formal Grievance, then an Appeal to the director. Policy sets deadlines for responses. In practice, accounts describe a different system. Grievances disappear. Papers get returned for technical reasons: wrong form, wrong date, extra page. A person files again and misses the deadline because of the first delay. Staff screen grievances before they reach a supervisor.</p>
+<p>Retaliation fears run strong. People describe losing jobs, getting moved to a worse unit, or facing a disciplinary after filing a grievance. Whether each account meets legal proof of retaliation, fear alone silences complaints. No outside office tracked grievances before 2025. ADCRR investigated itself. Data on outcomes rarely reached the public. Patterns stayed hidden.</p>
+<div class="article-cta-section">
+  <h3>What Changes Now</h3>
+  <p>Oversight works only if people use it. Independent oversight exists now because Arizonans refused to accept closed doors as final.</p>
+  <p><strong>Report Conditions:</strong> If you or a loved one face medical neglect or unsafe conditions, <a href="/contact">contact Praxis Initiative</a>. We document conditions and connect families to <a href="/resources">resources</a>.</p>
+  <p><strong>Support the Work:</strong> Help us continue to expose system failures by taking action at our <a href="/action">Action Center</a> or by making a <a href="/donate">donation</a> today.</p>
+</div>
+`,
+    charts: [],
+    citations: [
+      'Jensen v. Thornell (formerly Parsons v. Ryan) federal court findings and monitor reports',
+      'ADCRR vacancy data and JLBC staffing reports',
+      'Firsthand accounts from currently and formerly incarcerated individuals'
     ],
   },
 ];

@@ -95,7 +95,7 @@ export default function ArtsPage() {
           {/* Why Arts Matter */}
           <div className="reveal-up" style={{ marginBottom: '80px' }}>
             <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '60px', alignItems: 'center' }} className="arts-grid">
-              <img src="/images/arts-music.jpg" alt="Music education in prison" loading="lazy" style={{ width: '100%', aspectRatio: '16/10', objectFit: 'cover', borderRadius: '4px' }} />
+              <img src="/images/arts-painting-instructor.png" alt="Incarcerated women participating in painting and fine arts class with instructor" loading="lazy" style={{ width: '100%', aspectRatio: '16/10', objectFit: 'cover', borderRadius: '4px' }} />
               <div>
                 <h2 className="font-serif-display" style={{ fontSize: 'clamp(24px, 3vw, 36px)', fontWeight: 300, color: '#ffffff', marginBottom: '20px' }}>Why Arts Inside Matter</h2>
                 <p className="font-sans-body" style={{ fontSize: '15px', lineHeight: 1.9, color: 'rgba(255,255,255,0.75)', marginBottom: '20px' }}>
@@ -153,7 +153,7 @@ export default function ArtsPage() {
                 border: '1px solid rgba(91,60,136,0.12)',
               }}
             >
-              <img src="/images/music-theory.jpg" alt="Music Theory Initiative" loading="lazy" style={{ width: '100%', aspectRatio: '16/10', objectFit: 'cover', borderRadius: '4px' }} />
+              <img src="/images/arts-band-rehearsing.png" alt="Incarcerated men music band rehearsing in correctional music room" loading="lazy" style={{ width: '100%', aspectRatio: '16/10', objectFit: 'cover', borderRadius: '4px' }} />
               <div>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '20px' }}>
                   <Music size={28} style={{ color: '#B088D8' }} />

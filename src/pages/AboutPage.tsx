@@ -42,10 +42,30 @@ export default function AboutPage() {
   ];
 
   const team = [
-    { name: 'J Alexandria Hunt-Garcia', role: 'Community health, drug policy, and system-change leadership' },
-    { name: 'Jessica Johnson', role: 'Legislative reform and capital mitigation experience' },
-    { name: 'Mindi Kraicinski', role: 'Retired corrections officer providing operational insight' },
-    { name: 'Sherri Skates', role: 'Community organizing and family-impact storytelling' },
+    {
+      name: 'J Alexandria Hunt-Garcia',
+      role: 'Director of Community Health & Harm Reduction',
+      image: '/images/team-alex.png',
+      bio: "J Alexandria Hunt-Garcia leads Praxis Initiative's community health, overdose prevention, and drug policy reform initiatives. With deep expertise in harm reduction, health equity, and grassroots advocacy, Alex centers the dignity and wellness of system-impacted individuals, bridging frontline public health interventions with statewide policy reform across Arizona.",
+    },
+    {
+      name: 'Jessica Johnson',
+      role: 'Policy Director',
+      image: '/images/team-jessica.png',
+      bio: "Jessica Johnson is the Policy Director at Praxis Initiative, specializing in statutory analysis, sentencing reform, and capital mitigation. Having served eight years inside the Perryville women's prison complex, Jessica brings profound lived experience and legal expertise to policy strategy. She was a pivotal leader in the campaign to pass SB 1507 establishing independent prison oversight in Arizona.",
+    },
+    {
+      name: 'Mindi Kraicinski',
+      role: 'Corrections Operations & Facility Oversight Specialist',
+      image: '/images/team-mindi.webp',
+      bio: 'Mindi Kraicinski brings over two decades of frontline operational insight as a retired corrections officer within the Arizona prison system. Mindi provides critical expertise regarding facility protocols, staffing realities, and institutional accountability standards, bridging internal correctional dynamics with independent external oversight.',
+    },
+    {
+      name: 'Sherri Scates',
+      role: 'Community Organizing & Family Advocacy Coordinator',
+      image: '/images/team-sherri.png',
+      bio: 'Sherri Scates coordinates community organizing, family engagement, and strategic narrative advocacy for Praxis Initiative. Rooted in her dedication to families impacted by the justice system, Sherri organizes community forums, supports families navigating ADCRR bureaucracy, and empowers impacted people to advocate directly before lawmakers.',
+    },
   ];
 
   return (
@@ -104,11 +124,37 @@ export default function AboutPage() {
 
           <div className="reveal-up" style={{ marginBottom: '100px' }}>
             <h2 className="font-serif-display" style={{ fontSize: 'clamp(24px, 3vw, 36px)', fontWeight: 300, color: '#ffffff', marginBottom: '40px' }}>Our Team</h2>
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '24px' }}>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '32px' }}>
               {team.map((member) => (
-                <div key={member.name} style={{ padding: '28px', background: 'rgba(255,255,255,0.12)', border: '1px solid rgba(255,255,255,0.15)', borderRadius: '4px' }}>
-                  <h3 className="font-serif-display" style={{ fontSize: '17px', fontWeight: 400, color: '#ffffff', marginBottom: '8px' }}>{member.name}</h3>
-                  <p className="font-sans-body" style={{ fontSize: '13px', lineHeight: 1.6, color: 'rgba(255,255,255,0.55)' }}>{member.role}</p>
+                <div
+                  key={member.name}
+                  style={{
+                    padding: '32px',
+                    background: 'rgba(255,255,255,0.06)',
+                    border: '1px solid rgba(255,255,255,0.12)',
+                    borderRadius: '8px',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    justifyContent: 'space-between',
+                  }}
+                >
+                  <div>
+                    <div style={{ marginBottom: '20px', borderRadius: '6px', overflow: 'hidden', border: '1px solid rgba(255,255,255,0.15)', maxHeight: '340px' }}>
+                      <img
+                        src={member.image}
+                        alt={member.name}
+                        loading="lazy"
+                        style={{ width: '100%', height: '320px', objectFit: 'cover', objectPosition: 'top center', display: 'block' }}
+                      />
+                    </div>
+                    <h3 className="font-serif-display" style={{ fontSize: '20px', fontWeight: 400, color: '#ffffff', marginBottom: '6px' }}>{member.name}</h3>
+                    <p className="font-mono-data" style={{ fontSize: '11px', letterSpacing: '0.12em', color: '#008C8C', textTransform: 'uppercase', marginBottom: '16px' }}>
+                      {member.role}
+                    </p>
+                    <p className="font-sans-body" style={{ fontSize: '14px', lineHeight: 1.8, color: 'rgba(255,255,255,0.72)' }}>
+                      {member.bio}
+                    </p>
+                  </div>
                 </div>
               ))}
             </div>

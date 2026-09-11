@@ -8,10 +8,12 @@ const NAV_LINKS = [
   { label: 'Partners', path: '/partners' },
   { label: 'Oversight', path: '/oversight' },
   { label: 'Policy', path: '/policy' },
+  { label: 'Neurodivergence', path: '/neurodivergence' },
   { label: 'Training', path: '/training' },
   { label: 'Arts', path: '/arts' },
   { label: 'Resources', path: '/resources' },
   { label: 'News', path: '/news' },
+  { label: 'Events', path: '/events' },
   { label: 'Contact', path: '/contact' },
 ];
 
@@ -120,6 +122,9 @@ export default function Navigation() {
           to="/"
           className="font-serif-display"
           style={{
+            display: 'flex',
+            alignItems: 'center',
+            gap: '10px',
             fontSize: '16px',
             fontWeight: 400,
             letterSpacing: '0.15em',
@@ -130,6 +135,11 @@ export default function Navigation() {
             transition: 'text-shadow 0.5s ease',
           }}
         >
+          <img
+            src="/images/praxis-logo-round.png"
+            alt="Praxis Initiative Logo"
+            style={{ width: '28px', height: '28px', objectFit: 'contain' }}
+          />
           PRAXIS INITIATIVE
         </Link>
 

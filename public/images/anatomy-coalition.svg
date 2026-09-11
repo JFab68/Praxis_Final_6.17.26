@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 750" width="1200" height="750">
+  <defs>
+    <linearGradient id="bg-coalition" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0A1118"/>
+      <stop offset="100%" stop-color="#050A0F"/>
+    </linearGradient>
+    <linearGradient id="table-grad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#1A2B3C"/>
+      <stop offset="100%" stop-color="#0F1B28"/>
+    </linearGradient>
+    <radialGradient id="glow-coalition" cx="50%" cy="40%" r="60%">
+      <stop offset="0%" stop-color="#008C8C" stop-opacity="0.18"/>
+      <stop offset="100%" stop-color="#008C8C" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1200" height="750" fill="url(#bg-coalition)"/>
+  <circle cx="600" cy="300" r="320" fill="url(#glow-coalition)"/>
+  
+  <!-- Table -->
+  <ellipse cx="600" cy="520" rx="420" ry="110" fill="url(#table-grad)" stroke="rgba(255,255,255,0.08)" stroke-width="2"/>
+  <ellipse cx="600" cy="510" rx="400" ry="100" fill="none" stroke="#008C8C" stroke-opacity="0.25" stroke-width="2"/>
+  
+  <!-- Figures -->
+  <g opacity="0.9">
+    <!-- Left figure -->
+    <circle cx="260" cy="360" r="42" fill="#B088D8" opacity="0.85"/>
+    <path d="M220 480 Q260 430 300 480 L300 560 L220 560 Z" fill="#1F2933"/>
+    
+    <!-- Center-left figure -->
+    <circle cx="430" cy="330" r="46" fill="#008C8C" opacity="0.9"/>
+    <path d="M385 460 Q430 405 475 460 L475 560 L385 560 Z" fill="#1F2933"/>
+    
+    <!-- Center-right figure -->
+    <circle cx="770" cy="330" r="46" fill="#008C8C" opacity="0.9"/>
+    <path d="M725 460 Q770 405 815 460 L815 560 L725 560 Z" fill="#1F2933"/>
+    
+    <!-- Right figure -->
+    <circle cx="940" cy="360" r="42" fill="#B088D8" opacity="0.85"/>
+    <path d="M900 480 Q940 430 980 480 L980 560 L900 560 Z" fill="#1F2933"/>
+    
+    <!-- Center figure (slightly forward) -->
+    <circle cx="600" cy="300" r="50" fill="#E05555" opacity="0.9"/>
+    <path d="M550 440 Q600 380 650 440 L650 560 L550 560 Z" fill="#1F2933"/>
+  </g>
+  
+  <!-- Documents / hands -->
+  <rect x="360" y="500" width="80" height="50" rx="3" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.12)"/>
+  <rect x="760" y="500" width="80" height="50" rx="3" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.12)"/>
+  <rect x="560" y="490" width="80" height="55" rx="3" fill="rgba(0,140,140,0.12)" stroke="#008C8C" stroke-opacity="0.3"/>
+  
+  <!-- Connecting lines suggesting collaboration -->
+  <path d="M260 360 Q430 300 600 300" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="2" stroke-dasharray="8 8"/>
+  <path d="M940 360 Q770 300 600 300" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="2" stroke-dasharray="8 8"/>
+  
+  <!-- Stars -->
+  <circle cx="120" cy="120" r="2" fill="rgba(255,255,255,0.4)"/>
+  <circle cx="180" cy="80" r="1.5" fill="rgba(255,255,255,0.3)"/>
+  <circle cx="1050" cy="100" r="2" fill="rgba(255,255,255,0.4)"/>
+  <circle cx="1120" cy="160" r="1.5" fill="rgba(255,255,255,0.3)"/>
+  <circle cx="980" cy="60" r="1" fill="rgba(255,255,255,0.25)"/>
+</svg>

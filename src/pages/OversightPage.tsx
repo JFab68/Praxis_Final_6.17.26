@@ -171,15 +171,27 @@ export default function OversightPage() {
 
           {/* Why Funding Matters */}
           <div className="reveal-up" style={{ marginBottom: '80px', padding: '48px', background: 'rgba(0,140,140,0.06)', borderRadius: '8px', borderLeft: '3px solid #008C8C' }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '20px' }}>
-              <DollarSign size={24} style={{ color: '#008C8C' }} />
-              <h2 className="font-serif-display" style={{ fontSize: 'clamp(24px, 3vw, 36px)', fontWeight: 300, color: '#ffffff' }}>Why Funding Matters</h2>
+            <div style={{ display: 'grid', gridTemplateColumns: '1.2fr 1fr', gap: '40px', alignItems: 'center' }} className="funding-grid">
+              <div>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '20px' }}>
+                  <DollarSign size={24} style={{ color: '#008C8C' }} />
+                  <h2 className="font-serif-display" style={{ fontSize: 'clamp(24px, 3vw, 36px)', fontWeight: 300, color: '#ffffff' }}>Why Funding Matters</h2>
+                </div>
+                <p className="font-sans-body" style={{ fontSize: '16px', lineHeight: 1.9, color: 'rgba(255,255,255,0.8)' }}>
+                  Creating an office on paper is not enough. Without funding, staffing, authority, reporting
+                  infrastructure, and public access, oversight becomes symbolic. Praxis is working to ensure
+                  Arizona funds and implements a real office, not a hollow title.
+                </p>
+              </div>
+              <div style={{ borderRadius: '6px', overflow: 'hidden', border: '1px solid rgba(255,255,255,0.15)' }}>
+                <img
+                  src="/images/oversight-office-diagram.png"
+                  alt="Independent Correctional Oversight Office statutory implementation diagram"
+                  loading="lazy"
+                  style={{ width: '100%', height: 'auto', display: 'block' }}
+                />
+              </div>
             </div>
-            <p className="font-sans-body" style={{ fontSize: '16px', lineHeight: 1.9, color: 'rgba(255,255,255,0.8)' }}>
-              Creating an office on paper is not enough. Without funding, staffing, authority, reporting
-              infrastructure, and public access, oversight becomes symbolic. Praxis is working to ensure
-              Arizona funds and implements a real office, not a hollow title.
-            </p>
           </div>
 
           {/* Cost Comparison */}
@@ -219,6 +231,15 @@ export default function OversightPage() {
           </div>
         </div>
       </section>
+
+      <style>{`
+        @media (max-width: 768px) {
+          .funding-grid {
+            grid-template-columns: 1fr !important;
+            gap: 24px !important;
+          }
+        }
+      `}</style>
     </div>
   );
 }

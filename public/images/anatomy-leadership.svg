@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 750" width="1200" height="750">
+  <defs>
+    <linearGradient id="bg-leader" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0A1118"/>
+      <stop offset="100%" stop-color="#050A0F"/>
+    </linearGradient>
+    <linearGradient id="podium-grad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#1A2B3C"/>
+      <stop offset="100%" stop-color="#0F1B28"/>
+    </linearGradient>
+    <radialGradient id="glow-leader" cx="50%" cy="35%" r="55%">
+      <stop offset="0%" stop-color="#B088D8" stop-opacity="0.16"/>
+      <stop offset="100%" stop-color="#B088D8" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1200" height="750" fill="url(#bg-leader)"/>
+  <circle cx="600" cy="280" r="300" fill="url(#glow-leader)"/>
+  
+  <!-- Podium -->
+  <rect x="420" y="520" width="360" height="160" rx="6" fill="url(#podium-grad)" stroke="rgba(255,255,255,0.08)" stroke-width="2"/>
+  <rect x="440" y="540" width="320" height="40" rx="3" fill="rgba(0,140,140,0.12)" stroke="#008C8C" stroke-opacity="0.3"/>
+  <rect x="460" y="600" width="280" height="12" rx="2" fill="rgba(255,255,255,0.08)"/>
+  <rect x="460" y="630" width="200" height="12" rx="2" fill="rgba(255,255,255,0.05)"/>
+  
+  <!-- Speaker silhouette -->
+  <circle cx="600" cy="260" r="70" fill="#B088D8" opacity="0.9"/>
+  <path d="M520 400 Q600 320 680 400 L680 560 L520 560 Z" fill="#1F2933"/>
+  
+  <!-- Microphones -->
+  <line x1="560" y1="520" x2="560" y2="440" stroke="#555" stroke-width="4"/>
+  <circle cx="560" cy="430" r="10" fill="#333" stroke="rgba(255,255,255,0.2)" stroke-width="2"/>
+  <line x1="640" y1="520" x2="640" y2="440" stroke="#555" stroke-width="4"/>
+  <circle cx="640" cy="430" r="10" fill="#333" stroke="rgba(255,255,255,0.2)" stroke-width="2"/>
+  
+  <!-- Audience silhouettes in foreground -->
+  <g opacity="0.6">
+    <circle cx="220" cy="620" r="35" fill="#008C8C"/>
+    <path d="M185 700 Q220 660 255 700 L255 750 L185 750 Z" fill="#0F1B28"/>
+    
+    <circle cx="980" cy="620" r="35" fill="#008C8C"/>
+    <path d="M945 700 Q980 660 1015 700 L1015 750 L945 750 Z" fill="#0F1B28"/>
+    
+    <circle cx="340" cy="650" r="28" fill="#B088D8" opacity="0.7"/>
+    <path d="M312 710 Q340 680 368 710 L368 750 L312 750 Z" fill="#0F1B28"/>
+    
+    <circle cx="860" cy="650" r="28" fill="#B088D8" opacity="0.7"/>
+    <path d="M832 710 Q860 680 888 710 L888 750 L832 750 Z" fill="#0F1B28"/>
+  </g>
+  
+  <!-- Sound waves -->
+  <path d="M720 260 Q760 220 760 260 Q760 300 720 260" fill="none" stroke="#008C8C" stroke-width="2" stroke-opacity="0.4"/>
+  <path d="M740 260 Q790 200 790 260 Q790 320 740 260" fill="none" stroke="#008C8C" stroke-width="2" stroke-opacity="0.25"/>
+  
+  <!-- Stars -->
+  <circle cx="150" cy="100" r="2" fill="rgba(255,255,255,0.4)"/>
+  <circle cx="1100" cy="120" r="2" fill="rgba(255,255,255,0.4)"/>
+  <circle cx="1000" cy="70" r="1.5" fill="rgba(255,255,255,0.3)"/>
+  <circle cx="200" cy="60" r="1.5" fill="rgba(255,255,255,0.3)"/>
+</svg>

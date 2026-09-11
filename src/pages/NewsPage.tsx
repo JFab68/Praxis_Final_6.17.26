@@ -14,7 +14,7 @@ export default function NewsPage() {
   const contentRef = useRef<HTMLDivElement>(null);
 
   const featuredPost = getFeaturedArticle();
-  const regularPosts = getAllArticles().filter((p) => !p.featured).slice(0, 6);
+  const regularPosts = getAllArticles().filter((p) => !p.featured);
 
   useEffect(() => {
     const content = contentRef.current;

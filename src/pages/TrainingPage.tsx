@@ -157,8 +157,24 @@ export default function TrainingPage() {
       <section ref={contentRef} style={{ paddingBottom: '120px' }}>
         <div className="content-container">
           {/* Overview */}
-          <div className="reveal-up" style={{ marginBottom: '80px', maxWidth: '800px' }}>
-            <p className="font-sans-body" style={{ fontSize: '16px', lineHeight: 1.9, color: 'rgba(255,255,255,0.75)' }}>
+          <div
+            className="reveal-up"
+            style={{
+              margin: '0 auto 80px',
+              maxWidth: '800px',
+              textAlign: 'center',
+              paddingTop: '40px',
+            }}
+          >
+            <p
+              className="font-sans-body"
+              style={{
+                fontSize: '17px',
+                lineHeight: 1.9,
+                color: 'rgba(255,255,255,0.75)',
+                textAlign: 'center',
+              }}
+            >
               Praxis trains returning citizens to understand government, tell their stories strategically,
               engage lawmakers, use digital advocacy tools, and participate in public policy without being
               tokenized. We emphasize older adults, people returning after long incarceration, and people

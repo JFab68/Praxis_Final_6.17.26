@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 750" width="1200" height="750">
+  <defs>
+    <linearGradient id="bg-advocacy" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0A1118"/>
+      <stop offset="100%" stop-color="#050A0F"/>
+    </linearGradient>
+    <linearGradient id="desk-grad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#1A2B3C"/>
+      <stop offset="100%" stop-color="#0F1B28"/>
+    </linearGradient>
+    <radialGradient id="glow-advocacy" cx="30%" cy="40%" r="60%">
+      <stop offset="0%" stop-color="#008C8C" stop-opacity="0.15"/>
+      <stop offset="100%" stop-color="#008C8C" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1200" height="750" fill="url(#bg-advocacy)"/>
+  <circle cx="360" cy="300" r="320" fill="url(#glow-advocacy)"/>
+  
+  <!-- Committee desk / dais -->
+  <rect x="550" y="420" width="560" height="160" rx="6" fill="url(#desk-grad)" stroke="rgba(255,255,255,0.08)" stroke-width="2"/>
+  <rect x="570" y="440" width="520" height="35" rx="3" fill="rgba(255,255,255,0.05)"/>
+  <rect x="570" y="490" width="400" height="20" rx="2" fill="rgba(255,255,255,0.04)"/>
+  
+  <!-- Lawmakers behind desk -->
+  <g opacity="0.75">
+    <circle cx="640" cy="380" r="32" fill="#B088D8" opacity="0.7"/>
+    <path d="M608 440 Q640 410 672 440 L672 500 L608 500 Z" fill="#0F1B28"/>
+    
+    <circle cx="760" cy="380" r="32" fill="#B088D8" opacity="0.7"/>
+    <path d="M728 440 Q760 410 792 440 L792 500 L728 500 Z" fill="#0F1B28"/>
+    
+    <circle cx="880" cy="380" r="32" fill="#B088D8" opacity="0.7"/>
+    <path d="M848 440 Q880 410 912 440 L912 500 L848 500 Z" fill="#0F1B28"/>
+  </g>
+  
+  <!-- Advocate speaking at microphone -->
+  <circle cx="320" cy="300" r="60" fill="#008C8C" opacity="0.9"/>
+  <path d="M260 420 Q320 360 380 420 L380 600 L260 600 Z" fill="#1F2933"/>
+  
+  <!-- Microphone stand -->
+  <line x1="320" y1="420" x2="320" y2="520" stroke="#555" stroke-width="5"/>
+  <circle cx="320" cy="500" r="14" fill="#333" stroke="rgba(255,255,255,0.2)" stroke-width="2"/>
+  <line x1="320" y1="500" x2="380" y2="470" stroke="#555" stroke-width="4"/>
+  <circle cx="385" cy="468" r="12" fill="#333" stroke="rgba(255,255,255,0.2)" stroke-width="2"/>
+  
+  <!-- Speech bubble / testimony -->
+  <path d="M430 180 L700 180 L700 300 L520 300 L460 340 L480 300 L430 300 Z" fill="rgba(0,140,140,0.12)" stroke="#008C8C" stroke-opacity="0.3" stroke-width="2"/>
+  <rect x="460" y="210" width="200" height="12" rx="2" fill="rgba(255,255,255,0.2)"/>
+  <rect x="460" y="235" width="170" height="12" rx="2" fill="rgba(255,255,255,0.15)"/>
+  <rect x="460" y="260" width="190" height="12" rx="2" fill="rgba(255,255,255,0.1)"/>
+  
+  <!-- Audience silhouettes -->
+  <g opacity="0.5">
+    <circle cx="160" cy="620" r="30" fill="#B088D8"/>
+    <path d="M130 680 Q160 650 190 680 L190 750 L130 750 Z" fill="#0F1B28"/>
+    
+    <circle cx="1040" cy="620" r="30" fill="#B088D8"/>
+    <path d="M1010 680 Q1040 650 1070 680 L1070 750 L1010 750 Z" fill="#0F1B28"/>
+  </g>
+  
+  <!-- Stars -->
+  <circle cx="100" cy="100" r="2" fill="rgba(255,255,255,0.4)"/>
+  <circle cx="150" cy="70" r="1.5" fill="rgba(255,255,255,0.3)"/>
+  <circle cx="1100" cy="90" r="2" fill="rgba(255,255,255,0.4)"/>
+  <circle cx="1060" cy="130" r="1.5" fill="rgba(255,255,255,0.3)"/>
+</svg>

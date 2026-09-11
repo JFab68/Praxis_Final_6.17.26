@@ -1,20 +1,22 @@
 import { useEffect, useRef } from 'react';
 
 interface ActionNetworkEmbedProps {
-  petitionId: string;
+  petitionId?: string;
+  targetId?: string;
   scriptSrc: string;
 }
 
-export default function ActionNetworkEmbed({ petitionId, scriptSrc }: ActionNetworkEmbedProps) {
+export default function ActionNetworkEmbed({ petitionId, targetId, scriptSrc }: ActionNetworkEmbedProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const injectedRef = useRef(false);
+  const elementId = targetId || petitionId || 'can-embed-area';
 
   useEffect(() => {
     if (!containerRef.current || injectedRef.current) return;
     injectedRef.current = true;
 
     // Inject Action Network CSS
-    const cssId = 'an-embed-css-' + petitionId;
+    const cssId = 'an-embed-css-' + elementId;
     if (!document.getElementById(cssId)) {
       const link = document.createElement('link');
       link.id = cssId;
@@ -26,7 +28,7 @@ export default function ActionNetworkEmbed({ petitionId, scriptSrc }: ActionNetw
 
     // Create the target div
     const targetDiv = document.createElement('div');
-    targetDiv.id = petitionId;
+    targetDiv.id = elementId;
     targetDiv.style.width = '100%';
     containerRef.current.appendChild(targetDiv);
 
@@ -45,7 +47,7 @@ export default function ActionNetworkEmbed({ petitionId, scriptSrc }: ActionNetw
         script.parentNode.removeChild(script);
       }
     };
-  }, [petitionId, scriptSrc]);
+  }, [elementId, scriptSrc]);
 
   return <div ref={containerRef} style={{ width: '100%' }} />;
 }

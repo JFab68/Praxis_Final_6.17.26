@@ -46,6 +46,11 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://praxisinitiative.org/events</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://praxisinitiative.org/news/sb1507-explained</loc>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -114,5 +119,20 @@
     <loc>https://praxisinitiative.org/accessibility</loc>
     <changefreq>monthly</changefreq>
     <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://praxisinitiative.org/neurodivergence</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://praxisinitiative.org/news/independent-oversight-implementation-guide</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://praxisinitiative.org/news/arizona-prisons-conditions-report</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
 </urlset>

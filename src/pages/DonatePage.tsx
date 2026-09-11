@@ -1,4 +1,5 @@
 import { Mail } from 'lucide-react';
+import { useEffect } from 'react';
 import PageHero from '../components/PageHero';
 import PageQuote from '../components/PageQuote';
 import SEOHead from '../components/SEOHead';
@@ -13,6 +14,32 @@ const givingLevels = [
 ];
 
 export default function DonatePage() {
+  useEffect(() => {
+    // Inject Feathr Forms script
+    const scriptId = 'feathr-form-script';
+    if (!document.getElementById(scriptId)) {
+      const script = document.createElement('script');
+      script.id = scriptId;
+      script.src = 'https://fthr-content.praxisinitiative.org/forms-js/embed-v2.js';
+      script.async = true;
+      script.crossOrigin = 'anonymous';
+      document.body.appendChild(script);
+    } else {
+      // If script exists but we client-side navigated back, we may need to force a re-render/re-scan if Feathr exposes one,
+      // but usually re-appending or dispatching an event helps. Removing and re-adding ensures it fires.
+      const oldScript = document.getElementById(scriptId);
+      if (oldScript) {
+        oldScript.remove();
+        const script = document.createElement('script');
+        script.id = scriptId;
+        script.src = 'https://fthr-content.praxisinitiative.org/forms-js/embed-v2.js';
+        script.async = true;
+        script.crossOrigin = 'anonymous';
+        document.body.appendChild(script);
+      }
+    }
+  }, []);
+
   return (
     <div style={{ position: 'relative', zIndex: 2, background: '#050A0F' }}>
       <SEOHead

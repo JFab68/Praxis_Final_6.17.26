@@ -18,10 +18,12 @@ const TrainingPage = lazy(() => import('./pages/TrainingPage'));
 const ArtsPage = lazy(() => import('./pages/ArtsPage'));
 const ResourcesPage = lazy(() => import('./pages/ResourcesPage'));
 const NewsPage = lazy(() => import('./pages/NewsPage'));
+const EventsPage = lazy(() => import('./pages/EventsPage'));
 const ContactPage = lazy(() => import('./pages/ContactPage'));
 const DonatePage = lazy(() => import('./pages/DonatePage'));
 const ActionCenterPage = lazy(() => import('./pages/ActionCenterPage'));
 const PartnersPage = lazy(() => import('./pages/PartnersPage'));
+const NeurodivergencePage = lazy(() => import('./pages/NeurodivergencePage'));
 const PrivacyPolicyPage = lazy(() => import('./pages/PrivacyPolicyPage'));
 const TermsOfUsePage = lazy(() => import('./pages/TermsOfUsePage'));
 const AccessibilityPage = lazy(() => import('./pages/AccessibilityPage'));
@@ -82,10 +84,12 @@ function App() {
             <Route path="/resources" element={<ResourcesPage />} />
             <Route path="/news" element={<NewsPage />} />
             <Route path="/news/:slug" element={<BlogArticlePage />} />
+            <Route path="/events" element={<EventsPage />} />
             <Route path="/contact" element={<ContactPage />} />
             <Route path="/donate" element={<DonatePage />} />
             <Route path="/action" element={<ActionCenterPage />} />
             <Route path="/partners" element={<PartnersPage />} />
+            <Route path="/neurodivergence" element={<NeurodivergencePage />} />
             <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
             <Route path="/terms-of-use" element={<TermsOfUsePage />} />
             <Route path="/accessibility" element={<AccessibilityPage />} />
