@@ -1,16 +1,31 @@
 import { useEffect, useLayoutEffect, useRef, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import { ChevronDown } from 'lucide-react';
 
-const NAV_LINKS = [
+interface NavItem {
+  label: string;
+  path: string;
+  children?: { label: string; path: string; description?: string }[];
+}
+
+const PROGRAM_SUBPAGES = [
+  { label: 'All Programs', path: '/programs', description: 'Overview of Praxis strategic initiatives' },
+  { label: 'Independent Oversight', path: '/oversight', description: 'Monitoring conditions & accountability inside ADCRR' },
+  { label: 'Policy & Advocacy', path: '/policy', description: 'Statutory reform, 8 Ps framework & sentencing' },
+  { label: 'Neurodivergence', path: '/neurodivergence', description: 'I/DD & neurodiversity in the criminal legal system' },
+  { label: 'Civic Training', path: '/training', description: 'Civic advocacy & digital literacy for returning citizens' },
+  { label: 'Arts in Prison', path: '/arts', description: 'Music theory, kinetic movement & fine arts rehabilitation' },
+];
+
+const NAV_LINKS: NavItem[] = [
   { label: 'About', path: '/about' },
-  { label: 'Programs', path: '/programs' },
+  {
+    label: 'Programs',
+    path: '/programs',
+    children: PROGRAM_SUBPAGES,
+  },
   { label: 'Action', path: '/action' },
   { label: 'Partners', path: '/partners' },
-  { label: 'Oversight', path: '/oversight' },
-  { label: 'Policy', path: '/policy' },
-  { label: 'Neurodivergence', path: '/neurodivergence' },
-  { label: 'Training', path: '/training' },
-  { label: 'Arts', path: '/arts' },
   { label: 'Resources', path: '/resources' },
   { label: 'News', path: '/news' },
   { label: 'Events', path: '/events' },
@@ -20,12 +35,18 @@ const NAV_LINKS = [
 export default function Navigation() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [programsOpen, setProgramsOpen] = useState(false);
+  const [mobileProgramsOpen, setMobileProgramsOpen] = useState(true);
   const navRef = useRef<HTMLElement>(null);
+  const dropdownTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const location = useLocation();
 
-  // Close mobile menu whenever the route changes
+  // Close menus whenever the route changes
   useLayoutEffect(() => {
-    const t = setTimeout(() => setMobileOpen(false), 0);
+    const t = setTimeout(() => {
+      setMobileOpen(false);
+      setProgramsOpen(false);
+    }, 0);
     return () => clearTimeout(t);
   }, [location.pathname]);
 
@@ -36,30 +57,53 @@ export default function Navigation() {
   }, []);
 
   useEffect(() => {
-    if (!mobileOpen) return
+    if (!mobileOpen) return;
     const onPointerDown = (event: PointerEvent) => {
-      const target = event.target as HTMLElement | null
-      if (!target) return
-      const isNav = navRef.current?.contains(target)
-      const overlay = document.querySelector('[data-mobile-overlay]')
-      const isOutsideOverlay = !overlay?.contains(target)
+      const target = event.target as HTMLElement | null;
+      if (!target) return;
+      const isNav = navRef.current?.contains(target);
+      const overlay = document.querySelector('[data-mobile-overlay]');
+      const isOutsideOverlay = !overlay?.contains(target);
       if (!isNav && isOutsideOverlay) {
         setMobileOpen(false);
       }
-    }
-    window.addEventListener('pointerdown', onPointerDown, { passive: true })
-    return () => window.removeEventListener('pointerdown', onPointerDown)
+    };
+    window.addEventListener('pointerdown', onPointerDown, { passive: true });
+    return () => window.removeEventListener('pointerdown', onPointerDown);
   }, [mobileOpen]);
 
-  const isActive = (path: string) => location.pathname === path;
+  const isProgramActive = [
+    '/programs',
+    '/oversight',
+    '/policy',
+    '/neurodivergence',
+    '/training',
+    '/arts',
+  ].includes(location.pathname);
+
+  const isActive = (path: string) => {
+    if (path === '/programs') return isProgramActive;
+    return location.pathname === path;
+  };
+
+  const handleMouseEnterDropdown = () => {
+    if (dropdownTimeoutRef.current) clearTimeout(dropdownTimeoutRef.current);
+    setProgramsOpen(true);
+  };
+
+  const handleMouseLeaveDropdown = () => {
+    dropdownTimeoutRef.current = setTimeout(() => {
+      setProgramsOpen(false);
+    }, 150);
+  };
 
   const linkStyle = (path: string): React.CSSProperties => {
     const active = isActive(path);
     return {
       background: 'none',
       border: 'none',
-      color: active ? '#FFFFFF' : 'rgba(255,255,255,0.6)',
-      opacity: active ? 1 : 0.8,
+      color: active ? '#FFFFFF' : 'rgba(255,255,255,0.65)',
+      opacity: active ? 1 : 0.85,
       fontSize: '12px',
       letterSpacing: '0.08em',
       cursor: 'pointer',
@@ -71,6 +115,9 @@ export default function Navigation() {
       borderBottom: active ? '1px solid #008C8C' : '1px solid transparent',
       paddingBottom: '2px',
       whiteSpace: 'nowrap',
+      display: 'inline-flex',
+      alignItems: 'center',
+      gap: '4px',
     };
   };
 
@@ -151,28 +198,135 @@ export default function Navigation() {
             alignItems: 'center',
           }}
         >
-          {NAV_LINKS.map((item) => (
-            <Link
-              key={item.path}
-              to={item.path}
-              style={{
-                ...linkStyle(item.path),
-                position: 'relative',
-              }}
-              onMouseEnter={(e) => {
-                (e.target as HTMLElement).style.color = '#FFFFFF';
-                (e.target as HTMLElement).style.opacity = '1';
-              }}
-              onMouseLeave={(e) => {
-                if (!isActive(item.path)) {
-                  (e.target as HTMLElement).style.color = 'rgba(255,255,255,0.6)';
-                  (e.target as HTMLElement).style.opacity = '0.8';
-                }
-              }}
-            >
-              {item.label}
-            </Link>
-          ))}
+          {NAV_LINKS.map((item) => {
+            if (item.children) {
+              return (
+                <div
+                  key={item.label}
+                  style={{ position: 'relative' }}
+                  onMouseEnter={handleMouseEnterDropdown}
+                  onMouseLeave={handleMouseLeaveDropdown}
+                >
+                  <Link
+                    to={item.path}
+                    style={linkStyle(item.path)}
+                    aria-haspopup="true"
+                    aria-expanded={programsOpen}
+                  >
+                    {item.label}
+                    <ChevronDown
+                      size={13}
+                      style={{
+                        transform: programsOpen ? 'rotate(180deg)' : 'rotate(0deg)',
+                        transition: 'transform 0.25s ease',
+                        opacity: 0.8,
+                      }}
+                    />
+                  </Link>
+
+                  {/* Dropdown Menu */}
+                  {programsOpen && (
+                    <div
+                      style={{
+                        position: 'absolute',
+                        top: '100%',
+                        left: '50%',
+                        transform: 'translateX(-50%)',
+                        paddingTop: '14px',
+                        zIndex: 250,
+                      }}
+                    >
+                      <div
+                        style={{
+                          width: '280px',
+                          background: 'rgba(8, 14, 22, 0.96)',
+                          backdropFilter: 'blur(20px)',
+                          WebkitBackdropFilter: 'blur(20px)',
+                          border: '1px solid rgba(0, 204, 204, 0.25)',
+                          borderRadius: '8px',
+                          boxShadow: '0 16px 40px rgba(0,0,0,0.6), 0 0 20px rgba(0,140,140,0.12)',
+                          padding: '8px',
+                          display: 'flex',
+                          flexDirection: 'column',
+                          gap: '2px',
+                        }}
+                      >
+                        {item.children.map((sub) => {
+                          const isSubActive = location.pathname === sub.path;
+                          return (
+                            <Link
+                              key={sub.path}
+                              to={sub.path}
+                              style={{
+                                display: 'block',
+                                padding: '10px 14px',
+                                textDecoration: 'none',
+                                borderRadius: '5px',
+                                background: isSubActive ? 'rgba(0,140,140,0.18)' : 'transparent',
+                                borderLeft: isSubActive ? '3px solid #00CCCC' : '3px solid transparent',
+                                transition: 'all 0.2s ease',
+                              }}
+                              onMouseEnter={(e) => {
+                                e.currentTarget.style.background = 'rgba(0,140,140,0.14)';
+                                e.currentTarget.style.borderLeftColor = '#008C8C';
+                              }}
+                              onMouseLeave={(e) => {
+                                e.currentTarget.style.background = isSubActive ? 'rgba(0,140,140,0.18)' : 'transparent';
+                                e.currentTarget.style.borderLeftColor = isSubActive ? '#00CCCC' : 'transparent';
+                              }}
+                            >
+                              <div
+                                style={{
+                                  fontSize: '13px',
+                                  fontWeight: isSubActive ? 600 : 400,
+                                  color: isSubActive ? '#00CCCC' : '#FFFFFF',
+                                  letterSpacing: '0.04em',
+                                  marginBottom: sub.description ? '2px' : 0,
+                                }}
+                              >
+                                {sub.label}
+                              </div>
+                              {sub.description && (
+                                <div
+                                  style={{
+                                    fontSize: '11px',
+                                    color: 'rgba(255,255,255,0.5)',
+                                    lineHeight: 1.35,
+                                  }}
+                                >
+                                  {sub.description}
+                                </div>
+                              )}
+                            </Link>
+                          );
+                        })}
+                      </div>
+                    </div>
+                  )}
+                </div>
+              );
+            }
+
+            return (
+              <Link
+                key={item.path}
+                to={item.path}
+                style={linkStyle(item.path)}
+                onMouseEnter={(e) => {
+                  (e.target as HTMLElement).style.color = '#FFFFFF';
+                  (e.target as HTMLElement).style.opacity = '1';
+                }}
+                onMouseLeave={(e) => {
+                  if (!isActive(item.path)) {
+                    (e.target as HTMLElement).style.color = 'rgba(255,255,255,0.65)';
+                    (e.target as HTMLElement).style.opacity = '0.85';
+                  }
+                }}
+              >
+                {item.label}
+              </Link>
+            );
+          })}
           <Link
             to="/donate"
             className="btn-praxis-solid"
@@ -231,23 +385,94 @@ export default function Navigation() {
             padding: '80px 0 40px',
           }}
         >
-          {NAV_LINKS.map((item) => (
-            <Link
-              key={item.path}
-              to={item.path}
-              className="font-sans-body"
-              style={{
-                color: isActive(item.path) ? '#008C8C' : '#FFFFFF',
-                fontSize: '16px',
-                letterSpacing: '0.15em',
-                textDecoration: 'none',
-                textTransform: 'uppercase',
-                fontWeight: isActive(item.path) ? 600 : 400,
-              }}
-            >
-              {item.label}
-            </Link>
-          ))}
+          {NAV_LINKS.map((item) => {
+            if (item.children) {
+              return (
+                <div key={item.label} style={{ width: '100%', maxWidth: '320px', textAlign: 'center' }}>
+                  <button
+                    onClick={() => setMobileProgramsOpen((open) => !open)}
+                    className="font-sans-body"
+                    style={{
+                      background: 'none',
+                      border: 'none',
+                      color: isActive(item.path) ? '#008C8C' : '#FFFFFF',
+                      fontSize: '16px',
+                      letterSpacing: '0.15em',
+                      textTransform: 'uppercase',
+                      fontWeight: isActive(item.path) ? 600 : 400,
+                      cursor: 'pointer',
+                      display: 'inline-flex',
+                      alignItems: 'center',
+                      gap: '8px',
+                      margin: '0 auto',
+                    }}
+                  >
+                    {item.label}
+                    <ChevronDown
+                      size={16}
+                      style={{
+                        transform: mobileProgramsOpen ? 'rotate(180deg)' : 'rotate(0deg)',
+                        transition: 'transform 0.25s ease',
+                      }}
+                    />
+                  </button>
+
+                  {mobileProgramsOpen && (
+                    <div
+                      style={{
+                        display: 'flex',
+                        flexDirection: 'column',
+                        gap: '12px',
+                        marginTop: '12px',
+                        padding: '12px 16px',
+                        background: 'rgba(255,255,255,0.04)',
+                        borderRadius: '8px',
+                        border: '1px solid rgba(0,204,204,0.15)',
+                      }}
+                    >
+                      {item.children.map((sub) => {
+                        const isSubActive = location.pathname === sub.path;
+                        return (
+                          <Link
+                            key={sub.path}
+                            to={sub.path}
+                            className="font-sans-body"
+                            style={{
+                              color: isSubActive ? '#00CCCC' : 'rgba(255,255,255,0.75)',
+                              fontSize: '13px',
+                              letterSpacing: '0.08em',
+                              textDecoration: 'none',
+                              fontWeight: isSubActive ? 600 : 400,
+                            }}
+                          >
+                            {sub.label}
+                          </Link>
+                        );
+                      })}
+                    </div>
+                  )}
+                </div>
+              );
+            }
+
+            return (
+              <Link
+                key={item.path}
+                to={item.path}
+                className="font-sans-body"
+                style={{
+                  color: isActive(item.path) ? '#008C8C' : '#FFFFFF',
+                  fontSize: '16px',
+                  letterSpacing: '0.15em',
+                  textDecoration: 'none',
+                  textTransform: 'uppercase',
+                  fontWeight: isActive(item.path) ? 600 : 400,
+                }}
+              >
+                {item.label}
+              </Link>
+            );
+          })}
           <Link to="/donate" className="btn-praxis-solid" style={{ marginTop: '16px' }}>
             Donate
           </Link>
