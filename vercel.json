@@ -90,7 +90,18 @@
         { "key": "X-Frame-Options", "value": "SAMEORIGIN" },
         { "key": "X-Content-Type-Options", "value": "nosniff" },
         { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" },
-        { "key": "Strict-Transport-Security", "value": "max-age=31536000; includeSubDomains; preload" }
+        { "key": "Strict-Transport-Security", "value": "max-age=31536000; includeSubDomains; preload" },
+        { "key": "Permissions-Policy", "value": "accelerometer=(), autoplay=(), camera=(), display-capture=(), encrypted-media=(), fullscreen=(self), geolocation=(), gyroscope=(), magnetometer=(), microphone=(), midi=(), payment=(), picture-in-picture=(self), publickey-credentials-get=(), screen-wake-lock=(), usb=(), xr-spatial-tracking=()" },
+        { "key": "Cross-Origin-Opener-Policy", "value": "same-origin-allow-popups" },
+        { "key": "X-DNS-Prefetch-Control", "value": "on" },
+        { "key": "Content-Security-Policy-Report-Only", "value": "default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.feathr.co https://widgets.givebutter.com https://actionnetwork.org https://va.vercel-scripts.com https://fthr-content.praxisinitiative.org; style-src 'self' 'unsafe-inline' https://actionnetwork.org https://widgets.givebutter.com; img-src 'self' data: https:; font-src 'self'; connect-src 'self' https://api.web3forms.com https://va.vercel-scripts.com https://vitals.vercel-insights.com https://widgets.givebutter.com https://actionnetwork.org https://cdn.feathr.co; frame-src 'self' https://givebutter.com https://widgets.givebutter.com https://actionnetwork.org https://fthr-content.praxisinitiative.org https://cdn.feathr.co; form-action 'self' https://api.web3forms.com https://givebutter.com https://actionnetwork.org; frame-ancestors 'self'; base-uri 'self'; object-src 'none'; upgrade-insecure-requests" }
+      ]
+    },
+    {
+      "source": "/(.*)",
+      "has": [{ "type": "host", "value": ".*\\.vercel\\.app" }],
+      "headers": [
+        { "key": "X-Robots-Tag", "value": "noindex, nofollow" }
       ]
     },
     {

@@ -728,7 +728,7 @@ export default function HomePage() {
     <>
       <SEOHead
         title="Arizona Criminal Legal System Reform"
-        description="Praxis Initiative is a 100% system-impacted Arizona nonprofit advancing independent prison oversight, criminal legal system reform, overdose prevention, civic advocacy training, and arts in prison programming."
+        description="Praxis Initiative is a 100% system-impacted Arizona nonprofit advancing independent prison oversight, criminal legal system reform, skills training for returning citizens, and arts in prison programming."
         path="/"
       />
       <HeroSection />
