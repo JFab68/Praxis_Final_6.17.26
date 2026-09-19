@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useSearchParams } from 'react-router-dom';
 import {
   Heart,
   ShieldCheck,
@@ -13,6 +14,12 @@ import {
 import PageHero from '../components/PageHero';
 import PageQuote from '../components/PageQuote';
 import SEOHead from '../components/SEOHead';
+import {
+  ensureGivebutterLoaded,
+  givebutterUrl,
+  GIVEBUTTER_CAMPAIGN,
+} from '../lib/givebutter';
+import { trackOutcome } from '../lib/analytics';
 
 interface GivingTier {
   amount: string;
@@ -58,19 +65,18 @@ const GIVING_TIERS: GivingTier[] = [
 export default function DonatePage() {
   const [selectedTier, setSelectedTier] = useState<string>('$100');
   const [feathrFailed, setFeathrFailed] = useState<boolean>(false);
+  const [searchParams, setSearchParams] = useSearchParams();
+
+  // Numeric amount handed to the Givebutter widget and to the campaign link.
+  const selectedAmount = selectedTier.replace(/[^0-9]/g, '');
 
   useEffect(() => {
-    // 1. Givebutter Widget Script (Account: VAFHlg7pVLZ4fmxv)
-    const gbScriptId = 'givebutter-widget-script';
-    if (!document.getElementById(gbScriptId)) {
-      const script = document.createElement('script');
-      script.id = gbScriptId;
-      script.src = 'https://widgets.givebutter.com/latest.umd.cjs?acct=VAFHlg7pVLZ4fmxv';
-      script.async = true;
-      document.head.appendChild(script);
-    }
+    // Single, on-demand load of the Givebutter Widgets library (see src/lib/givebutter.ts).
+    ensureGivebutterLoaded().catch(() => {
+      // Library blocked or offline - the direct Givebutter campaign link stays usable.
+    });
 
-    // 2. Feathr embed script attempt with fallback detection
+    // Feathr embed script attempt with fallback detection
     const feathrScriptId = 'feathr-form-script';
     const feathrTimer = setTimeout(() => {
       // Check if Feathr loaded or iframe initialized
@@ -95,6 +101,27 @@ export default function DonatePage() {
     };
   }, []);
 
+  // Givebutter appends its own confirmation parameters when a donor returns from
+  // a completed gift. A gift is only counted as complete when that signal exists -
+  // clicks are tracked separately as donate_checkout_opened.
+  useEffect(() => {
+    const completed =
+      searchParams.get('givebutter') === 'success' ||
+      searchParams.get('donation') === 'complete' ||
+      searchParams.get('status') === 'complete';
+
+    if (!completed) return;
+
+    trackOutcome('donate_gift_completed', {
+      amount: searchParams.get('amount') ?? 'unknown',
+      campaign: GIVEBUTTER_CAMPAIGN,
+    });
+
+    const next = new URLSearchParams(searchParams);
+    ['givebutter', 'donation', 'status', 'amount'].forEach((key) => next.delete(key));
+    setSearchParams(next, { replace: true });
+  }, [searchParams, setSearchParams]);
+
   return (
     <div style={{ position: 'relative', zIndex: 2, background: '#050A0F', color: '#FFFFFF' }}>
       <SEOHead
@@ -108,7 +135,7 @@ export default function DonatePage() {
         eyebrow="Power the Movement"
         title="Invest in Reform Led by People Who Have Lived the System"
         subtitle="Those closest to the problem are closest to the solution, but furthest from power and resources. Your financial support bridges that divide—giving formerly incarcerated leaders the tools to transform Arizona justice."
-        backgroundImage="/images/az-capitol.jpg"
+        backgroundImage="/images/az-capitol.webp"
         gradientAccent="#008C8C"
       />
 
@@ -234,7 +261,11 @@ export default function DonatePage() {
                       <button
                         key={tier.amount}
                         type="button"
-                        onClick={() => setSelectedTier(tier.amount)}
+                        aria-pressed={isSelected}
+                        onClick={() => {
+                          setSelectedTier(tier.amount);
+                          trackOutcome('donate_tier_selected', { amount: tier.amount });
+                        }}
                         style={{
                           padding: '16px 12px',
                           background: isSelected
@@ -300,10 +331,26 @@ export default function DonatePage() {
                   </span>
                 </div>
 
-                {/* Givebutter Interactive Form Component */}
+                {/* Givebutter interactive form. The selected tier is passed straight
+                    into the widget's `amount` property (Givebutter reads it when it
+                    builds the checkout URL), and the `key` remounts the widget so a
+                    new selection can never leave a stale amount in the iframe. */}
                 <div style={{ minHeight: '380px' }}>
-                  {React.createElement('givebutter-giving-form', { campaign: 'A3SS1L' })}
+                  {React.createElement('givebutter-giving-form', {
+                    key: `givebutter-form-${selectedAmount}`,
+                    campaign: GIVEBUTTER_CAMPAIGN,
+                    amount: selectedAmount,
+                  })}
                 </div>
+
+                <p
+                  className="font-sans-body"
+                  style={{ fontSize: '13px', color: 'rgba(255,255,255,0.55)', margin: '12px 0 0' }}
+                >
+                  Selected amount:{' '}
+                  <strong style={{ color: '#00CCCC' }}>{selectedTier}</strong> — the form above opens
+                  with this amount pre-filled. You can still change it there.
+                </p>
 
                 {/* Feathr Embed Fallback Container */}
                 <div
@@ -326,9 +373,10 @@ export default function DonatePage() {
                   }}
                 >
                   <a
-                    href="https://givebutter.com/a3sS1L"
+                    href={givebutterUrl(selectedTier)}
                     target="_blank"
                     rel="noopener noreferrer"
+                    onClick={() => trackOutcome('donate_checkout_opened', { amount: selectedTier, surface: 'fullscreen_portal' })}
                     className="btn-praxis-solid"
                     style={{
                       padding: '14px 28px',
@@ -345,7 +393,10 @@ export default function DonatePage() {
                   </a>
 
                   <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-                    {React.createElement('givebutter-button', { campaign: 'A3SS1L' })}
+                    {React.createElement('givebutter-button', {
+                      campaign: GIVEBUTTER_CAMPAIGN,
+                      amount: selectedAmount,
+                    })}
                   </div>
                 </div>
               </div>

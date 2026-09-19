@@ -95,7 +95,7 @@ export default function PolicyPage() {
         eyebrow="Policy & Advocacy"
         title="Policy Change Requires More Than Good Intentions"
         subtitle="Praxis works with lawmakers, families, directly impacted people, attorneys, advocates, and bipartisan partners to move practical reforms across the entire criminal legal system."
-        backgroundImage="/images/policy-documents.jpg"
+        backgroundImage="/images/policy-documents.webp"
         gradientAccent="#008C8C"
       />
       <PageQuote
@@ -193,7 +193,7 @@ export default function PolicyPage() {
               <p className="font-sans-body" style={{ fontSize: '15px', lineHeight: 1.9, color: 'rgba(255,255,255,0.75)' }}>
                 Praxis helps convene, coordinate, and support coalitions that include people across political, professional, and lived-experience lines. We believe lasting reform requires diverse stakeholders working together toward common goals. Our coalition partners include lawmakers, attorneys, advocates, families, correctional staff, faith leaders, and directly impacted people.
               </p>
-              <img src="/images/coalition-meeting.jpg" alt="Coalition meeting" loading="lazy" style={{ width: '100%', aspectRatio: '16/10', objectFit: 'cover', borderRadius: '4px' }} />
+              <img src="/images/coalition-meeting.webp" alt="Coalition meeting" loading="lazy" style={{ width: '100%', aspectRatio: '16/10', objectFit: 'cover', borderRadius: '4px' }} />
             </div>
           </div>
 

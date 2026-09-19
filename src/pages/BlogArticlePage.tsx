@@ -142,6 +142,7 @@ export default function BlogArticlePage() {
         description={article.seoDescription}
         path={`/news/${article.slug}`}
         ogImage={article.image}
+        ogType="article"
         schema={articleSchema(article)}
       />
 
@@ -512,7 +513,7 @@ export default function BlogArticlePage() {
             }}
           >
             <img
-              src="/images/john-fabricius.jpg"
+              src="/images/john-fabricius.webp"
               alt="Praxis Initiative"
               style={{ width: '64px', height: '64px', borderRadius: '50%', objectFit: 'cover', flexShrink: 0, filter: 'brightness(1.2) contrast(1.05)' }}
             />

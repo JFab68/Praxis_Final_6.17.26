@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import { CheckCircle } from 'lucide-react';
 import { submitForm } from '../lib/api';
+import { trackOutcome } from '../lib/analytics';
 
 const SOCIAL_LINKS = [
   { label: 'Facebook', href: 'https://www.facebook.com/profile.php?id=61570241575216', icon: 'FB' },
@@ -31,6 +32,8 @@ export default function Footer() {
     if (result.success) {
       setSubscribed(true);
       setEmail('');
+      // Only a confirmed submission counts as a completed signup.
+      trackOutcome('newsletter_signup_completed', { source: 'footer' });
     } else {
       setNewsletterError(result.message);
     }
@@ -58,7 +61,7 @@ export default function Footer() {
         {/* Vision Statement - Centered */}
         <div style={{ maxWidth: '720px', margin: '0 auto 80px', textAlign: 'center' }}>
           <img
-            src="/images/praxis-logo-round.png"
+            src="/images/praxis-logo-round.webp"
             alt="Praxis Initiative Logo"
             style={{ width: '64px', height: '64px', objectFit: 'contain', margin: '0 auto 24px', display: 'block' }}
           />

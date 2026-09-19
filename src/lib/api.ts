@@ -11,9 +11,24 @@ interface FormPayload {
 
 export async function submitForm(payload: FormPayload): Promise<{ success: boolean; message: string }> {
   if (!ACCESS_KEY) {
-    console.log('[DEV] Form submission simulated (no access key):', payload);
-    await new Promise((r) => setTimeout(r, 800));
-    return { success: true, message: 'Form submitted (development mode — no email sent). Configure VITE_WEB3FORMS_KEY in .env for production.' };
+    if (import.meta.env.DEV) {
+      console.log('[DEV] Form submission simulated (no access key):', payload);
+      await new Promise((r) => setTimeout(r, 800));
+      return { success: true, message: 'Form submitted (development mode — no email sent).' };
+    }
+
+    // In a production build VITE_WEB3FORMS_KEY is inlined at build time. If it is
+    // missing, this submission cannot be delivered - say so instead of showing a
+    // confirmation for a message nobody will ever receive.
+    console.error(
+      '[API] VITE_WEB3FORMS_KEY is not set for this build, so form submissions cannot be delivered. ' +
+        'Set it in the Vercel project environment variables and redeploy.'
+    );
+    return {
+      success: false,
+      message:
+        'We could not send this automatically. Please email info@praxisinitiative.org directly so we do not miss your message.',
+    };
   }
 
   try {

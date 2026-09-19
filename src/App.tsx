@@ -1,9 +1,9 @@
 import { lazy, Suspense, useEffect } from 'react';
 import { Routes, Route, useLocation } from 'react-router-dom';
-import Lenis from 'lenis';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Layout from './components/Layout';
+import Analytics from './components/Analytics';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -49,27 +49,56 @@ function PageLoader() {
 }
 
 function ScrollToTop() {
-  const { pathname } = useLocation();
+  const { pathname, hash } = useLocation();
   useEffect(() => {
+    if (hash) {
+      const target = document.getElementById(hash.slice(1));
+      if (target) {
+        target.scrollIntoView({ behavior: 'auto', block: 'start' });
+        return;
+      }
+    }
     window.scrollTo(0, 0);
-  }, [pathname]);
+  }, [pathname, hash]);
   return null;
 }
 
-function App() {
+/** Lenis smooth scrolling is a desktop-only enhancement: it is skipped on touch
+ *  devices, narrow viewports and when the visitor asks for reduced motion. */
+function useSmoothScroll() {
   useEffect(() => {
-    const lenis = new Lenis({ lerp: 0.2 });
-    lenis.on('scroll', ScrollTrigger.update);
-    const tick = (time: number) => lenis.raf(time * 1000);
-    gsap.ticker.add(tick);
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+    const coarsePointer = window.matchMedia('(pointer: coarse)');
+    const narrowViewport = window.matchMedia('(max-width: 900px)');
+    if (reducedMotion.matches || coarsePointer.matches || narrowViewport.matches) return;
+
+    let lenis: { destroy: () => void; on: (e: string, cb: () => void) => void; raf: (t: number) => void } | null = null;
+    let tick: ((time: number) => void) | null = null;
+    let cancelled = false;
+
+    import('lenis').then(({ default: Lenis }) => {
+      if (cancelled) return;
+      const instance = new Lenis({ lerp: 0.2 });
+      lenis = instance as unknown as typeof lenis;
+      instance.on('scroll', ScrollTrigger.update);
+      tick = (time: number) => instance.raf(time * 1000);
+      gsap.ticker.add(tick);
+    });
+
     return () => {
-      gsap.ticker.remove(tick);
-      lenis.destroy();
+      cancelled = true;
+      if (tick) gsap.ticker.remove(tick);
+      lenis?.destroy();
     };
   }, []);
+}
+
+function App() {
+  useSmoothScroll();
 
   return (
     <>
+      <Analytics />
       <ScrollToTop />
       <Suspense fallback={<PageLoader />}>
         <Routes>

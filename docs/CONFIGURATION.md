@@ -2,21 +2,20 @@
 
 # Configuration
 
-This project is a static Vite + React site (see `package.json`, `name: "my-app"`). It has no backend
-server and no database — configuration is limited to a single build-time environment variable used for
-form submissions, plus deployment headers defined in `vercel.json`.
+This project is a static Vite + React site. It has no backend server and no database — configuration is
+limited to a single build-time environment variable used for form submissions, plus deployment rules in
+`vercel.json`.
 
 ## Environment Variables
 
-The canonical list of environment variables lives in [`.env.example`](../.env.example).
+The canonical list lives in [`.env.example`](../.env.example).
 
 | Variable | Required | Default | Description |
 |---|---|---|---|
-| `VITE_FORM_ENDPOINT` | Optional (Required for working forms in production) | `''` (empty string) | POST endpoint URL that the Contact and Newsletter forms submit to. Supports Formspree, Web3Forms, Netlify Forms, or any custom POST endpoint. Read via `import.meta.env.VITE_FORM_ENDPOINT` in `src/lib/api.ts`. |
+| `VITE_WEB3FORMS_KEY` | Yes for working forms in production | `''` (empty string) | Web3Forms access key. Read via `import.meta.env.VITE_WEB3FORMS_KEY` in `src/lib/api.ts`, which POSTs to the hard-coded endpoint `https://api.web3forms.com/submit`. Get a key at [web3forms.com](https://web3forms.com) using `info@praxisinitiative.org`. |
 
-Because this is a Vite project, only variables prefixed with `VITE_` are exposed to client-side code
-(this is a Vite framework convention, not a custom setting in this repo). Any additional environment
-variable added in the future must use the `VITE_` prefix to be accessible in the browser bundle.
+Only variables prefixed with `VITE_` are exposed to client-side code (a Vite convention). Any future
+variable must use that prefix to be readable in the browser bundle.
 
 To configure locally:
 
@@ -24,74 +23,82 @@ To configure locally:
 cp .env.example .env
 ```
 
-Then edit `.env` and set:
+Then edit `.env`:
 
 ```bash
-VITE_FORM_ENDPOINT=https://formspree.io/f/your-form-id
+VITE_WEB3FORMS_KEY=your-access-key
 ```
 
-`.env` and `.env.local` are excluded from version control via `.gitignore`.
+`.env` and `.env.local` are gitignored.
 
 ## Config File Format
 
-There is no dedicated app configuration file (no `config.json`, `config.yaml`, or `app.config.*`).
-Build and tooling configuration is split across standard tool-specific files instead:
+There is no dedicated app config file (`config.json`, `config.yaml`, `app.config.*`). Tooling
+configuration is split across standard files:
 
-- `vite.config.ts` — Vite build configuration. Sets `base: './'` for relative asset paths, registers the
-  `@vitejs/plugin-react` and `plugin-inspect-react-code` plugins, and defines the `@` path alias pointing
-  to `./src`.
+- `vite.config.ts` — Vite build configuration. Sets **`base: '/'`** (absolute asset paths, required so
+  deep links like `/news/<slug>` resolve `/assets/*` from the domain root), registers
+  `@vitejs/plugin-react` plus `plugin-inspect-react-code` (dev only), defines the `@` → `./src` alias,
+  and splits output into `react` / `motion` / `three` chunks.
 - `tsconfig.json` / `tsconfig.app.json` / `tsconfig.node.json` — TypeScript project references and the
-  `@/*` → `./src/*` path alias.
-- `tailwind.config.js` — Tailwind CSS theme and content-scanning configuration.
-- `eslint.config.js` — ESLint flat config using `@eslint/js`, `typescript-eslint`, and the React Hooks /
-  React Refresh plugins.
-- `components.json` — shadcn/ui component generator configuration (aliases and paths for UI primitives).
-- `vercel.json` — deployment configuration for the Vercel platform (see below).
+  `@/*` → `./src/*` alias. `tsconfig.app.json` includes `node` types because `src/entry-server.tsx`
+  imports `node:stream` for prerendering.
+- `tailwind.config.js` — Tailwind theme and content scanning.
+- `eslint.config.js` — ESLint flat config (`@eslint/js`, `typescript-eslint`, React Hooks / Refresh).
+- `components.json` — shadcn/ui generator configuration.
+- `vercel.json` — deployment configuration (see below).
+- `scripts/*.mjs` — build-time tooling; see [`docs/DEPLOYMENT.md`](./DEPLOYMENT.md).
 
 ## Required vs Optional Settings
 
-There are no environment variables that cause the application to fail at startup or build time — the
-codebase does not perform any `process.env` / `import.meta.env` validation or throw on a missing
-variable. `src/lib/api.ts` explicitly guards against a missing `VITE_FORM_ENDPOINT`:
+Nothing causes the application to fail at startup. `src/lib/api.ts` guards the key:
 
 ```ts
-const FORM_ENDPOINT = import.meta.env.VITE_FORM_ENDPOINT || '';
+const ACCESS_KEY = import.meta.env.VITE_WEB3FORMS_KEY || '';
 ```
 
-When `VITE_FORM_ENDPOINT` is unset, `submitForm()` falls back to a simulated dev-mode submission: it logs
-the payload to the console, waits 800ms, and returns a success message stating "Form submitted
-(development mode — no email sent)." No error is thrown and no build/runtime crash occurs — the form
-just silently does not deliver submissions. See `button-link-audit-report.md` in the project root for a
-prior audit note flagging this behavior as a production risk when the variable is left unconfigured.
+**In development** (`import.meta.env.DEV`), a missing key makes `submitForm()` log the payload, wait
+800 ms, and return success with "development mode — no email sent". Nothing leaves the browser, which is
+intended.
+
+**In production**, a missing key returns `success: false` with a message directing the visitor to email
+`info@praxisinitiative.org`. This is deliberate: the previous behaviour returned a *success*
+confirmation for a message that was never sent, so contact and newsletter submissions were discarded
+silently.
+
+Vite inlines `import.meta.env.VITE_WEB3FORMS_KEY` as an empty string when it is unset, so the guard
+becomes provably true and the minifier **deletes the Web3Forms `fetch` from the bundle entirely**. The
+deployed JavaScript then contains no `api.web3forms.com/submit` string. `npm run build` runs
+`node scripts/check-env.mjs` and warns when the key is missing; the check warns rather than fails so a
+missing key can never block a deploy.
 
 So in practice:
 
 - **Required for the site to build and load:** none.
-- **Required for the Contact and Newsletter forms to actually deliver submissions in production:**
-  `VITE_FORM_ENDPOINT`.
+- **Required for the Contact and Newsletter forms to deliver in production:** `VITE_WEB3FORMS_KEY`.
 
 ## Defaults
 
 | Variable | Default | Set in |
 |---|---|---|
-| `VITE_FORM_ENDPOINT` | `''` (empty string, triggers dev-mode simulation) | `src/lib/api.ts`, line 5 |
+| `VITE_WEB3FORMS_KEY` | `''` (empty string) | `src/lib/api.ts` |
 
-No other defaulted configuration values were found in the source tree.
+The Web3Forms endpoint itself is not configurable — it is the constant
+`FORM_ENDPOINT = 'https://api.web3forms.com/submit'` in `src/lib/api.ts`.
 
 ## Per-Environment Overrides
 
-There are no `.env.development`, `.env.production`, or `.env.test` files in the repository, and no
-`NODE_ENV`-conditional configuration branches were found in the source code.
+There are no `.env.development`, `.env.production`, or `.env.test` files in the repository.
 
-For local development, copy `.env.example` to `.env` (or `.env.local`) and set `VITE_FORM_ENDPOINT`
-there — Vite automatically loads these files and they are gitignored.
+For local development, copy `.env.example` to `.env` (or `.env.local`) — Vite loads these automatically
+and they are gitignored.
 
-For production, the project is configured for deployment on Vercel (`vercel.json` sets
-`"framework": "vite"`, `"buildCommand": "npm run build"`, and `"outputDirectory": "dist"`).
-<!-- VERIFY: Confirm VITE_FORM_ENDPOINT is set in the Vercel project's Environment Variables dashboard for the Production environment. This cannot be confirmed from the repository contents alone. -->
+For production, set `VITE_WEB3FORMS_KEY` in the Vercel project (Settings → Environment Variables →
+Production). Because it is inlined at build time it must be present **when the build runs**; adding it
+afterwards requires a redeploy.
 
-`vercel.json` also defines response headers applied to all deployed routes, independent of any
-environment variable:
+`vercel.json` also defines response headers applied to all deployed routes, independent of environment
+variables:
 
 ```json
 {
@@ -102,6 +109,7 @@ environment variable:
 }
 ```
 
-Static assets under `/assets/` receive a long-lived cache header
-(`Cache-Control: public, max-age=31536000, immutable`), and all non-asset routes are rewritten to
-`/index.html` for client-side routing support (via `react-router-dom`).
+Static assets under `/assets/` and `/fonts/` receive a one-year immutable cache header. `/images/`
+receives a one-week cache with `stale-while-revalidate`. There is **no catch-all rewrite**: known routes
+are real prerendered HTML files, and unknown paths fall through to `dist/404.html` so they return 404
+instead of 200. See [`docs/REDIRECTS.md`](./REDIRECTS.md).

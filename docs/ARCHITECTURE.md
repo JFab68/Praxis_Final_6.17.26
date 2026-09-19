@@ -60,11 +60,11 @@ A typical page view flows through the system as follows:
 
 1. **Entry** — The browser loads `index.html`, which mounts `src/main.tsx`. This wraps the app in `HelmetProvider` (for per-page `<head>` management via `react-helmet-async`) and `BrowserRouter` (for client-side routing).
 2. **Routing** — `src/App.tsx` registers all routes with `react-router-dom`. `HomePage` is eager-loaded for first paint; all other route components (`AboutPage`, `ProgramsPage`, `OversightPage`, `PolicyPage`, `TrainingPage`, `ArtsPage`, `ResourcesPage`, `NewsPage`, `BlogArticlePage`, `ContactPage`, `DonatePage`, `ActionCenterPage`, `PartnersPage`, `PrivacyPolicyPage`, `TermsOfUsePage`, `AccessibilityPage`, `NotFoundPage`) are code-split with `React.lazy` and rendered inside a `Suspense` boundary with a shared `PageLoader` fallback.
-3. **Layout composition** — Every route renders inside `Layout.tsx`, which always renders `Navigation` and `Footer`, and conditionally renders the WebGL `FluidBackground` only on the home route (`/`). The active page renders into `<Outlet/>` inside `<main id="main-content">`.
+3. **Layout composition** — Every route renders inside `Layout.tsx`, which always renders `Navigation` and `Footer`, and conditionally renders the WebGL `FluidBackground` only on the home route (`/`) and only when the visitor is on a fine-pointer, wide viewport without a reduced-motion preference. The `three.js` bundle it needs is code-split and never downloaded on other routes or on phones, which get a CSS-gradient `.home-ambient-fallback` instead. The active page renders into `<Outlet/>` inside `<main id="main-content">`.
 4. **Page composition** — Individual page components (`src/pages/*.tsx`) compose shared building blocks: `SEOHead` (sets title/description/canonical/Open Graph/JSON-LD via `react-helmet-async`), `PageHero` (hero banner with reduced-motion awareness), `PageQuote` (pull-quote sections), and larger `src/sections/*` blocks such as `PhilosophyCarousel`, `MediumsGlossary`, `ImmersiveGallery`, and `HeroField` for content-heavy sections like the homepage.
 5. **Content source** — Static content is defined directly in TypeScript: `src/config.ts` holds site-wide config objects (hero copy, navigation links, campaign/project data, footer columns), and `src/data/articles.ts` holds the full News/Blog article library (title, body HTML, pull quotes, citations) consumed by `NewsPage` and `BlogArticlePage`.
-6. **Motion** — `App.tsx` initializes a `Lenis` smooth-scroll instance on mount and ties its scroll updates to GSAP's `ScrollTrigger` via `gsap.ticker`, so any component using `ScrollTrigger` (e.g., `HomePage`, `sections/*`) animates in sync with the smoothed scroll position.
-7. **User-submitted forms** — Components like `Footer` (newsletter signup) and `ContactPage`/`DonatePage` call `submitForm()` from `src/lib/api.ts`, which POSTs a JSON payload to the endpoint configured via the `VITE_FORM_ENDPOINT` environment variable. If unset, submissions are simulated locally with a console log and a simulated delay — no request leaves the browser.
+6. **Motion** — `App.tsx` initialises a `Lenis` smooth-scroll instance and ties its scroll updates to GSAP's `ScrollTrigger` via `gsap.ticker`, so any component using `ScrollTrigger` (e.g., `HomePage`, `sections/*`) animates in sync with the smoothed scroll position. Lenis is loaded on demand and skipped entirely on touch devices, narrow viewports and for visitors who prefer reduced motion.
+7. **User-submitted forms** — Components like `Footer` (newsletter signup) and `ContactPage`/`DonatePage` call `submitForm()` from `src/lib/api.ts`, which POSTs a JSON payload to `https://api.web3forms.com/submit` using the build-time `VITE_WEB3FORMS_KEY` access key. In development a missing key simulates a submission locally; in production a missing key returns a visible failure with a direct email fallback rather than a fake confirmation.
 8. **Third-party embeds** — `ActionNetworkEmbed` injects an Action Network petition widget's CSS/JS directly into the DOM for the Action Center page, and `index.html` loads a Feathr forms/pixel tracking script independently of the React render tree.
 
 ## Key Abstractions
@@ -78,7 +78,7 @@ A typical page view flows through the system as follows:
 | `PageQuote` | `src/components/PageQuote.tsx` | Shared pull-quote section component used across pages to feature a quote and attribution. |
 | `FluidBackground` | `src/components/FluidBackground.tsx` | Three.js/WebGL interactive fluid-simulation background (custom vertex/fragment shaders) rendered behind the homepage. |
 | `ActionNetworkEmbed` | `src/components/ActionNetworkEmbed.tsx` | Injects a third-party Action Network petition widget's CSS and JS into the DOM for a given `petitionId`/`scriptSrc`. |
-| `submitForm()` | `src/lib/api.ts` | Central form-submission utility; POSTs to `VITE_FORM_ENDPOINT` or simulates submission locally when unset. |
+| `submitForm()` | `src/lib/api.ts` | Central form-submission utility; POSTs to the Web3Forms API with `VITE_WEB3FORMS_KEY`, simulates locally in dev when the key is absent, and fails visibly in production when it is absent. |
 | `cn()` | `src/lib/utils.ts` | Class-name merge utility combining `clsx` and `tailwind-merge`, used for conditional Tailwind class composition (shadcn/ui convention). |
 | `siteConfig`, `navigationConfig`, `heroConfig`, `galleryConfig`, `mediumsConfig`, `footerConfig` | `src/config.ts` | Typed, centrally-defined content objects driving site copy, navigation links, campaign/project data, program-area descriptions, and footer structure. |
 | `Article` data model + `articles[]` | `src/data/articles.ts` | Typed content model and dataset for the News/Blog section, consumed by `NewsPage` and `BlogArticlePage`. |
@@ -112,11 +112,14 @@ src/
 
 Top-level project structure:
 
-- `public/` — Static assets served as-is: `favicon.svg`, `images/`, `videos/`, `robots.txt`, `sitemap.xml`.
+- `public/` — Static assets served as-is: `favicon.svg`, `images/`, `videos/`, `fonts/` (self-hosted font subsets plus `fonts.css`), `robots.txt`, `sitemap.xml`.
+- `brand-assets/` — Source logo files. Deliberately outside `public/` so they are versioned but not deployed.
 - `docs/` — Project documentation (this file and related docs).
-- `index.html` — HTML shell containing SEO meta tags, JSON-LD structured data, and third-party script tags (Feathr forms embed, Feathr tracking pixel, Google Fonts preconnects).
-- `vite.config.ts` — Vite build configuration; defines the `@/*` path alias to `src/*` and registers the React plugin plus a dev-only `inspectAttr` plugin.
-- `vercel.json` — Deployment configuration for Vercel: build command, output directory, SPA rewrite rule (all non-asset paths rewrite to `/index.html`), and security/caching headers.
+- `scripts/` — Build-time tooling: `prerender.mjs`, `fetch-fonts.mjs`, `optimize-images.sh`, `check-redirects.mjs`, `generate-redirect-docs.mjs`.
+- `index.html` — HTML shell. Contains the `<!--seo-start-->`/`<!--seo-end-->` markers that `scripts/prerender.mjs` replaces with per-route head tags, plus the Feathr tracking pixel. Fonts are self-hosted (no Google Fonts origins) and the Givebutter library is loaded on demand by the donate page only.
+- `vite.config.ts` — Vite build configuration; absolute `base: '/'` (required so deep links resolve assets from the root), the `@/*` path alias, the React plugin, a dev-only `inspectAttr` plugin, and manual chunk splitting for `react`/`motion`/`three`.
+- `src/entry-server.tsx` — Server entry used by the prerender step. Exports `PRERENDER_ROUTES` and a `render(url)` that streams a route to HTML via `renderToPipeableStream`.
+- `vercel.json` — Deployment configuration for Vercel: build command, output directory, `cleanUrls`/`trailingSlash`, 63 permanent legacy-URL redirects, and security/caching headers. Deliberately has **no catch-all rewrite** so unknown paths reach `dist/404.html` and return 404.
 - `components.json` — shadcn/ui configuration (style: "new-york", Tailwind base color: "slate") for scaffolding future UI primitives into `src/components/ui`; no components have been generated into that directory yet.
 - `tailwind.config.js`, `postcss.config.js` — Tailwind CSS and PostCSS build configuration.
-- `.env.example` — Documents the single required environment variable, `VITE_FORM_ENDPOINT`, used by `src/lib/api.ts` for form submissions.
+- `.env.example` — Documents the required environment variable, `VITE_WEB3FORMS_KEY`, used by `src/lib/api.ts` for form submissions.

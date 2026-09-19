@@ -36,8 +36,8 @@ const articles: Article[] = [
     date: '2025-07-15',
     category: 'Oversight',
     featured: true,
-    image: '/images/oversight-spotlight.jpg',
-    images: ['/images/oversight-spotlight.jpg', '/images/capitol-night.jpg', '/images/policy-documents.jpg', '/images/coalition-meeting.jpg'],
+    image: '/images/oversight-spotlight.webp',
+    images: ['/images/oversight-spotlight.webp', '/images/capitol-night.webp', '/images/policy-documents.webp', '/images/coalition-meeting.webp'],
     excerpt: 'A detailed breakdown of Arizona\'s SB 1507, which created the Independent Correctional Oversight Office but left it unfunded. What the law can do, what it can\'t, and what advocates, lawmakers, and communities must do next.',
     seoTitle: 'Arizona SB 1507 Explained: Independent Prison Oversight Office Analysis | Praxis Initiative',
     seoDescription: 'A detailed breakdown of Arizona\'s SB 1507, which created the Independent Correctional Oversight Office but left it unfunded. What the law can do, what it can\'t, and what advocates must do next.',
@@ -55,7 +55,7 @@ const articles: Article[] = [
 <p>There was one problem. The legislature stripped the $1.5 million the office needed to open its doors. As of mid-2026, Arizona's oversight office exists only on paper.</p>
 <p>This is the story of a law that could change how Arizona runs its prisons — if the state decides to let it.</p>
 
-<img src="/images/oversight-spotlight.jpg" alt="Arizona prison oversight spotlight" class="article-full-img" />
+<img src="/images/oversight-spotlight.webp" alt="Arizona prison oversight spotlight" class="article-full-img" />
 
 <h2>How We Got Here: A Decade of Crisis</h2>
 <p>Arizona did not arrive at federal receivership overnight. The path was long, well-documented, and marked by repeated warnings that went unheeded.</p>
@@ -64,7 +64,7 @@ const articles: Article[] = [
 <p>In 2020, a whistleblower at the Lewis Prison Complex revealed that hundreds of cell doors were broken — they could be forced open by hand — creating a security crisis that endangered the lives of both incarcerated people and staff. That same year, the department's handling of COVID-19 inside its facilities drew public outcry. In 2023, the U.S. Department of Justice concluded a separate investigation finding that ADCRR systematically violated the Americans with Disabilities Act.</p>
 <p>Through all of this, Arizona lacked any independent state body with the authority to walk into a prison, investigate a complaint, and tell the public what it found. The state's Ombudsman — the office created specifically to investigate citizen complaints against government agencies — was, by statute, <em>prohibited</em> from looking into complaints from people in state prison custody. That is not a gap in the system. That is the system working as it was designed: to keep prison conditions invisible.</p>
 
-<img src="/images/policy-documents.jpg" alt="Legislative policy documents" class="article-full-img" />
+<img src="/images/policy-documents.webp" alt="Legislative policy documents" class="article-full-img" />
 
 <h2>What SB 1507 Actually Does</h2>
 <p>Senate Bill 1507, signed into law on July 1, 2025, creates the Independent Correctional Oversight Office, or ICOO. It is housed as a standalone entity — not inside the corrections department, not as a subunit of another agency. The law gives it real structural independence and a set of powers that, on paper, rank among the strongest in the country.</p>
@@ -98,7 +98,7 @@ const articles: Article[] = [
 <p><strong>It does not replace federal court oversight.</strong> The federal receivership over prison healthcare operates independently. A functioning ICOO could work alongside federal oversight, but SB 1507 does not substitute for court-ordered reforms.</p>
 <p><strong>It does not appoint a director or hire staff.</strong> Without funding, the Governor cannot appoint a Director, no staff can be hired, no hotline can be established, and no inspections can occur. Senator Shawnna Bolick, the bill's Republican sponsor, characterized the outcome as creating a "press release" rather than a functional oversight body.</p>
 
-<img src="/images/capitol-night.jpg" alt="Arizona State Capitol at night" class="article-full-img" />
+<img src="/images/capitol-night.webp" alt="Arizona State Capitol at night" class="article-full-img" />
 
 <h2>The Funding Fight: $1.5 Million the State Won't Spend</h2>
 <p>SB 1507 moved through the legislature with unusual speed and near-unanimous support. It passed the Senate Regulatory Affairs and Government Efficiency Committee 7-0. It passed the Senate Appropriations Committee 9-1. It passed the full Senate 23-5. It passed the House Government Committee 7-0. It passed the full House 46-10. At each stage, the bill included its $1.5 million appropriation.</p>
@@ -110,7 +110,7 @@ const articles: Article[] = [
 <p>Not all oversight is created equal. A weak or poorly designed office can provide the appearance of accountability without the substance — what scholars sometimes call "oversight theater." The National Resource Center for Correctional Oversight has identified core attributes: structural independence, unfettered facility access, adequate and stable funding, subpoena power, public reporting obligations, and protection from retaliation. SB 1507 meets every standard — except funding.</p>
 <p>As of 2024, approximately 19 states and the District of Columbia have some form of independent prison oversight. Minnesota has operated its Office of the Ombuds for Corrections since 1973. Virginia established a layered model in 2023-2024. Maryland launched its Office of the Correctional Ombudsman in 2024. Arizona's ICOO, on paper, compares favorably to all of these models. But Minnesota's office is funded. Virginia's is funded. Maryland's is funded. Arizona's is not.</p>
 
-<img src="/images/coalition-meeting.jpg" alt="Coalition partners meeting" class="article-full-img" />
+<img src="/images/coalition-meeting.webp" alt="Coalition partners meeting" class="article-full-img" />
 
 <h2>Who Built This: The Praxis Initiative and the Coalition Behind SB 1507</h2>
 <p>The law did not write itself. Its passage was the result of years of sustained advocacy, led in large part by people who had lived inside the system they were trying to reform. The Praxis Initiative, a Phoenix-based nonprofit, was founded by formerly incarcerated individuals and has been the organizational backbone of Arizona's correctional oversight movement since 2018. Executive Director John Fabricius served 15 years across nine different Arizona prison complexes. Policy Director Jessica Johnson spent eight years at the Perryville women's complex.</p>
@@ -169,8 +169,8 @@ const articles: Article[] = [
     date: '2025-07-10',
     category: 'Oversight',
     featured: false,
-    image: '/images/oversight-spotlight.jpg',
-    images: ['/images/oversight-spotlight.jpg', '/images/capitol-night.jpg', '/images/arizona-landscape.jpg', '/images/policy-documents.jpg'],
+    image: '/images/oversight-spotlight.webp',
+    images: ['/images/oversight-spotlight.webp', '/images/capitol-night.webp', '/images/arizona-landscape.webp', '/images/policy-documents.webp'],
     excerpt: 'Arizona created the Independent Correctional Oversight Office in 2025 to monitor state prisons, but left it entirely unfunded. Discover the fiscal, legal, and human costs of a phantom watchdog.',
     seoTitle: 'Why Arizona Must Fund the Independent Correctional Oversight Office (ICOO) | Praxis Initiative',
     seoDescription: 'Arizona created the Independent Correctional Oversight Office in 2025 to monitor state prisons, but left it unfunded. Discover the fiscal, legal, and human costs.',
@@ -186,14 +186,14 @@ const articles: Article[] = [
 <p>Leaving the state's prison watchdog completely unfunded is a classic example of being penny-wise and pound-foolish. While lawmakers hesitate over a $1.5 million appropriation, the state continues to lose tens of millions of dollars annually to federal court sanctions, structural staff vacancies, crumbling facilities, and preventable wrongful death settlements.</p>
 <p>The question is no longer whether Arizona can afford to fund prison oversight. The question is how much longer we can afford to let a billion-dollar state agency police itself.</p>
 
-<img src="/images/arizona-landscape.jpg" alt="Arizona landscape" class="article-full-img" />
+<img src="/images/arizona-landscape.webp" alt="Arizona landscape" class="article-full-img" />
 
 <h2>The Historical Roots of a Closed System</h2>
 <p>For decades, the Arizona Department of Corrections, Rehabilitation, and Reentry (ADCRR) has operated as an insular entity, largely isolated from outside inspection. Historically, prison oversight nationwide relied almost entirely on internal reporting or retroactive litigation. In Arizona, the default response to operational crises has been internal administrative reviews — essentially asking an agency to investigate itself.</p>
 <p>This closed-loop system creates an environment where operational failures, health and safety hazards, and financial waste are hidden until they escalate into public crises or expensive federal lawsuits. The cycle is deadly and expensive: internal failure leads to concealment, which leads to denial, then a federal lawsuit, then multimillion-dollar fines, and back to more internal failure with no restructuring.</p>
 <p>Before the creation of the ICOO, the state attempted a temporary solution via an executive order creating the Independent Prison Oversight Commission. While this 12-member voluntary commission traveled to facilities and collected vital information, its November 2023 report delivered an unambiguous conclusion: a volunteer commission lacks the permanent staff, statutory authority, and budget to provide real oversight. The volunteers recommended that the legislature pass a law to establish a permanent, fully staffed, and independently funded office.</p>
 
-<img src="/images/oversight-spotlight.jpg" alt="Prison oversight spotlight" class="article-full-img" />
+<img src="/images/oversight-spotlight.webp" alt="Prison oversight spotlight" class="article-full-img" />
 
 <h2>Current Conditions: A Billion-Dollar System in Crisis</h2>
 <p>As of late 2025, Arizona incarcerates roughly 35,302 people across 16 facilities, seven of which are operated by private, for-profit corporations. Managing this massive footprint requires an immense workforce and a budget that competes directly with public education, infrastructure, and healthcare for state revenue.</p>
@@ -215,7 +215,7 @@ const articles: Article[] = [
 <p>Arizona does not have to guess whether prison oversight is effective. Several peer states have implemented independent monitoring systems and seen clear, quantifiable returns on their investments. Washington's Office of the Corrections Ombuds, established in 2018, investigated thousands of family complaints and prevented multiple class-action lawsuits. New Jersey's Ombuds exposed systemic sexual abuse at the Edna Mahan Women's Facility, triggering management reforms and liability reductions. Texas's Independent Ombudsman for juvenile facilities tracks safety violations and provides the legislature with unbiased data for budget decisions.</p>
 <p>These states demonstrate that an ombudsman or independent inspector does not weaken a corrections department; instead, it provides leadership with the clear information needed to manage a massive bureaucracy.</p>
 
-<img src="/images/capitol-night.jpg" alt="Arizona Capitol" class="article-full-img" />
+<img src="/images/capitol-night.webp" alt="Arizona Capitol" class="article-full-img" />
 
 <h2>Overcoming Administrative and Political Hurdles</h2>
 <p>If independent oversight makes financial sense and has broad bipartisan support, why does it remain unfunded? The delay is driven by common institutional dynamics: bureaucratic self-preservation where large agencies resist external eyes, budgetary inertia where new appropriations face steep hurdles in tight fiscal years, and the persistent mistaken belief that monitoring prison conditions means being "soft" on incarcerated people. This view ignores the fact that prison staff, contract workers, and local communities are directly impacted by what happens inside these facilities.</p>
@@ -257,8 +257,8 @@ const articles: Article[] = [
     date: '2025-07-05',
     category: 'Oversight',
     featured: false,
-    image: '/images/coalition-meeting.jpg',
-    images: ['/images/coalition-meeting.jpg', '/images/civic-training.jpg', '/images/advocacy-speaking.jpg', '/images/az-capitol.jpg'],
+    image: '/images/coalition-meeting.webp',
+    images: ['/images/coalition-meeting.webp', '/images/civic-training.webp', '/images/advocacy-speaking.webp', '/images/az-capitol.webp'],
     excerpt: 'Trace the five-year fight to pass SB 1507 and establish independent oversight of the Arizona Department of Corrections. Learn how coalition building and formerly incarcerated leadership changed state law.',
     seoTitle: 'Independent Oversight of ADCRR | SB 1507 Campaign History | Praxis Initiative',
     seoDescription: 'Trace the five-year fight to pass SB 1507 and establish independent oversight of the ADCRR. Learn how coalition building and formerly incarcerated leadership changed state law.',
@@ -272,7 +272,7 @@ const articles: Article[] = [
 <p>Five years later, that same legislature voted to pass Senate Bill 1507. The bill dismantled the Arizona Department of Corrections, Rehabilitation, and Reentry's long-standing practice of investigating itself. It established a statutory framework for independent oversight.</p>
 The distance between that 2019 meeting room and the 2023 legislative victory was not a straight line. It was a grueling, multi-year operation requiring deep research, intense coalition building, strategic setbacks, and a fundamental shift in who was positioned to lead the public conversation. For Praxis Initiative, the fight for SB 1507 represents our core organizational history.</p>
 
-<img src="/images/coalition-meeting.jpg" alt="Praxis Initiative coalition partners collaborating on correctional oversight policy at a conference table" class="article-full-img" />
+<img src="/images/coalition-meeting.webp" alt="Praxis Initiative coalition partners collaborating on correctional oversight policy at a conference table" class="article-full-img" />
 
 <h2>The Pre-2019 Vacuum: How Self-Policing Failed</h2>
 <p>For decades, Arizona's prison system relied on an internal affairs model. When an incarcerated person died under suspicious circumstances, when staff used excessive force, or when medical care was denied, ADCRR's own Investigative Operations Unit (IOU) handled the case.</p>
@@ -291,7 +291,7 @@ The distance between that 2019 meeting room and the 2023 legislative victory was
 <p>The campaign's trajectory shifted dramatically in 2020 and 2021 due to two factors: the COVID-19 pandemic and the U.S. Department of Justice. When the pandemic hit ADCRR facilities, the lack of transparency became a public health crisis. In 2020, 314 incarcerated people died in ADCRR custody — a staggering increase from previous years. Then, in November 2021, the DOJ issued its findings: conditions in Arizona's prisons violated the Eighth Amendment, specifically citing excessive force by staff and deliberate indifference to serious medical needs.</p>
 <p>The DOJ findings changed the legislative dynamic. It was no longer just advocates making claims; it was the federal government confirming that Arizona's self-policing model had resulted in unconstitutional, lethal conditions. Lawmakers could no longer credibly claim that the department was handling its problems internally.</p>
 
-<img src="/images/civic-training.jpg" alt="Formerly incarcerated leaders and advocates participating in civic advocacy training and campaign strategy" class="article-full-img" />
+<img src="/images/civic-training.webp" alt="Formerly incarcerated leaders and advocates participating in civic advocacy training and campaign strategy" class="article-full-img" />
 
 <h2>The Strategic Pivot: Formerly Incarcerated Leadership</h2>
 <p>The most significant strategic shift was the elevation of formerly incarcerated leaders to the forefront of the campaign. This was not a symbolic gesture. It was a calculated, necessary response to the failures of standard lobbying.</p>
@@ -301,7 +301,7 @@ The distance between that 2019 meeting room and the 2023 legislative victory was
 <h2>Navigating Institutional and Political Dynamics</h2>
 <p>Armed with DOJ findings and led by those with lived experience, the coalition entered the 2022 and 2023 legislative sessions with renewed leverage. We commissioned research demonstrating that states with independent oversight bodies often save money in the long term. We framed oversight not as a punitive measure against ADCRR, but as a management tool to help the agency improve. We isolated the prison oversight issue from general law enforcement issues, emphasizing that prisons are unique closed environments where individuals are stripped of their liberty.</p>
 
-<img src="/images/advocacy-speaking.jpg" alt="Advocate testifying at a legislative hearing on criminal justice reform before lawmakers" class="article-full-img" />
+<img src="/images/advocacy-speaking.webp" alt="Advocate testifying at a legislative hearing on criminal justice reform before lawmakers" class="article-full-img" />
 
 <h2>Counterarguments and Rebuttals</h2>
 <p><strong>"We already have internal investigations."</strong> Internal investigations lack statutory independence. The Auditor General conducts financial audits, not real-time investigations into civil rights violations. SB 1507 filled a specific gap.</p>
@@ -312,7 +312,7 @@ The distance between that 2019 meeting room and the 2023 legislative victory was
 <p>In 2023, the strategy culminated in the passage of SB 1507. The bill established a pragmatic, structurally independent office with the authority to receive and investigate complaints, access all ADCRR facilities and records, and publish annual public reports. It passed with bipartisan support. Governor Katie Hobbs signed it into law.</p>
 <p>Passing a law is not the finish line. It is the starting pistol for implementation. The history of criminal legal system reform is littered with strong laws that were hollowed out by resistant bureaucracies during the implementation phase. Praxis Initiative remains committed to ensuring SB 1507 is fully realized.</p>
 
-<img src="/images/az-capitol.jpg" alt="The historic Arizona State Capitol building illuminated at night in Phoenix, where SB 1507 was passed into law" class="article-full-img" />
+<img src="/images/az-capitol.webp" alt="The historic Arizona State Capitol building illuminated at night in Phoenix, where SB 1507 was passed into law" class="article-full-img" />
 
 <div class="article-cta-section">
   <h3>Accountability as an Ongoing Practice</h3>
@@ -345,8 +345,8 @@ The distance between that 2019 meeting room and the 2023 legislative victory was
     date: '2025-06-28',
     category: 'Oversight',
     featured: false,
-    image: '/images/oversight-spotlight.jpg',
-    images: ['/images/oversight-spotlight.jpg', '/images/arizona-landscape.jpg', '/images/policy-documents.jpg', '/images/family-impact.jpg'],
+    image: '/images/oversight-spotlight.webp',
+    images: ['/images/oversight-spotlight.webp', '/images/arizona-landscape.webp', '/images/policy-documents.webp', '/images/family-impact.webp'],
     excerpt: 'The 2018 Lewis Prison lock disaster left Andrew McCormick dead and exposed Arizona\'s broken prison oversight. Learn how independent monitoring could have prevented the failures — and why the state still hasn\'t fixed the problem.',
     seoTitle: 'Lewis Prison Lock Disaster: How Independent Oversight Could Have Saved Lives | Praxis Initiative',
     seoDescription: 'The 2018 Lewis Prison lock disaster left Andrew McCormick dead. Learn how independent monitoring could have prevented the failures — and why Arizona still hasn\'t fixed the problem.',
@@ -363,7 +363,7 @@ The distance between that 2019 meeting room and the 2023 legislative victory was
 <p>"Of all of the places for locks not to be working, for the safety of inmates and officers alike, what the heck?" Andrew's mother, Jodie McCormick, asked through tears. "It makes absolutely no sense."</p>
 <p>The question that haunts McCormick's death — and every violent incident that followed — is simple: <strong>How did this happen, and why didn't anyone stop it?</strong></p>
 
-<img src="/images/oversight-spotlight.jpg" alt="Prison oversight spotlight" class="article-full-img" />
+<img src="/images/oversight-spotlight.webp" alt="Prison oversight spotlight" class="article-full-img" />
 
 <h2>A History of Broken Promises</h2>
 <p>The lock problems at Lewis Prison weren't new. In 1997, at Perryville prison, faulty locks that officials had "known about since 1988" allowed one incarcerated person to free another, who stabbed a corrections officer to death. Three years later, a female nurse was attacked by a male incarcerated person. Faulty cell door locks played a role in both cases. The pattern was set: problems identified, requests made, funding denied, people hurt or killed.</p>
@@ -379,7 +379,7 @@ The distance between that 2019 meeting room and the 2023 legislative victory was
 <p>But the officer wasn't the only one who had given up. Interviews with prison staff revealed a culture of acceptance. Officers had accepted the doors didn't work and wouldn't get fixed anytime soon. They had all but given up on trying to follow proper safety and security policies. "I mean, we don't allow having multiple cells open at a time, but yes it's the norm," one officer told investigators.</p>
 <p>In fiscal year 2025 alone, there were <strong>11 homicides</strong> in Arizona's state correctional facilities. The whistleblower who helped expose the Lewis lock scandal — 31-year-old Gabriela Contreras, a corrections officer — was found dead in March 2020.</p>
 
-<img src="/images/family-impact.jpg" alt="Family impact of incarceration" class="article-full-img" />
+<img src="/images/family-impact.webp" alt="Family impact of incarceration" class="article-full-img" />
 
 <h2>The Funding Failure</h2>
 <p>A 2021 investigation by two former Arizona Supreme Court chief justices found that staffing issues caused by <strong>chronic underfunding by the legislature</strong> were a prime factor in the Department of Corrections' failure to remedy the faulty locks. Between fiscal year 2005 and 2020, the Corrections Department requested a total of <strong>$583 million</strong> to replace and repair locking systems. The Arizona Department of Administration adjusted those requests to $114 million. Legislators provided a total of <strong>just $6.7 million</strong> during those 16 years. That's less than 1.2 percent of what was originally requested.</p>
@@ -392,7 +392,7 @@ The distance between that 2019 meeting room and the 2023 legislative victory was
   <cite>— John Fabricius, Praxis Initiative Executive Director, formerly incarcerated in ADCRR for 15 years</cite>
 </blockquote>
 
-<img src="/images/policy-documents.jpg" alt="Policy documents and legislation" class="article-full-img" />
+<img src="/images/policy-documents.webp" alt="Policy documents and legislation" class="article-full-img" />
 
 <h2>The Oversight That Almost Was</h2>
 <p>In 2025, Arizona lawmakers passed Senate Bill 1507 creating the state's first Independent Correctional Oversight Office. The bill was sponsored by Republican State Senator Shawnna Bolick and co-sponsored by Representative Walt Blackman. It passed both chambers with wide margins. But the version Governor Hobbs signed <strong>did not include the $1.5 million in state funding</strong>. Bolick said the governor struck the funding at the last minute. Blackman later said the decision effectively made the office "just a press release."</p>
@@ -437,8 +437,8 @@ The distance between that 2019 meeting room and the 2023 legislative victory was
     date: '2025-06-20',
     category: 'Advocacy',
     featured: false,
-    image: '/images/policy-documents.jpg',
-    images: ['/images/policy-documents.jpg', '/images/training-digital.jpg', '/images/arizona-landscape.jpg', '/images/civic-training.jpg'],
+    image: '/images/policy-documents.webp',
+    images: ['/images/policy-documents.webp', '/images/training-digital.webp', '/images/arizona-landscape.webp', '/images/civic-training.webp'],
     excerpt: 'Explore the systemic barriers to court access for incarcerated people in Arizona, including legal mail delays, digital restrictions, and procedural hurdles under the PLRA.',
     seoTitle: 'Access to Courts for Arizona Prisoners: Legal Barriers & Constitutional Rights | Praxis Initiative',
     seoDescription: 'Explore the systemic barriers to court access for incarcerated people in Arizona, including legal mail delays, digital restrictions, and procedural hurdles under the PLRA.',
@@ -451,7 +451,7 @@ The distance between that 2019 meeting room and the 2023 legislative victory was
 <p>Now imagine the legal research you need to draft that claim is trapped on a broken digital kiosk. Imagine the legal mail from your attorney, containing the exact forms you need, was opened by prison staff outside your presence and sits in a mailroom for three weeks. Imagine that if you complain about these delays, you risk being transferred to a restrictive housing unit.</p>
 <p>This is not a hypothetical scenario. It is the daily reality for thousands of people navigating the Arizona Department of Corrections, Rehabilitation & Reentry.</p>
 
-<img src="/images/policy-documents.jpg" alt="Legal and policy documents" class="article-full-img" />
+<img src="/images/policy-documents.webp" alt="Legal and policy documents" class="article-full-img" />
 
 <h2>The Constitutional Foundation</h2>
 <p>The United States Constitution guarantees the right to access the courts. In the 1977 case <em>Bounds v. Smith</em>, the U.S. Supreme Court ruled that the First and Fourteenth Amendments require states to provide incarcerated people with adequate law libraries or adequate assistance from persons trained in the law. For decades, this meant prisons had to maintain physical libraries with updated reporters, statutes, and case law.</p>
@@ -460,7 +460,7 @@ The distance between that 2019 meeting room and the 2023 legislative victory was
 <h2>The Digital Divide Inside Prison Walls</h2>
 <p>Many Arizona facilities have replaced physical books with digital kiosks and tablets provided by private technology vendors. While digital access has the potential to be comprehensive, the reality is often fraught with technical failures. Legal research kiosks frequently suffer from downtime, slow processing speeds, and outdated software. When a kiosk breaks down in a housing unit, an incarcerated person may lose days or weeks of critical research time.</p>
 
-<img src="/images/training-digital.jpg" alt="Digital literacy and technology access" class="article-full-img" />
+<img src="/images/training-digital.webp" alt="Digital literacy and technology access" class="article-full-img" />
 
 <h2>The Legal Mail Bottleneck</h2>
 <p>Communication with legal counsel is the lifeblood of court access. The Ninth Circuit Court of Appeals has strict rules regarding legal mail — staff must inspect incoming legal mail for contraband in the presence of the incarcerated person to prevent staff from reading privileged communications. Despite these rules, reports reveal frequent violations. Legal mail is routinely opened in central mailrooms without the recipient present. More damaging than the privacy violation is the delay. In the context of a ticking statute of limitations, a three-week delay is the difference between a heard case and a dismissed case.</p>
@@ -473,7 +473,7 @@ The distance between that 2019 meeting room and the 2023 legislative victory was
 <p>Under the PLRA, incarcerated people must exhaust ADCRR's internal grievance process before going to federal court. ADCRR Rule 10 is notoriously complex, requiring multiple steps, strict formatting, and tight deadlines. Missing a deadline by a single day results in a failure to exhaust. Federal courts routinely dismiss civil rights lawsuits because the plaintiff missed a minor procedural step.</p>
 <p>Beyond the legal failures, there is the pervasive issue of retaliation. Filing a grievance or lawsuit against prison staff is a highly visible act. Incarcerated people who exercise their right to access the courts frequently report retaliation — sudden disciplinary write-ups, loss of good-time credits, denial of phone privileges, or transfer to restrictive housing. This creates a powerful chilling effect.</p>
 
-<img src="/images/civic-training.jpg" alt="Civic advocacy and legal training" class="article-full-img" />
+<img src="/images/civic-training.webp" alt="Civic advocacy and legal training" class="article-full-img" />
 
 <h2>The Gap Between Paper and Practice</h2>
 <p>ADCRR policy technically complies with Ninth Circuit standards by stating that legal mail should be opened in the incarcerated person's presence. However, the policy lacks robust enforcement mechanisms. When a violation occurs, the burden falls on the incarcerated person to prove the mail was opened improperly and caused "actual injury" — a nearly impossible standard without the prison's own internal logs.</p>
@@ -519,8 +519,8 @@ The distance between that 2019 meeting room and the 2023 legislative victory was
     date: '2025-06-15',
     category: 'Reform',
     featured: false,
-    image: '/images/arizona-landscape.jpg',
-    images: ['/images/arizona-landscape.jpg', '/images/family-impact.jpg', '/images/oversight-spotlight.jpg', '/images/home-confinement.jpg'],
+    image: '/images/arizona-landscape.webp',
+    images: ['/images/arizona-landscape.webp', '/images/family-impact.webp', '/images/oversight-spotlight.webp', '/images/home-confinement.webp'],
     excerpt: 'Explore the history and impact of mass incarceration in Arizona. Discover how truth-in-sentencing laws, private prisons, and systemic disparities affect communities, and learn about evidence-based pathways for reform.',
     seoTitle: 'Arizona Mass Incarceration: History, Impacts & Prison Reform | Praxis Initiative',
     seoDescription: 'Explore the history and impact of mass incarceration in Arizona. Discover how truth-in-sentencing laws, private prisons, and systemic disparities affect communities.',
@@ -533,7 +533,7 @@ The distance between that 2019 meeting room and the 2023 legislative victory was
 <p class="article-lede">In 1980, the Arizona prison population stood at fewer than 4,000 people. Today, it hovers around 35,000. This explosion in the number of incarcerated people did not happen by accident, nor was it the inevitable result of a rising crime rate. Instead, it was the predictable outcome of decades of policy choices.</p>
 <p>The state now has the fourth-highest imprisonment rate in the United States, locking up a higher percentage of its residents than almost any independent democracy on earth. As the human and financial costs continue to mount, a growing bipartisan consensus is emerging: Arizona's approach to criminal justice is unsustainable.</p>
 
-<img src="/images/arizona-landscape.jpg" alt="Arizona desert landscape" class="article-full-img" />
+<img src="/images/arizona-landscape.webp" alt="Arizona desert landscape" class="article-full-img" />
 
 <h2>The Historical Roots of Arizona's Incarceration Boom</h2>
 <p>The foundation of Arizona's mass incarceration crisis was laid in the late 20th century during a national shift toward "tough-on-crime" rhetoric. In 1993, Arizona lawmakers passed a sweeping "truth-in-sentencing" law that eliminated parole for offenses committed after January 1, 1994, and mandated that almost all incarcerated people serve at least 85 percent of their sentences, regardless of their behavior or rehabilitation efforts.</p>
@@ -543,7 +543,7 @@ The distance between that 2019 meeting room and the 2023 legislative victory was
 <h2>Current Conditions: A System Overwhelmed</h2>
 <p>Today, the ADCRR oversees a massive and expensive bureaucracy. In 2024, the department's budget was roughly $1.47 billion. Arizona spends almost 60 percent more on prisons than it does on its state universities. The vast majority of people entering Arizona prisons are not violent offenders. More than half were incarcerated for non-violent offenses, with drug offenses accounting for nearly one in three admissions.</p>
 
-<img src="/images/family-impact.jpg" alt="Impact on families" class="article-full-img" />
+<img src="/images/family-impact.webp" alt="Impact on families" class="article-full-img" />
 
 <h2>Racial and Ethnic Disparities</h2>
 <p>The burden of mass incarceration does not fall equally. While Black people make up only 5 percent of the state's population, they account for 14 percent of the prison population. Hispanic individuals comprise 31 percent of the state population but 37 percent of prison admissions. An analysis of the Maricopa County Attorney's Office found that Black and Hispanic people spend significantly more time incarcerated than white people for similar offenses. White defendants are significantly more likely to have their cases dismissed entirely.</p>
@@ -565,7 +565,7 @@ The distance between that 2019 meeting room and the 2023 legislative victory was
 <p><strong>4. Eliminate Collateral Consequences.</strong> Dismantle the legal barriers to employment and housing, restore voting rights automatically upon release, and ease restrictions on occupational licensing.</p>
 <p><strong>5. Establish Independent Oversight.</strong> Given catastrophic failures in prison healthcare, Arizona must establish robust, independent oversight of the ADCRR with the authority to inspect facilities, investigate complaints, and mandate changes.</p>
 
-<img src="/images/home-confinement.jpg" alt="Home confinement and community reentry" class="article-full-img" />
+<img src="/images/home-confinement.webp" alt="Home confinement and community reentry" class="article-full-img" />
 
 <h2>Conclusion</h2>
 <p>The legacy of mass incarceration in Arizona is one of profound failure. By clinging to outdated, punitive policies, the state has devastated communities, perpetuated racial injustice, and squandered billions of dollars, all without making its citizens safer. The path forward is clear: embracing evidence-based reforms, restoring judicial discretion, treating addiction as a health crisis, and investing in people rather than prisons.</p>
@@ -603,8 +603,8 @@ The distance between that 2019 meeting room and the 2023 legislative victory was
     date: '2025-06-08',
     category: 'Legislation',
     featured: false,
-    image: '/images/capitol-night.jpg',
-    images: ['/images/capitol-night.jpg', '/images/policy-documents.jpg', '/images/coalition-meeting.jpg', '/images/home-confinement.jpg'],
+    image: '/images/capitol-night.webp',
+    images: ['/images/capitol-night.webp', '/images/policy-documents.webp', '/images/coalition-meeting.webp', '/images/home-confinement.webp'],
     excerpt: 'A comprehensive analysis of Arizona\'s 2025-2026 legislative landscape for prison and sentencing reform. We map factions, bills, budgets, DOJ findings, and evidence-based paths to change.',
     seoTitle: 'Arizona State Legislature 2025-2026: Criminal Legal Reform Forecast | Praxis Initiative',
     seoDescription: 'A comprehensive analysis of Arizona\'s 2025-2026 legislative landscape for prison and sentencing reform. Bills, budgets, DOJ findings, and paths to change.',
@@ -617,13 +617,13 @@ The distance between that 2019 meeting room and the 2023 legislative victory was
 <p>Courtrooms can expose failures. Only the Arizona State Legislature can fund, mandate, or unwind the policies that create them. From 2025 forward, every bill that touches earned release credits, home confinement, oversight, or the $1.63 billion ADCRR budget will decide whether those failures repeat.</p>
 <p>This article maps how prison policy moves through the Arizona Capitol, who controls the levers, which reforms are real versus symbolic, and what it means for incarcerated people, families, and taxpayers.</p>
 
-<img src="/images/capitol-night.jpg" alt="Arizona State Capitol at night" class="article-full-img" />
+<img src="/images/capitol-night.webp" alt="Arizona State Capitol at night" class="article-full-img" />
 
 <h2>From "Truth in Sentencing" to a $1.6 Billion System</h2>
 <p><strong>1993: The year everything changed.</strong> Arizona abolished parole and passed "truth in sentencing," requiring people convicted of felonies to serve at least 85% of their sentence. The prison population jumped from 15,000 in 1993 to over 42,000 by 2015.</p>
 <p><strong>2025: The ledger today.</strong> ADCRR's FY 2026 budget is $1.637 billion, with $380.9 million for contracted health care and $273.1 million for private prison per diem. Total capacity is 43,589 beds; actual population was 35,551 in FY 2025. That leaves a 7% bed surplus, but staffing vacancies drive 92,320 hours of overtime.</p>
 
-<img src="/images/policy-documents.jpg" alt="Policy documents and legislative analysis" class="article-full-img" />
+<img src="/images/policy-documents.webp" alt="Policy documents and legislative analysis" class="article-full-img" />
 
 <h2>Current Conditions: Arizona vs. The Nation</h2>
 <p>Arizona's incarceration rate hovers around 550 per 100,000 adults, compared to the national average of 350. The state's private prison share is 28% of beds, versus the national average of 8%. Arizona requires 85% time served minimum, while 21 states allow less than 85%. Arizona spends less per incarcerated person than most states, but faces federal oversight for health care.</p>
@@ -646,7 +646,7 @@ The distance between that 2019 meeting room and the 2023 legislative victory was
 <p>Home confinement (SB1366 implementation) has high likelihood and could save $20M+ if 2,000 people move to monitoring. Expanding earned credits to all non-violent offenses has medium likelihood and could free 3,000-5,000 beds. Second look sentencing for those under 25 after 15 years is low likelihood but norm-shifting. Independent oversight funding remains low likelihood despite broad support.</p>
 <p>Transformational vs. Symbolic: Home confinement and credit expansion move numbers. Second look bills affect few people but shift norms. Pay raises keep prisons staffed but don't reduce incarceration.</p>
 
-<img src="/images/home-confinement.jpg" alt="Home confinement and community supervision" class="article-full-img" />
+<img src="/images/home-confinement.webp" alt="Home confinement and community supervision" class="article-full-img" />
 
 <h2>How a Prison Bill Really Passes</h2>
 <p>The path runs through drafting (usually by legislative council), committee (Judiciary for policy, Appropriations for cost), floor votes (16 Senate, 31 House), the Governor's desk, and implementation where ADCRR writes the rules. Blockers include private prison contracts, victims' lobbies, and county sheriffs. Accelerators include federal court orders, budget deficits, and staffing crises.</p>
@@ -685,8 +685,8 @@ The distance between that 2019 meeting room and the 2023 legislative victory was
     date: '2026-07-25',
     category: 'Oversight',
     featured: false,
-    image: '/images/policy-documents.jpg',
-    images: ['/images/policy-documents.jpg', '/images/capitol-night.jpg'],
+    image: '/images/policy-documents.webp',
+    images: ['/images/policy-documents.webp', '/images/capitol-night.webp'],
     excerpt: 'An in-depth guide on establishing independent correctional oversight, highlighting best practices, the spectrum of oversight models, and a campaign roadmap for advocates.',
     seoTitle: 'Independent Oversight Implementation Guide | Praxis Initiative',
     seoDescription: 'An in-depth guide on establishing independent correctional oversight, highlighting best practices, models, and campaign roadmaps.',
@@ -757,8 +757,8 @@ The distance between that 2019 meeting room and the 2023 legislative victory was
     date: '2026-08-16',
     category: 'Report',
     featured: false,
-    image: '/images/arizona-landscape.jpg',
-    images: ['/images/arizona-landscape.jpg', '/images/family-impact.jpg'],
+    image: '/images/arizona-landscape.webp',
+    images: ['/images/arizona-landscape.webp', '/images/family-impact.webp'],
     excerpt: 'This report draws on firsthand accounts and federal litigation to describe what people face inside Arizona prisons regarding health care, heat, staffing, and solitary confinement.',
     seoTitle: 'Inside Arizona Prisons: A Conditions Report | Praxis Initiative',
     seoDescription: 'Firsthand accounts and federal litigation document the daily reality inside Arizona prisons, covering healthcare, heat, and solitary confinement.',

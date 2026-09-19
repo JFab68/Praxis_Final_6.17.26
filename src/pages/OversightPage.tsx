@@ -106,7 +106,7 @@ export default function OversightPage() {
         eyebrow="Priority Campaign"
         title="Arizona Needs Independent Prison Oversight"
         subtitle="Arizona spends enormous public resources on incarceration. The public has a right to know what is happening inside prisons, whether conditions are safe, whether taxpayer funds are used responsibly, and whether the state is meeting constitutional and statutory obligations."
-        backgroundImage="/images/oversight-spotlight.jpg"
+        backgroundImage="/images/oversight-spotlight.webp"
         gradientAccent="#008C8C"
       />
       <PageQuote
@@ -185,7 +185,7 @@ export default function OversightPage() {
               </div>
               <div style={{ borderRadius: '6px', overflow: 'hidden', border: '1px solid rgba(255,255,255,0.15)' }}>
                 <img
-                  src="/images/oversight-office-diagram.png"
+                  src="/images/oversight-office-diagram.webp"
                   alt="Independent Correctional Oversight Office statutory implementation diagram"
                   loading="lazy"
                   style={{ width: '100%', height: 'auto', display: 'block' }}

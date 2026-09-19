@@ -4,23 +4,31 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <!-- Self-hosted fonts: Cinzel, Inter, JetBrains Mono (latin subsets, variable woff2).
+         Removes two third-party origins and the render-blocking cross-origin stylesheet. -->
+    <link rel="preload" href="/fonts/inter-variable.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/fonts/cinzel-variable.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="stylesheet" href="/fonts/fonts.css" />
+
+    <!--seo-start-->
     <title>Praxis Initiative | Arizona Criminal Legal System Reform</title>
-    <meta name="description" content="Praxis Initiative is a 100% system-impacted Arizona nonprofit advancing independent prison oversight, criminal legal system reform, overdose prevention, civic advocacy training, and arts in prison programming." />
+    <meta name="description" content="Praxis Initiative is a 100% system-impacted Arizona nonprofit advancing independent prison oversight, criminal legal system reform, skills training for returning citizens, and arts in prison programming." />
     <meta name="robots" content="index, follow" />
-    <link rel="canonical" href="https://praxisinitiative.org" />
+    <link rel="canonical" href="https://praxisinitiative.org/" />
 
     <!-- Open Graph -->
     <meta property="og:type" content="website" />
     <meta property="og:title" content="Praxis Initiative | Arizona Criminal Legal System Reform" />
-    <meta property="og:description" content="Praxis Initiative is a 100% system-impacted Arizona nonprofit advancing independent prison oversight, criminal legal system reform, overdose prevention, civic advocacy training, and arts in prison programming." />
+    <meta property="og:description" content="Praxis Initiative is a 100% system-impacted Arizona nonprofit advancing independent prison oversight, criminal legal system reform, skills training for returning citizens, and arts in prison programming." />
     <meta property="og:image" content="https://praxisinitiative.org/images/og-image.jpg" />
-    <meta property="og:url" content="https://praxisinitiative.org" />
+    <meta property="og:url" content="https://praxisinitiative.org/" />
     <meta property="og:site_name" content="Praxis Initiative" />
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Praxis Initiative | Arizona Criminal Legal System Reform" />
-    <meta name="twitter:description" content="Praxis Initiative is a 100% system-impacted Arizona nonprofit advancing independent prison oversight, criminal legal system reform, overdose prevention, civic advocacy training, and arts in prison programming." />
+    <meta name="twitter:description" content="Praxis Initiative is a 100% system-impacted Arizona nonprofit advancing independent prison oversight, criminal legal system reform, skills training for returning citizens, and arts in prison programming." />
     <meta name="twitter:image" content="https://praxisinitiative.org/images/og-image.jpg" />
 
     <!-- JSON-LD Structured Data -->
@@ -30,7 +38,7 @@
       "@type": "NGO",
       "name": "Praxis Initiative",
       "url": "https://praxisinitiative.org",
-      "description": "Praxis Initiative is a 100% system-impacted Arizona nonprofit advancing independent prison oversight, criminal legal system reform, overdose prevention, civic advocacy training, and arts in prison programming.",
+      "description": "Praxis Initiative is a 100% system-impacted Arizona nonprofit advancing independent prison oversight, criminal legal system reform, skills training for returning citizens, and arts in prison programming.",
       "email": "info@praxisinitiative.org",
       "address": {
         "@type": "PostalAddress",
@@ -44,6 +52,7 @@
       "nonprofitStatus": "Nonprofit501c3"
     }
     </script>
+    <!--seo-end-->
 
     <!-- Feathr Super Pixel -->
     <script>
@@ -59,12 +68,8 @@
       feathr("sprinkle", "page_view");
     </script>
 
-    <!-- Givebutter Widgets Global Library -->
-    <script async src="https://widgets.givebutter.com/latest.umd.cjs?acct=VAFHlg7pVLZ4fmxv"></script>
-
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet" />
+    <!-- The Givebutter Widgets library is loaded on demand by the donate page only
+         (see src/lib/givebutter.ts) so it is never downloaded on other routes. -->
   </head>
   <body>
     <div id="root"></div>

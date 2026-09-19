@@ -19,6 +19,7 @@ import PageHero from '../components/PageHero';
 import PageQuote from '../components/PageQuote';
 import SEOHead from '../components/SEOHead';
 import ActionNetworkEmbed from '../components/ActionNetworkEmbed';
+import { trackOutcome } from '../lib/analytics';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -67,7 +68,7 @@ const EVENTS: EventItem[] = [
       'A first-of-its-kind public event convening legal professionals, disability advocates, policymakers, families, and system-impacted leaders for an evidence-grounded discussion on neurodiversity, intellectual and developmental disabilities (ID/DD), public safety, and criminal law reform.',
     badge: 'First-of-its-Kind Event',
     badgeColor: '#E05555',
-    image: '/images/minds-justice-and-the-law.png',
+    image: '/images/minds-justice-and-the-law.webp',
     catered: 'Catered lunch provided for the first 100 registered attendees.',
     securityNote: 'Please allow extra time to pass through Arizona Capitol security screening.',
     rsvpEmail: 'Events@praxisinitiative.org',
@@ -173,14 +174,14 @@ export default function EventsPage() {
         title="Public Events & Legislative Working Groups"
         description="Join Praxis Initiative, state lawmakers, and community leaders for public summits, weekly prison information briefings, and monthly legislative oversight committees."
         path="/events"
-        ogImage="/images/minds-justice-and-the-law.png"
+        ogImage="/images/minds-justice-and-the-law-og.jpg"
       />
 
       <PageHero
         eyebrow="Convene • Advocate • Learn"
         title="Events & Legislative Working Groups"
         subtitle="Direct community engagement, legislative oversight committees, and educational symposiums advancing systemic transparency and accountability across Arizona."
-        backgroundImage="/images/az-capitol.jpg"
+        backgroundImage="/images/az-capitol.webp"
         gradientAccent="#008C8C"
       />
 
@@ -462,6 +463,7 @@ export default function EventsPage() {
                         href="https://actionnetwork.org/events/minds-justice-and-the-law-neurodivergence-in-the-criminal-legal-system/"
                         target="_blank"
                         rel="noopener noreferrer"
+                        onClick={() => trackOutcome('event_registration_opened', { event: 'minds-justice-law', surface: 'action_network' })}
                         className="btn-praxis-solid"
                         style={{ padding: '12px 28px', background: '#008C8C', color: '#ffffff', display: 'inline-flex', alignItems: 'center', gap: '8px' }}
                       >
@@ -470,6 +472,7 @@ export default function EventsPage() {
 
                       <a
                         href="#action-network-form-embed"
+                        onClick={() => trackOutcome('event_registration_opened', { event: 'minds-justice-law', surface: 'inline_form' })}
                         className="btn-praxis"
                         style={{ padding: '12px 24px', display: 'inline-flex', alignItems: 'center', gap: '8px' }}
                       >

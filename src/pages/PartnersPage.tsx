@@ -231,7 +231,7 @@ export default function PartnersPage() {
         eyebrow="Our Network"
         title="Partners"
         subtitle="We work alongside organizations across Arizona and nationally that share our commitment to transforming the criminal legal system, supporting returning citizens, and building a more just society."
-        backgroundImage="/images/coalition-meeting.jpg"
+        backgroundImage="/images/coalition-meeting.webp"
         gradientAccent="#008C8C"
       />
       <PageQuote

@@ -424,12 +424,12 @@ function LeadershipSection() {
     {
       name: 'J Alexandria Hunt-Garcia',
       role: 'Community Health & Harm Reduction',
-      image: '/images/team-alex.png',
+      image: '/images/team-alex.webp',
     },
     {
       name: 'Jessica Johnson',
       role: 'Policy Director & Legislative Strategy',
-      image: '/images/team-jessica.png',
+      image: '/images/team-jessica.webp',
     },
     {
       name: 'Mindi Kraicinski',
@@ -439,7 +439,7 @@ function LeadershipSection() {
     {
       name: 'Sherri Scates',
       role: 'Community Organizing & Family Advocacy',
-      image: '/images/team-sherri.png',
+      image: '/images/team-sherri.webp',
     },
   ];
 
@@ -454,7 +454,7 @@ function LeadershipSection() {
         </div>
         <div className="reveal-up" style={{ display: 'grid', gridTemplateColumns: '280px 1fr', gap: '48px', alignItems: 'start', marginBottom: '64px', padding: '40px', background: '#111820', borderRadius: '6px' }}>
           <div>
-            <img src="/images/john-fabricius.jpg" alt="John Fabricius" loading="lazy" style={{ width: '100%', aspectRatio: '3/4', objectFit: 'cover', borderRadius: '4px', filter: 'brightness(1.2) contrast(1.05)' }} />
+            <img src="/images/john-fabricius.webp" alt="John Fabricius" loading="lazy" style={{ width: '100%', aspectRatio: '3/4', objectFit: 'cover', borderRadius: '4px', filter: 'brightness(1.2) contrast(1.05)' }} />
           </div>
           <div>
             <h3 className="font-serif-display" style={{ fontSize: '24px', fontWeight: 400, color: '#ffffff', marginBottom: '6px' }}>John Fabricius</h3>

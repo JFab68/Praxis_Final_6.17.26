@@ -45,13 +45,13 @@ export default function AboutPage() {
     {
       name: 'J Alexandria Hunt-Garcia',
       role: 'Director of Community Health & Harm Reduction',
-      image: '/images/team-alex.png',
+      image: '/images/team-alex.webp',
       bio: "J Alexandria Hunt-Garcia leads Praxis Initiative's community health, overdose prevention, and drug policy reform initiatives. With deep expertise in harm reduction, health equity, and grassroots advocacy, Alex centers the dignity and wellness of system-impacted individuals, bridging frontline public health interventions with statewide policy reform across Arizona.",
     },
     {
       name: 'Jessica Johnson',
       role: 'Policy Director',
-      image: '/images/team-jessica.png',
+      image: '/images/team-jessica.webp',
       bio: "Jessica Johnson is the Policy Director at Praxis Initiative, specializing in statutory analysis, sentencing reform, and capital mitigation. Having served eight years inside the Perryville women's prison complex, Jessica brings profound lived experience and legal expertise to policy strategy. She was a pivotal leader in the campaign to pass SB 1507 establishing independent prison oversight in Arizona.",
     },
     {
@@ -63,7 +63,7 @@ export default function AboutPage() {
     {
       name: 'Sherri Scates',
       role: 'Community Organizing & Family Advocacy Coordinator',
-      image: '/images/team-sherri.png',
+      image: '/images/team-sherri.webp',
       bio: 'Sherri Scates coordinates community organizing, family engagement, and strategic narrative advocacy for Praxis Initiative. Rooted in her dedication to families impacted by the justice system, Sherri organizes community forums, supports families navigating ADCRR bureaucracy, and empowers impacted people to advocate directly before lawmakers.',
     },
   ];
@@ -78,7 +78,7 @@ export default function AboutPage() {
       <PageHero
         eyebrow="About Us"
         title="Praxis Initiative Is Built by People Who Know the System Firsthand"
-        backgroundImage="/images/john-fabricius.jpg"
+        backgroundImage="/images/john-fabricius.webp"
         gradientAccent="#008C8C"
       />
       <PageQuote
@@ -107,7 +107,7 @@ export default function AboutPage() {
             <h2 className="font-serif-display" style={{ fontSize: 'clamp(24px, 3vw, 36px)', fontWeight: 300, color: '#ffffff', marginBottom: '40px' }}>Leadership</h2>
             <div style={{ display: 'grid', gridTemplateColumns: '1fr 2fr', gap: '60px', alignItems: 'start' }} className="bio-grid">
               <div>
-                <img src="/images/john-fabricius.jpg" alt="John Fabricius" loading="lazy" style={{ width: '100%', aspectRatio: '3/4', objectFit: 'cover', borderRadius: '4px' }} />
+                <img src="/images/john-fabricius.webp" alt="John Fabricius" loading="lazy" style={{ width: '100%', aspectRatio: '3/4', objectFit: 'cover', borderRadius: '4px' }} />
               </div>
               <div>
                 <h3 className="font-serif-display" style={{ fontSize: '28px', fontWeight: 400, color: '#ffffff', marginBottom: '8px' }}>John Fabricius</h3>

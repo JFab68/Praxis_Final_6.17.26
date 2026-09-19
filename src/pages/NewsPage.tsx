@@ -48,7 +48,7 @@ export default function NewsPage() {
         eyebrow="News & Updates"
         title="News & Blog"
         subtitle="Updates on our campaigns, policy developments, and perspectives from the front lines of criminal legal system reform in Arizona."
-        backgroundImage="/images/hero-capitol.jpg"
+        backgroundImage="/images/hero-capitol.webp"
         gradientAccent="#008C8C"
       />
       <PageQuote

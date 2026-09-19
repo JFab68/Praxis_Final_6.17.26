@@ -71,7 +71,7 @@ export default function ResourcesPage() {
         eyebrow="Resource Hub"
         title="Resources"
         subtitle="Reports, toolkits, policy briefs, and guides for advocates, lawmakers, families, and community members."
-        backgroundImage="/images/policy-documents.jpg"
+        backgroundImage="/images/policy-documents.webp"
         gradientAccent="#B088D8"
       />
       <PageQuote

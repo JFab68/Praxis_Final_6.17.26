@@ -35,15 +35,41 @@ Runs the app locally with Vite's hot module replacement.
 npm run build
 ```
 
-Type-checks the project (`tsc -b`) and builds an optimized production bundle to `dist/`.
+Runs four steps: type-check (`tsc -b`), build the client bundle, build an SSR bundle, then prerender
+every public route to a complete HTML file. Output goes to `dist/`.
+
+Because the site is prerendered, each route ships as real HTML (`dist/about.html`,
+`dist/news/<slug>.html`, …) with its own title, description, canonical URL and sharing image already in
+`<head>` — no JavaScript required to read a page. `dist/404.html` handles unknown paths with an actual
+404 status.
+
+**When you add a page**, add the route in three places: `src/App.tsx`, `PRERENDER_ROUTES` in
+`src/entry-server.tsx`, and `public/sitemap.xml`. The build fails if a route prerenders without a
+`<title>`, so a missed entry is caught rather than shipped.
 
 ### Preview a production build
 
 ```bash
-npm run preview
+npm run preview          # SPA fallback on every path - convenience only
+npx serve dist -l 4321   # clean URLs + real 404s, closer to Vercel
 ```
 
-Serves the contents of `dist/` locally to sanity-check a production build before deploying.
+`npm run preview` rewrites every path to `index.html`, so it will not show you which routes genuinely
+404. Use `npx serve dist` when checking status codes.
+
+### Verify redirects
+
+```bash
+npm run check:redirects   # every redirect destination must exist in dist/
+npm run docs:redirects    # regenerate docs/REDIRECTS.md from vercel.json
+```
+
+### Regenerate optimised assets
+
+```bash
+npm run optimize:images   # resize + convert images to WebP (needs ImageMagick)
+npm run optimize:fonts    # fetch self-hosted font subsets
+```
 
 ### Lint
 
@@ -82,7 +108,18 @@ Routing is handled with `react-router-dom`. Route-level pages (other than the ea
 
 ## Deployment
 
-This project is configured for deployment on Vercel (`vercel.json`), using `npm run build` as the build command and `dist/` as the output directory. Client-side routes are rewritten to `index.html` so deep links resolve correctly.
+This project deploys to Vercel (`vercel.json`) via Git integration: a push to `main` builds and
+publishes automatically.
+
+- **Build** — `npm run build`, output to `dist/`. Every public route is prerendered to real HTML.
+- **Routing** — `cleanUrls` + `trailingSlash: false`, with **no catch-all rewrite**. Known routes are
+  real files; unknown paths fall through to `dist/404.html` and return 404.
+- **Legacy URLs** — 63 permanent redirects map the old WordPress addresses to their replacements. See
+  [`docs/REDIRECTS.md`](docs/REDIRECTS.md).
+- **Assets** — self-hosted fonts and WebP images; hashed bundles under `/assets/` are cached immutably.
+
+See [`docs/DEPLOYMENT.md`](docs/DEPLOYMENT.md) for the full pipeline, environment variables and
+rollback steps.
 
 ## License
 

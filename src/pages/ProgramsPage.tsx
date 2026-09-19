@@ -34,7 +34,7 @@ const programs: Program[] = [
       'Policy analysis',
       'Media and public messaging',
     ],
-    image: '/images/oversight-spotlight.jpg',
+    image: '/images/oversight-spotlight.webp',
     color: '#008C8C',
   },
   {
@@ -53,7 +53,7 @@ const programs: Program[] = [
       'Coalition support',
       'Legislative analysis',
     ],
-    image: '/images/advocacy-speaking.jpg',
+    image: '/images/advocacy-speaking.webp',
     color: '#B088D8',
   },
   {
@@ -71,7 +71,7 @@ const programs: Program[] = [
       'Public comment training',
       'Coalition participation',
     ],
-    image: '/images/civic-training.jpg',
+    image: '/images/civic-training.webp',
     color: '#008C8C',
   },
   {
@@ -88,7 +88,7 @@ const programs: Program[] = [
       'Visual arts, writing, theater, and other creative outlets',
       'Inside/outside community connection',
     ],
-    image: '/images/arts-music.jpg',
+    image: '/images/arts-music.webp',
     color: '#B088D8',
   },
 ];
@@ -164,7 +164,7 @@ export default function ProgramsPage() {
         eyebrow="Our Work"
         title="Four Pillars of Reform"
         subtitle="Praxis Initiative operates across four core program areas, each grounded in lived experience and directed toward measurable, durable reform."
-        backgroundImage="/images/arizona-landscape.jpg"
+        backgroundImage="/images/arizona-landscape.webp"
         gradientAccent="#008C8C"
       />
       <PageQuote

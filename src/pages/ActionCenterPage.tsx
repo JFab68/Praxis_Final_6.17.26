@@ -88,7 +88,7 @@ export default function ActionCenterPage() {
         eyebrow="Take Action"
         title="Action Center"
         subtitle="Change will not come if we wait for some other person or if we wait for some other time. We are the ones we've been waiting for. Take action with Praxis Initiative today."
-        backgroundImage="/images/hero-capitol.jpg"
+        backgroundImage="/images/hero-capitol.webp"
         gradientAccent="#E05555"
       />
       <PageQuote

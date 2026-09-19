@@ -4,16 +4,18 @@ import PageHero from '../components/PageHero';
 import PageQuote from '../components/PageQuote';
 import SEOHead from '../components/SEOHead';
 import { submitForm } from '../lib/api';
+import { trackOutcome } from '../lib/analytics';
 
 const contactReasons = [
-  'Media',
-  'Funder',
-  'Coalition Partner',
-  'Volunteer',
-  'Training Request',
-  'Speaking Request',
-  'Family/Community Concern',
-  'General Inquiry',
+  'Volunteering',
+  'Report Information on ADCRR',
+  'Events',
+  'Oversight',
+  'Criminal Legal System',
+  'Digital Literacy and Advocacy Center',
+  'Arts In Prison',
+  'Journalist With Story',
+  'Other',
 ];
 
 export default function ContactPage() {
@@ -49,6 +51,12 @@ export default function ContactPage() {
 
     if (result.success) {
       setSubmitted(true);
+      // Training and oversight inquiries arrive through this same form, so the
+      // reason is reported with the completed submission.
+      trackOutcome('contact_form_submitted', {
+        reason: formData.reason || 'unspecified',
+        is_training_inquiry: formData.reason === 'Digital Literacy and Advocacy Center',
+      });
     } else {
       setError(result.message);
     }
@@ -73,7 +81,7 @@ export default function ContactPage() {
         eyebrow="Get in Touch"
         title="Contact Praxis"
         subtitle="Work with Praxis on policy, training, media, or coalition strategy. We welcome inquiries from advocates, lawmakers, funders, media, and community members."
-        backgroundImage="/images/coalition-meeting.jpg"
+        backgroundImage="/images/coalition-meeting.webp"
         gradientAccent="#008C8C"
       />
       <PageQuote
@@ -156,10 +164,10 @@ export default function ContactPage() {
 
                   <div>
                     <label htmlFor="contact-reason" className="font-sans-body" style={{ fontSize: '12px', letterSpacing: '0.1em', color: 'rgba(255,255,255,0.5)', textTransform: 'uppercase', display: 'block', marginBottom: '8px' }}>Reason for Contact *</label>
-                    <select id="contact-reason" name="reason" value={formData.reason} onChange={handleChange} required className="font-sans-body" style={{ width: '100%', padding: '12px 16px', background: 'rgba(255,255,255,0.14)', border: '1px solid rgba(255,255,255,0.12)', borderRadius: '6px', color: '#FFFFFF', fontSize: '15px',  appearance: 'none' }}>
-                      <option value="">Select a reason</option>
+                    <select id="contact-reason" name="reason" value={formData.reason} onChange={handleChange} required className="font-sans-body" style={{ width: '100%', padding: '12px 16px', background: 'rgba(255,255,255,0.14)', border: '1px solid rgba(255,255,255,0.12)', borderRadius: '6px', color: '#FFFFFF', fontSize: '15px', appearance: 'none' }}>
+                      <option value="" style={{ background: '#11121f', color: '#FFFFFF' }}>Select a reason</option>
                       {contactReasons.map((reason) => (
-                        <option key={reason} value={reason}>{reason}</option>
+                        <option key={reason} value={reason} style={{ background: '#11121f', color: '#FFFFFF' }}>{reason}</option>
                       ))}
                     </select>
                   </div>

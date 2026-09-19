@@ -12,6 +12,7 @@ gsap.registerPlugin(ScrollTrigger);
 const programs = [
   {
     icon: <Monitor size={28} />,
+    slug: 'digital-literacy',
     title: 'Digital Literacy for Returning Citizens',
     description: 'A foundational program that equips returning citizens with essential digital skills — from basic computer operation and internet navigation to email, online forms, video conferencing, and digital advocacy platforms. We meet participants where they are and build confidence through hands-on practice.',
     outcomes: [
@@ -20,11 +21,12 @@ const programs = [
       'Access government resources and services online',
       'Build confidence with modern technology',
     ],
-    image: '/images/training-digital.jpg',
+    image: '/images/training-digital.webp',
     color: '#008C8C',
   },
   {
     icon: <Monitor size={28} />,
+    slug: 'digital-literacy-50-plus',
     title: 'Digital Literacy for Returning Citizens — Age 50+',
     description: 'A specialized cohort designed for older adults who may be encountering modern technology for the first time after long-term incarceration. This program moves at a deliberate pace with extra support, patience, and peer mentorship to ensure no one is left behind.',
     outcomes: [
@@ -33,11 +35,12 @@ const programs = [
       'Extra time on foundational skills',
       'Connection to age-appropriate resources',
     ],
-    image: '/images/training-senior.jpg',
+    image: '/images/training-senior.webp',
     color: '#B088D8',
   },
   {
     icon: <GraduationCap size={28} />,
+    slug: 'core-civics-advocacy-training',
     title: 'Core Civics and Advocacy Training',
     description: 'Our flagship civic education program trains returning citizens to understand government, tell their stories strategically, engage lawmakers, use digital advocacy tools, and participate in public policy without being tokenized.',
     outcomes: [
@@ -48,11 +51,12 @@ const programs = [
       'How to avoid tokenization',
       'How to lead with credibility',
     ],
-    image: '/images/civic-training.jpg',
+    image: '/images/civic-training.webp',
     color: '#008C8C',
   },
   {
     icon: <Cpu size={28} />,
+    slug: 'intro-to-ai',
     title: 'Intro to AI for Returning Citizens',
     description: 'An accessible introduction to artificial intelligence tools and concepts. Participants learn what AI is, how it is being used in the workforce, and how to begin using AI tools responsibly for job searching, communication, and personal projects.',
     outcomes: [
@@ -61,11 +65,12 @@ const programs = [
       'Using AI for job searching and resume building',
       'Responsible and ethical AI use',
     ],
-    image: '/images/training-ai.jpg',
+    image: '/images/training-ai.webp',
     color: '#B088D8',
   },
   {
     icon: <Cpu size={28} />,
+    slug: 'practical-ai',
     title: 'Practical AI for Returning Citizens',
     description: 'Advanced training for participants ready to go deeper. This program covers practical applications of AI in the workplace, creative industries, entrepreneurship, and civic engagement. Participants build real projects and develop marketable skills.',
     outcomes: [
@@ -75,13 +80,30 @@ const programs = [
       'Understanding AI in the job market',
       'Portfolio development',
     ],
-    image: '/images/training-ai.jpg',
+    image: '/images/training-ai.webp',
     color: '#008C8C',
   },
 ];
 
 export default function TrainingPage() {
   const contentRef = useRef<HTMLDivElement>(null);
+
+  // Legacy links such as /digital-literacy-returning-citizens-50-plus/ are
+  // permanently redirected here with ?section=<program slug> (Vercel redirect
+  // destinations cannot carry a fragment). Land on the right program card and
+  // rewrite the URL to a clean anchor.
+  useEffect(() => {
+    const section = new URLSearchParams(window.location.search).get('section');
+    if (!section) return;
+
+    const target = document.getElementById(section);
+    if (target) target.scrollIntoView({ behavior: 'auto', block: 'start' });
+
+    const url = new URL(window.location.href);
+    url.searchParams.delete('section');
+    url.hash = section;
+    window.history.replaceState(null, '', `${url.pathname}${url.search}${url.hash}`);
+  }, []);
 
   useEffect(() => {
     const content = contentRef.current;
@@ -145,7 +167,7 @@ export default function TrainingPage() {
         eyebrow="Training Programs"
         title="Skills Training for Returning Citizens"
         subtitle="Civic power should not be reserved for people who already know the system. Our training programs are growing quickly and represent a major forward-looking initiative centered on opportunity, workforce readiness, civic engagement, and modern skills."
-        backgroundImage="/images/civic-training.jpg"
+        backgroundImage="/images/civic-training.webp"
         gradientAccent="#B088D8"
       />
       <PageQuote
@@ -186,6 +208,7 @@ export default function TrainingPage() {
           {programs.map((program, index) => (
             <div
               key={program.title}
+              id={program.slug}
               className="reveal-up"
               style={{
                 display: 'grid',

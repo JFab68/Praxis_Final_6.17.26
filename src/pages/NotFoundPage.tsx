@@ -5,7 +5,11 @@ import SEOHead from '../components/SEOHead';
 export default function NotFoundPage() {
   return (
     <div style={{ position: 'relative', zIndex: 2, background: '#050A0F', minHeight: '80vh' }}>
-      <SEOHead title="Page Not Found" description="The page you are looking for does not exist or has been moved. Return to the Praxis Initiative homepage." />
+      <SEOHead
+        title="Page Not Found"
+        description="The page you are looking for does not exist or has been moved. Return to the Praxis Initiative homepage."
+        noindex
+      />
       <PageHero
         eyebrow="404"
         title="Page Not Found"

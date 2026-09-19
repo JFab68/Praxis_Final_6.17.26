@@ -2,9 +2,87 @@
   "buildCommand": "npm run build",
   "outputDirectory": "dist",
   "framework": "vite",
-  "rewrites": [
-    { "source": "/((?!assets|images|videos|robots.txt|sitemap.xml|favicon).*)", "destination": "/index.html" }
+  "cleanUrls": true,
+  "trailingSlash": false,
+
+  "redirects": [
+    { "source": "/donate-2", "destination": "/donate", "permanent": true },
+    { "source": "/donate-2/", "destination": "/donate", "permanent": true },
+
+    { "source": "/digital-literacy-returning-citizens-50-plus", "destination": "/training?section=digital-literacy-50-plus", "permanent": true },
+    { "source": "/digital-literacy-returning-citizens-50-plus/", "destination": "/training?section=digital-literacy-50-plus", "permanent": true },
+
+    { "source": "/our-focus", "destination": "/programs", "permanent": true },
+    { "source": "/our-focus/", "destination": "/programs", "permanent": true },
+
+    { "source": "/independent-prison-oversight", "destination": "/oversight", "permanent": true },
+    { "source": "/independent-prison-oversight/", "destination": "/oversight", "permanent": true },
+    { "source": "/prison-oversight", "destination": "/oversight", "permanent": true },
+    { "source": "/prison-oversight/", "destination": "/oversight", "permanent": true },
+
+    { "source": "/criminal-legal-system-reform", "destination": "/policy", "permanent": true },
+    { "source": "/criminal-legal-system-reform/", "destination": "/policy", "permanent": true },
+    { "source": "/programs/criminal-legal-system-reform", "destination": "/policy", "permanent": true },
+    { "source": "/programs/criminal-legal-system-reform/", "destination": "/policy", "permanent": true },
+    { "source": "/drug-use-risk-mitigation", "destination": "/policy", "permanent": true },
+    { "source": "/drug-use-risk-mitigation/", "destination": "/policy", "permanent": true },
+
+    { "source": "/returning-citizens-core-civics-and-advocacy-training", "destination": "/training", "permanent": true },
+    { "source": "/returning-citizens-core-civics-and-advocacy-training/", "destination": "/training", "permanent": true },
+
+    { "source": "/arts-in-prison", "destination": "/arts", "permanent": true },
+    { "source": "/arts-in-prison/", "destination": "/arts", "permanent": true },
+
+    { "source": "/action-center", "destination": "/action", "permanent": true },
+    { "source": "/action-center/", "destination": "/action", "permanent": true },
+
+    { "source": "/friends", "destination": "/partners", "permanent": true },
+    { "source": "/friends/", "destination": "/partners", "permanent": true },
+    { "source": "/team-members", "destination": "/about", "permanent": true },
+    { "source": "/team-members/", "destination": "/about", "permanent": true },
+    { "source": "/newsletter", "destination": "/contact", "permanent": true },
+    { "source": "/newsletter/", "destination": "/contact", "permanent": true },
+
+    { "source": "/contact-us", "destination": "/contact", "permanent": true },
+    { "source": "/contact-us/", "destination": "/contact", "permanent": true },
+    { "source": "/accessibility-statement", "destination": "/accessibility", "permanent": true },
+    { "source": "/accessibility-statement/", "destination": "/accessibility", "permanent": true },
+    { "source": "/terms-and-conditions", "destination": "/terms-of-use", "permanent": true },
+    { "source": "/terms-and-conditions/", "destination": "/terms-of-use", "permanent": true },
+    { "source": "/privacy-policy/", "destination": "/privacy-policy", "permanent": true },
+
+    { "source": "/news/blog", "destination": "/news", "permanent": true },
+    { "source": "/news/blog/", "destination": "/news", "permanent": true },
+    { "source": "/blog", "destination": "/news", "permanent": true },
+    { "source": "/blog/", "destination": "/news", "permanent": true },
+    { "source": "/research", "destination": "/resources", "permanent": true },
+    { "source": "/research/", "destination": "/resources", "permanent": true },
+    { "source": "/feed", "destination": "/news", "permanent": true },
+    { "source": "/feed/", "destination": "/news", "permanent": true },
+
+    { "source": "/analysis-of-lewis-prison-lock-issues-and-information-flow-failures", "destination": "/news/lewis-prison-lock-disaster", "permanent": true },
+    { "source": "/analysis-of-lewis-prison-lock-issues-and-information-flow-failures/", "destination": "/news/lewis-prison-lock-disaster", "permanent": true },
+    { "source": "/the-arizona-state-legislature-2025-and-beyond", "destination": "/news/legislature-2025", "permanent": true },
+    { "source": "/the-arizona-state-legislature-2025-and-beyond/", "destination": "/news/legislature-2025", "permanent": true },
+    { "source": "/arizona-government-and-criminal-legal-system-reform-an-update", "destination": "/news/legislature-2025", "permanent": true },
+    { "source": "/arizona-government-and-criminal-legal-system-reform-an-update/", "destination": "/news/legislature-2025", "permanent": true },
+    { "source": "/arizona-department-of-corrections-conditions-report-2023-2024", "destination": "/news/arizona-prisons-conditions-report", "permanent": true },
+    { "source": "/arizona-department-of-corrections-conditions-report-2023-2024/", "destination": "/news/arizona-prisons-conditions-report", "permanent": true },
+    { "source": "/the-legacy-of-mass-incarceration-in-arizona-policies-impacts-and-paths-forward", "destination": "/news/mass-incarceration-legacy", "permanent": true },
+    { "source": "/the-legacy-of-mass-incarceration-in-arizona-policies-impacts-and-paths-forward/", "destination": "/news/mass-incarceration-legacy", "permanent": true },
+    { "source": "/arizona-prison-independent-oversight", "destination": "/news/independent-oversight-implementation-guide", "permanent": true },
+    { "source": "/arizona-prison-independent-oversight/", "destination": "/news/independent-oversight-implementation-guide", "permanent": true },
+    { "source": "/our-fifth-year-in-the-fight-for-independent-oversight-of-the-adcrr", "destination": "/news/anatomy-of-accountability", "permanent": true },
+    { "source": "/our-fifth-year-in-the-fight-for-independent-oversight-of-the-adcrr/", "destination": "/news/anatomy-of-accountability", "permanent": true },
+    { "source": "/access-to-courts-for-arizona-state-inmates-a-comprehensive-analysis-of-impediments-and-challenges", "destination": "/news/right-to-petition", "permanent": true },
+    { "source": "/access-to-courts-for-arizona-state-inmates-a-comprehensive-analysis-of-impediments-and-challenges/", "destination": "/news/right-to-petition", "permanent": true },
+
+    { "source": "/sitemap_index.xml", "destination": "/sitemap.xml", "permanent": true },
+    { "source": "/page-sitemap.xml", "destination": "/sitemap.xml", "permanent": true },
+    { "source": "/post-sitemap.xml", "destination": "/sitemap.xml", "permanent": true },
+    { "source": "/category-sitemap.xml", "destination": "/sitemap.xml", "permanent": true }
   ],
+
   "headers": [
     {
       "source": "/(.*)",
@@ -19,6 +97,18 @@
       "source": "/assets/(.*)",
       "headers": [
         { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
+      ]
+    },
+    {
+      "source": "/fonts/(.*)",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
+      ]
+    },
+    {
+      "source": "/images/(.*)",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=604800, stale-while-revalidate=86400" }
       ]
     }
   ]

@@ -183,7 +183,7 @@ export default function Navigation() {
           }}
         >
           <img
-            src="/images/praxis-logo-round.png"
+            src="/images/praxis-logo-round.webp"
             alt="Praxis Initiative Logo"
             style={{ width: '28px', height: '28px', objectFit: 'contain' }}
           />
