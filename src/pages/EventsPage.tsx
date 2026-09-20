@@ -36,6 +36,7 @@ interface EventItem {
   schedule: string;
   time?: string;
   startDate?: string;
+  endDate?: string;
   location: string;
   room?: string;
   address: string;
@@ -59,8 +60,9 @@ const EVENTS: EventItem[] = [
     host: 'Praxis Initiative, FAIR Group & We Stand AZ',
     hostRole: 'Coalition Public Symposium',
     schedule: 'Monday, November 9, 2026',
-    time: 'Registration 9:00 AM • Program 10:00 AM – 3:00 PM',
+    time: 'Doors 9:00 AM • Program 10:00 AM – 4:00 PM',
     startDate: '2026-11-09',
+    endDate: '2026-11-09T16:00:00-07:00',
     location: 'Arizona State Capitol — Executive Tower',
     room: 'Second Floor Conference Room',
     address: '1700 W. Washington Street, Phoenix, AZ 85003',
@@ -69,7 +71,7 @@ const EVENTS: EventItem[] = [
     badge: 'First-of-its-Kind Event',
     badgeColor: '#E05555',
     image: '/images/minds-justice-and-the-law.webp',
-    catered: 'Catered lunch provided for the first 100 registered attendees.',
+    catered: 'Lunch is served to the first 100 registrants.',
     securityNote: 'Please allow extra time to pass through Arizona Capitol security screening.',
     rsvpEmail: 'Events@praxisinitiative.org',
     isFlagship: true,
@@ -145,6 +147,48 @@ export default function EventsPage() {
   const flagshipEvent = EVENTS.find((e) => e.isFlagship);
   const otherEvents = filteredEvents.filter((e) => !e.isFlagship || activeTab !== 'all');
 
+  // Event structured data for the flagship summit. Encodes the times that the
+  // page copy, the printed flyer and the Action Network registration page all
+  // have to agree on: doors 9:00 AM, program 10:00 AM, close 4:00 PM (MST).
+  const flagshipSchema =
+    flagshipEvent && flagshipEvent.endDate
+      ? {
+          '@context': 'https://schema.org',
+          '@type': 'Event',
+          name: flagshipEvent.title,
+          description: flagshipEvent.description,
+          startDate: `${flagshipEvent.startDate}T09:00:00-07:00`,
+          endDate: flagshipEvent.endDate,
+          eventAttendanceMode: 'https://schema.org/OfflineEventAttendanceMode',
+          eventStatus: 'https://schema.org/EventScheduled',
+          image: ['https://praxisinitiative.org/images/minds-justice-and-the-law-og.jpg'],
+          location: {
+            '@type': 'Place',
+            name: flagshipEvent.location,
+            address: {
+              '@type': 'PostalAddress',
+              streetAddress: '1700 W. Washington Street',
+              addressLocality: 'Phoenix',
+              addressRegion: 'AZ',
+              postalCode: '85003',
+              addressCountry: 'US',
+            },
+          },
+          organizer: {
+            '@type': 'Organization',
+            name: 'Praxis Initiative',
+            url: 'https://praxisinitiative.org',
+          },
+          offers: {
+            '@type': 'Offer',
+            price: '0',
+            priceCurrency: 'USD',
+            availability: 'https://schema.org/InStock',
+            url: 'https://actionnetwork.org/events/minds-justice-and-the-law-neurodivergence-in-the-criminal-legal-system/',
+          },
+        }
+      : undefined;
+
   useEffect(() => {
     const ctx = gsap.context(() => {
       gsap.fromTo(
@@ -175,6 +219,7 @@ export default function EventsPage() {
         description="Join Praxis Initiative, state lawmakers, and community leaders for public summits, weekly prison information briefings, and monthly legislative oversight committees."
         path="/events"
         ogImage="/images/minds-justice-and-the-law-og.jpg"
+        schema={flagshipSchema}
       />
 
       <PageHero
