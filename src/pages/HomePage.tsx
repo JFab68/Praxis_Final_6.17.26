@@ -531,12 +531,16 @@ function LeadershipSection() {
         }
         .leadership-row-media { background: #0A1118; height: ${CARD_HEIGHT}px; }
         .leadership-row-body { padding: 34px 40px; display: flex; flex-direction: column; justify-content: center; min-width: 0; }
-        /* Mirror the row for odd cards without reordering the DOM (portrait stays first for screen readers). */
+        /* Mirror the row for odd cards: swap the column widths as well as the
+           placement, or the portrait lands in the 1fr column and renders wide
+           instead of matching the 300px portrait on the left-side cards. */
+        .leadership-row.is-right { grid-template-columns: minmax(0, 1fr) ${MEDIA_WIDTH}px; }
         .leadership-row.is-right .leadership-row-media { grid-column: 2; grid-row: 1; }
         .leadership-row.is-right .leadership-row-body { grid-column: 1; grid-row: 1; }
         .leadership-row-summary { display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; overflow: hidden; }
         @media (max-width: 900px) {
-          .leadership-row { grid-template-columns: 1fr; height: auto; }
+          .leadership-row,
+          .leadership-row.is-right { grid-template-columns: 1fr; height: auto; }
           .leadership-row.is-right .leadership-row-media,
           .leadership-row.is-right .leadership-row-body { grid-column: 1; grid-row: auto; }
           .leadership-row-body { padding: 28px 24px 32px; }
