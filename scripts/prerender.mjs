@@ -68,11 +68,14 @@ function splitHoistedTags(html) {
     rest = rest.slice(end);
   }
 
-  return { head: head.join(''), body: rest };
+  return { head, body: rest };
 }
 
-/** Tag an element so the client can remove the build-time copy. */
+/** Tag one element so the client can remove the build-time copy. */
 function markPrerender(tagHtml) {
+  // Applied per tag: passing the concatenated tag list here would only ever
+  // rewrite the first opening tag, leaving the rest unmarked and therefore
+  // never removed by src/main.tsx (which duplicates every meta tag in <head>).
   const match = /^<([a-z]+)([^>]*?)(\/?)>/i.exec(tagHtml);
   if (!match) return tagHtml;
   const [opening, name, attrs, selfClose] = match;
@@ -84,12 +87,21 @@ function renderPage(rawBody, helmetHead) {
   const cleaned = rawBody.replace(/\s+code-path="[^"]*"/g, '');
   const { head: hoisted, body } = splitHoistedTags(cleaned);
 
-  const headContent = [markPrerender(hoisted), STATIC_HEAD_EXTRAS, helmetHead]
+  const headContent = [
+    hoisted.map(markPrerender).join(''),
+    STATIC_HEAD_EXTRAS,
+    helmetHead,
+  ]
     .filter((part) => part && part.trim().length > 0)
     .join('\n    ');
 
   if (!/<title[\s>]/i.test(headContent)) {
     throw new Error('no <title> found in the rendered output - head hoisting failed');
+  }
+
+  const marked = (headContent.match(/data-prerender="1"/g) ?? []).length;
+  if (marked !== hoisted.length) {
+    throw new Error(`head marking mismatch: ${marked} tagged of ${hoisted.length} hoisted tags`);
   }
 
   // Function replacers: page copy contains "$" sequences that String.replace
