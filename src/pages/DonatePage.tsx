@@ -67,9 +67,6 @@ export default function DonatePage() {
   const [feathrFailed, setFeathrFailed] = useState<boolean>(false);
   const [searchParams, setSearchParams] = useSearchParams();
 
-  // Numeric amount handed to the Givebutter widget and to the campaign link.
-  const selectedAmount = selectedTier.replace(/[^0-9]/g, '');
-
   useEffect(() => {
     // Single, on-demand load of the Givebutter Widgets library (see src/lib/givebutter.ts).
     ensureGivebutterLoaded().catch(() => {
@@ -331,15 +328,17 @@ export default function DonatePage() {
                   </span>
                 </div>
 
-                {/* Givebutter interactive form. The selected tier is passed straight
-                    into the widget's `amount` property (Givebutter reads it when it
-                    builds the checkout URL), and the `key` remounts the widget so a
-                    new selection can never leave a stale amount in the iframe. */}
+                {/* Givebutter's embedded form. It exposes no `amount` property
+                    (declared properties are account, campaign, widgetId, embedUrl,
+                    themeColor, maxWidth, maxHeight, closable, showGoalBar,
+                    iframeClass, footerClass, isEventTicketsFlow), so a preset
+                    amount cannot be pushed into it. The amounts it offers are the
+                    suggested amounts configured on the campaign in Givebutter, and
+                    the access key is passed straight to the element via its
+                    `campaign` property. */}
                 <div style={{ minHeight: '380px' }}>
                   {React.createElement('givebutter-giving-form', {
-                    key: `givebutter-form-${selectedAmount}`,
                     campaign: GIVEBUTTER_CAMPAIGN,
-                    amount: selectedAmount,
                   })}
                 </div>
 
@@ -347,9 +346,12 @@ export default function DonatePage() {
                   className="font-sans-body"
                   style={{ fontSize: '13px', color: 'rgba(255,255,255,0.55)', margin: '12px 0 0' }}
                 >
-                  Selected amount:{' '}
-                  <strong style={{ color: '#00CCCC' }}>{selectedTier}</strong> — the form above opens
-                  with this amount pre-filled. You can still change it there.
+                  The form above uses the giving levels configured on the campaign in Givebutter. To
+                  give the amount selected above, use{' '}
+                  <a href={givebutterUrl(selectedTier)} target="_blank" rel="noopener noreferrer" style={{ color: '#00CCCC' }}>
+                    the donor portal
+                  </a>{' '}
+                  — it opens pre-filled with <strong style={{ color: '#00CCCC' }}>{selectedTier}</strong>.
                 </p>
 
                 {/* Feathr Embed Fallback Container */}
@@ -393,9 +395,10 @@ export default function DonatePage() {
                   </a>
 
                   <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+                    {/* The button element accepts campaign/widgetId/type/label/colours,
+                        but not an amount - it opens Givebutter's own checkout UI. */}
                     {React.createElement('givebutter-button', {
                       campaign: GIVEBUTTER_CAMPAIGN,
-                      amount: selectedAmount,
                     })}
                   </div>
                 </div>

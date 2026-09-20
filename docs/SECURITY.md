@@ -33,6 +33,38 @@ after dependency or hosting changes.
 | 404 handling | Unknown paths return **404** with `noindex, follow` and the full security header set (previously 200). |
 | Third-party external images | None — all article imagery is local. |
 
+## Third-party trackers (needs a decision)
+
+Instrumented in a real browser, loading one article page fires these off-site requests:
+
+| Host | Purpose |
+|---|---|
+| `cdn.feathr.co`, `polo.feathr.co`, `marco.feathr.co` | Feathr CRM / marketing analytics |
+| `match.adsrvr.org` | **The Trade Desk** — programmatic-advertising identity sync, called by Feathr with `ttd_passthrough=<feathr account id>` |
+
+The `match.adsrvr.org` request is an advertising identifier sync, not a first-party analytics call. For a
+criminal-justice-reform nonprofit whose audience includes system-impacted people, that is sensitive:
+it builds and shares an ad-tech profile of visitors. It is loaded indirectly by the Feathr pixel in
+`index.html`; no code in this repository references it.
+
+`src/pages/PrivacyPolicyPage.tsx` is 56 lines and mentions **none** of the vendors the site actually
+uses — no Feathr, no Givebutter, no Web3Forms, no Vercel, no advertising or tracking disclosure at all.
+That is a disclosure gap independent of whether the tracker stays: visitors are not told that payment
+data goes to Givebutter, form data to Web3Forms, or that ad-tech identifiers are set.
+
+This is a policy decision, not a code fix, so it is left open deliberately. The options, cheapest first:
+
+1. Update the privacy policy to name the processors and disclose advertising/analytics cookies.
+2. Ask Feathr to disable the Trade Desk identity sync on the account (keeps attribution, drops the ad
+   network).
+3. Remove the Feathr pixel (`index.html`) if the CRM attribution is not actually in use. Note the Feathr
+   **form** embed on the donate page is separate and is a donation fallback — check whether it is still
+   needed before removing anything.
+
+Blocking `match.adsrvr.org` in the CSP would need `img-src` narrowed from `https:` to an explicit
+allowlist, and a report-only policy cannot block it anyway. Do not attempt this before the CSP is
+enforced.
+
 ## Accepted risks
 
 **`VITE_WEB3FORMS_KEY` is public by design.** It is inlined into the JavaScript bundle, so anyone can

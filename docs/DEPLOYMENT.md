@@ -152,6 +152,25 @@ Clicks and completions are separate names on purpose. Completed gifts are confir
 records and registrations against Action Network records; the site does not infer a completion from a
 click.
 
+### Donation amount handling
+
+The selected tier is passed into the **donor portal link** (`givebutter.com/a3sS1L?amount=500`). It is
+*not* pushed into the embedded form, and cannot be: the `givebutter-giving-form` and
+`givebutter-button` custom elements expose no `amount` property. Their declared properties are:
+
+```
+account, campaign, widgetId(id), embedUrl, themeColor, maxWidth, maxHeight,
+closable, showGoalBar, iframeClass, footerClass, isEventTicketsFlow   // giving-form
+account, campaign, widgetId, embedUrl, isOpen, type, hideButton, label, labelColor,
+backgroundColor, icon, iconPosition, dropShadow, borderRadius, borderColor,
+borderWidth, buttonClass, position, verticalOffset, horizontalOffset, ...  // button
+```
+
+Setting `amount` on them is silently ignored — React writes the attribute, the element never reads it,
+and the embed URL is built from `campaign` alone. To make the embedded form offer the same levels as the
+tier buttons, configure those amounts as **suggested amounts on the campaign in the Givebutter
+dashboard**; there is no code path for it.
+
 Third-party scripts in `index.html`: the Feathr tracking pixel (`cdn.feathr.co/js/boomerang.min.js`) and
 a Feathr forms embed loaded by the donate page. The Givebutter Widgets library is **not** loaded globally
 — `src/lib/givebutter.ts` loads it on demand from the donate page only.
