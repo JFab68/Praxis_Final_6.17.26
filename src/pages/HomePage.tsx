@@ -7,6 +7,7 @@ import PhilosophyCarousel from '../sections/PhilosophyCarousel';
 import MediumsGlossary from '../sections/MediumsGlossary';
 import PageQuote from '../components/PageQuote';
 import SEOHead from '../components/SEOHead';
+import TeamPortrait from '../components/TeamPortrait';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -405,6 +406,58 @@ function WhyPraxis() {
 }
 
 /* ─── Leadership Section ─── */
+
+// Uniform card geometry — every leadership card uses the same portrait size and
+// row height so the stack reads as one consistent set.
+const CARD_HEIGHT = 340;
+const MEDIA_WIDTH = 300;
+
+const LEADERSHIP: { name: string; role: string; image: string | null; summary: string }[] = [
+  {
+    name: 'John Fabricius',
+    role: 'Co-Founder & Executive Director',
+    image: '/images/john-fabricius.webp',
+    summary:
+      "Served 15 years in Arizona state and contracted prisons, then became a paralegal, campaign strategist, coalition leader, and one of the primary architects of Arizona's independent prison oversight law.",
+  },
+  {
+    name: 'J Alexandria Hunt-Garcia',
+    role: 'Community Health & Harm Reduction',
+    image: '/images/team-alex.webp',
+    summary:
+      'Leads community health, overdose prevention, and drug policy reform, centering the dignity and wellness of system-impacted people while bridging frontline public health work to statewide policy.',
+  },
+  {
+    name: 'Jessica Johnson',
+    role: 'Policy Director & Legislative Strategy',
+    image: '/images/team-jessica.webp',
+    summary:
+      "Spent eight years inside the Perryville women's prison complex and now leads statutory analysis, sentencing reform, and capital mitigation strategy — including the campaign for SB 1507.",
+  },
+  {
+    name: 'Mindi Kraicinski',
+    role: 'Corrections Operations & Facility Oversight',
+    image: '/images/team-mindi.webp',
+    summary:
+      'Brings more than two decades of frontline correctional experience, translating facility protocols, staffing realities, and institutional standards into independent external oversight.',
+  },
+  {
+    name: 'Sherri Scates',
+    role: 'Community Organizing & Family Advocacy',
+    image: '/images/team-sherri.webp',
+    summary:
+      'Coordinates community organizing and family engagement, supporting families navigating ADCRR bureaucracy and empowering impacted people to advocate directly before lawmakers.',
+  },
+  {
+    name: 'Lori Hamilton',
+    role: 'Executive Assistant & Development Coordinator',
+    // Photo to come — TeamPortrait renders a monogram panel until this path is filled in.
+    image: null,
+    summary:
+      'Directly and indirectly impacted several times throughout her life, she survived a series of challenges that required significant change to build a typical life today. She brings lived experience and firsthand knowledge to the fight.',
+  },
+];
+
 function LeadershipSection() {
   const sectionRef = useRef<HTMLDivElement>(null);
   useEffect(() => {
@@ -420,29 +473,6 @@ function LeadershipSection() {
     return () => ctx.revert();
   }, []);
 
-  const team = [
-    {
-      name: 'J Alexandria Hunt-Garcia',
-      role: 'Community Health & Harm Reduction',
-      image: '/images/team-alex.webp',
-    },
-    {
-      name: 'Jessica Johnson',
-      role: 'Policy Director & Legislative Strategy',
-      image: '/images/team-jessica.webp',
-    },
-    {
-      name: 'Mindi Kraicinski',
-      role: 'Corrections Operations & Facility Oversight',
-      image: '/images/team-mindi.webp',
-    },
-    {
-      name: 'Sherri Scates',
-      role: 'Community Organizing & Family Advocacy',
-      image: '/images/team-sherri.webp',
-    },
-  ];
-
   return (
     <section ref={sectionRef} style={{ position: 'relative', zIndex: 2, background: '#0A1118', padding: '100px 0' }}>
       <div className="content-container">
@@ -452,46 +482,65 @@ function LeadershipSection() {
             Led by People Who Know the System
           </h2>
         </div>
-        <div className="reveal-up" style={{ display: 'grid', gridTemplateColumns: '280px 1fr', gap: '48px', alignItems: 'start', marginBottom: '64px', padding: '40px', background: '#111820', borderRadius: '6px' }}>
-          <div>
-            <img src="/images/john-fabricius.webp" alt="John Fabricius" loading="lazy" style={{ width: '100%', aspectRatio: '3/4', objectFit: 'cover', borderRadius: '4px', filter: 'brightness(1.2) contrast(1.05)' }} />
-          </div>
-          <div>
-            <h3 className="font-serif-display" style={{ fontSize: '24px', fontWeight: 400, color: '#ffffff', marginBottom: '6px' }}>John Fabricius</h3>
-            <p className="font-mono-data" style={{ fontSize: '11px', letterSpacing: '0.15em', color: '#008C8C', textTransform: 'uppercase', marginBottom: '20px' }}>Co-Founder & Executive Director</p>
-            <p className="font-sans-body" style={{ fontSize: '14px', lineHeight: 1.8, color: 'rgba(255,255,255,0.78)' }}>
-              John Fabricius is the Co-Founder and Executive Director of Praxis Initiative. After serving 15 years in Arizona state and contracted prisons, he became a paralegal, campaign strategist, coalition leader, and one of the primary architects of Arizona's independent prison oversight effort. From 2022 to 2024, he served as a Senior Digital and Legislative Campaigner at Dream.Org. In 2025, John and a bipartisan coalition helped pass SB 1507, creating Arizona's Office of Correctional Oversight. Today, he leads Praxis Initiative full-time.
-            </p>
-            <Link to="/about" style={{ fontSize: '12px', letterSpacing: '0.1em', color: '#008C8C', textTransform: 'uppercase', textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '4px', marginTop: '12px' }}>
-              Full Bio <ArrowRight size={12} />
-            </Link>
-          </div>
-        </div>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '20px' }} className="team-grid">
-          {team.map((member) => (
-            <div key={member.name} className="reveal-up" style={{ padding: '20px', background: '#111820', border: '1px solid rgba(255,255,255,0.18)', borderRadius: '6px', display: 'flex', flexDirection: 'column' }}>
-              <div style={{ borderRadius: '4px', overflow: 'hidden', border: '1px solid rgba(255,255,255,0.1)', marginBottom: '14px', height: '220px' }}>
-                <img
-                  src={member.image}
-                  alt={member.name}
-                  loading="lazy"
-                  style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'top center', display: 'block' }}
-                />
+
+        {/* Every card is the same size and shape, stacked, with the portrait
+            alternating sides: left, right, left, right... */}
+        <div className="leadership-stack">
+          {LEADERSHIP.map((member, index) => (
+            <article
+              key={member.name}
+              className={`reveal-up leadership-row${index % 2 === 1 ? ' is-right' : ''}`}
+            >
+              <div className="leadership-row-media">
+                <TeamPortrait name={member.name} image={member.image} height={CARD_HEIGHT} />
               </div>
-              <h4 className="font-serif-display" style={{ fontSize: '16px', fontWeight: 400, color: '#ffffff', marginBottom: '6px' }}>{member.name}</h4>
-              <p className="font-sans-body" style={{ fontSize: '12px', lineHeight: 1.6, color: 'rgba(255,255,255,0.55)', flexGrow: 1 }}>{member.role}</p>
-              <Link to="/about" style={{ fontSize: '11px', letterSpacing: '0.1em', color: '#008C8C', textTransform: 'uppercase', textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '4px', marginTop: '12px' }}>
-                View Bio <ArrowRight size={11} />
-              </Link>
-            </div>
+              <div className="leadership-row-body">
+                <h3 className="font-serif-display" style={{ fontSize: '23px', fontWeight: 400, color: '#ffffff', marginBottom: '8px', lineHeight: 1.25 }}>
+                  {member.name}
+                </h3>
+                <p className="font-mono-data" style={{ fontSize: '11px', letterSpacing: '0.14em', color: '#00CCCC', textTransform: 'uppercase', marginBottom: '18px' }}>
+                  {member.role}
+                </p>
+                <p
+                  className="font-sans-body leadership-row-summary"
+                  style={{ fontSize: '14px', lineHeight: 1.75, color: 'rgba(255,255,255,0.72)', marginBottom: '20px' }}
+                >
+                  {member.summary}
+                </p>
+                <Link
+                  to="/about"
+                  style={{ fontSize: '11px', letterSpacing: '0.1em', color: '#008C8C', textTransform: 'uppercase', textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '4px', alignSelf: 'flex-start' }}
+                >
+                  Full Bio <ArrowRight size={11} />
+                </Link>
+              </div>
+            </article>
           ))}
         </div>
       </div>
       <style>{`
-        @media (max-width: 1024px) and (min-width: 769px) {
-          .team-grid { grid-template-columns: repeat(2, 1fr) !important; }
+        .leadership-stack { display: flex; flex-direction: column; gap: 26px; }
+        .leadership-row {
+          display: grid;
+          grid-template-columns: ${MEDIA_WIDTH}px minmax(0, 1fr);
+          height: ${CARD_HEIGHT}px;
+          background: #111820;
+          border: 1px solid rgba(255,255,255,0.14);
+          border-radius: 8px;
+          overflow: hidden;
         }
-        @media (max-width: 768px) { .team-grid { grid-template-columns: 1fr !important; } }
+        .leadership-row-media { background: #0A1118; height: ${CARD_HEIGHT}px; }
+        .leadership-row-body { padding: 34px 40px; display: flex; flex-direction: column; justify-content: center; min-width: 0; }
+        /* Mirror the row for odd cards without reordering the DOM (portrait stays first for screen readers). */
+        .leadership-row.is-right .leadership-row-media { grid-column: 2; grid-row: 1; }
+        .leadership-row.is-right .leadership-row-body { grid-column: 1; grid-row: 1; }
+        .leadership-row-summary { display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; overflow: hidden; }
+        @media (max-width: 900px) {
+          .leadership-row { grid-template-columns: 1fr; height: auto; }
+          .leadership-row.is-right .leadership-row-media,
+          .leadership-row.is-right .leadership-row-body { grid-column: 1; grid-row: auto; }
+          .leadership-row-body { padding: 28px 24px 32px; }
+        }
       `}</style>
     </section>
   );

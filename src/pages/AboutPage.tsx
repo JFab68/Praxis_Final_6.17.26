@@ -6,6 +6,7 @@ import { ArrowRight, CheckCircle } from 'lucide-react';
 import PageHero from '../components/PageHero';
 import PageQuote from '../components/PageQuote';
 import SEOHead from '../components/SEOHead';
+import TeamPortrait from '../components/TeamPortrait';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -65,6 +66,13 @@ export default function AboutPage() {
       role: 'Community Organizing & Family Advocacy Coordinator',
       image: '/images/team-sherri.webp',
       bio: 'Sherri Scates coordinates community organizing, family engagement, and strategic narrative advocacy for Praxis Initiative. Rooted in her dedication to families impacted by the justice system, Sherri organizes community forums, supports families navigating ADCRR bureaucracy, and empowers impacted people to advocate directly before lawmakers.',
+    },
+    {
+      name: 'Lori Hamilton',
+      role: 'Executive Assistant & Development Coordinator',
+      // Photo to come — TeamPortrait renders a monogram panel until a path is set here.
+      image: null,
+      bio: 'Lori Hamilton has been directly and indirectly impacted several times throughout her life, and has survived a series of challenges that required her to make significant changes in order to achieve a so-called typical life today. She brings a world of lived experience and firsthand knowledge to the fight.',
     },
   ];
 
@@ -140,12 +148,7 @@ export default function AboutPage() {
                 >
                   <div>
                     <div style={{ marginBottom: '20px', borderRadius: '6px', overflow: 'hidden', border: '1px solid rgba(255,255,255,0.15)', maxHeight: '340px' }}>
-                      <img
-                        src={member.image}
-                        alt={member.name}
-                        loading="lazy"
-                        style={{ width: '100%', height: '320px', objectFit: 'cover', objectPosition: 'top center', display: 'block' }}
-                      />
+                      <TeamPortrait name={member.name} image={member.image} height={320} />
                     </div>
                     <h3 className="font-serif-display" style={{ fontSize: '20px', fontWeight: 400, color: '#ffffff', marginBottom: '6px' }}>{member.name}</h3>
                     <p className="font-mono-data" style={{ fontSize: '11px', letterSpacing: '0.12em', color: '#008C8C', textTransform: 'uppercase', marginBottom: '16px' }}>
