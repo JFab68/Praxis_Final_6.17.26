@@ -86,7 +86,7 @@ export default function AboutPage() {
       <PageHero
         eyebrow="About Us"
         title="Praxis Initiative Is Built by People Who Know the System Firsthand"
-        backgroundImage="/images/john-fabricius.webp"
+        backgroundImage="/images/arizona-landscape.webp"
         gradientAccent="#008C8C"
       />
       <PageQuote

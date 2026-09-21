@@ -143,23 +143,23 @@ export default function ContactPage() {
                   )}
                   <div>
                     <label htmlFor="contact-name" className="font-sans-body" style={{ fontSize: '12px', letterSpacing: '0.1em', color: 'rgba(255,255,255,0.5)', textTransform: 'uppercase', display: 'block', marginBottom: '8px' }}>Name *</label>
-                    <input id="contact-name" type="text" name="name" value={formData.name} onChange={handleChange} required className="font-sans-body" style={{ width: '100%', padding: '12px 16px', background: 'rgba(255,255,255,0.14)', border: '1px solid rgba(255,255,255,0.12)', borderRadius: '6px', color: '#FFFFFF', fontSize: '15px', outline: 'none' }} />
+                    <input id="contact-name" type="text" name="name" value={formData.name} onChange={handleChange} required autoComplete="name" className="font-sans-body" style={{ width: '100%', padding: '12px 16px', background: 'rgba(255,255,255,0.14)', border: '1px solid rgba(255,255,255,0.12)', borderRadius: '6px', color: '#FFFFFF', fontSize: '15px', outline: 'none' }} />
                   </div>
 
                   <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '20px' }}>
                     <div>
                       <label htmlFor="contact-email" className="font-sans-body" style={{ fontSize: '12px', letterSpacing: '0.1em', color: 'rgba(255,255,255,0.5)', textTransform: 'uppercase', display: 'block', marginBottom: '8px' }}>Email *</label>
-                      <input id="contact-email" type="email" name="email" value={formData.email} onChange={handleChange} required className="font-sans-body" style={{ width: '100%', padding: '12px 16px', background: 'rgba(255,255,255,0.14)', border: '1px solid rgba(255,255,255,0.12)', borderRadius: '6px', color: '#FFFFFF', fontSize: '15px', outline: 'none' }} />
+                      <input id="contact-email" type="email" name="email" value={formData.email} onChange={handleChange} required autoComplete="email" spellCheck={false} className="font-sans-body" style={{ width: '100%', padding: '12px 16px', background: 'rgba(255,255,255,0.14)', border: '1px solid rgba(255,255,255,0.12)', borderRadius: '6px', color: '#FFFFFF', fontSize: '15px', outline: 'none' }} />
                     </div>
                     <div>
                       <label htmlFor="contact-phone" className="font-sans-body" style={{ fontSize: '12px', letterSpacing: '0.1em', color: 'rgba(255,255,255,0.5)', textTransform: 'uppercase', display: 'block', marginBottom: '8px' }}>Phone</label>
-                      <input id="contact-phone" type="tel" name="phone" value={formData.phone} onChange={handleChange} className="font-sans-body" style={{ width: '100%', padding: '12px 16px', background: 'rgba(255,255,255,0.14)', border: '1px solid rgba(255,255,255,0.12)', borderRadius: '6px', color: '#FFFFFF', fontSize: '15px', outline: 'none' }} />
+                      <input id="contact-phone" type="tel" name="phone" value={formData.phone} onChange={handleChange} autoComplete="tel" className="font-sans-body" style={{ width: '100%', padding: '12px 16px', background: 'rgba(255,255,255,0.14)', border: '1px solid rgba(255,255,255,0.12)', borderRadius: '6px', color: '#FFFFFF', fontSize: '15px', outline: 'none' }} />
                     </div>
                   </div>
 
                   <div>
                     <label htmlFor="contact-org" className="font-sans-body" style={{ fontSize: '12px', letterSpacing: '0.1em', color: 'rgba(255,255,255,0.5)', textTransform: 'uppercase', display: 'block', marginBottom: '8px' }}>Organization</label>
-                    <input id="contact-org" type="text" name="organization" value={formData.organization} onChange={handleChange} className="font-sans-body" style={{ width: '100%', padding: '12px 16px', background: 'rgba(255,255,255,0.14)', border: '1px solid rgba(255,255,255,0.12)', borderRadius: '6px', color: '#FFFFFF', fontSize: '15px', outline: 'none' }} />
+                    <input id="contact-org" type="text" name="organization" value={formData.organization} onChange={handleChange} autoComplete="organization" className="font-sans-body" style={{ width: '100%', padding: '12px 16px', background: 'rgba(255,255,255,0.14)', border: '1px solid rgba(255,255,255,0.12)', borderRadius: '6px', color: '#FFFFFF', fontSize: '15px', outline: 'none' }} />
                   </div>
 
                   <div>
@@ -185,7 +185,7 @@ export default function ContactPage() {
                   </div>
 
                   <button type="submit" className="btn-praxis-solid" style={{ display: 'inline-flex', alignSelf: 'flex-start', marginTop: '8px' }} disabled={submitting}>
-                    {submitting ? <><Loader2 size={16} style={{ animation: 'spin 1s linear infinite' }} /> Sending...</> : <><Send size={16} /> Send Message</>}
+                    {submitting ? <><Loader2 size={16} style={{ animation: 'spin 1s linear infinite' }} /> Sending…</> : <><Send size={16} /> Send Message</>}
                   </button>
                 </form>
               )}

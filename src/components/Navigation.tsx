@@ -107,7 +107,7 @@ export default function Navigation() {
       fontSize: '12px',
       letterSpacing: '0.08em',
       cursor: 'pointer',
-      transition: 'all 0.3s ease',
+      transition: 'opacity 0.3s ease, color 0.3s ease',
       padding: 0,
       textDecoration: 'none',
       textTransform: 'uppercase',
@@ -264,7 +264,7 @@ export default function Navigation() {
                                 borderRadius: '5px',
                                 background: isSubActive ? 'rgba(0,140,140,0.18)' : 'transparent',
                                 borderLeft: isSubActive ? '3px solid #00CCCC' : '3px solid transparent',
-                                transition: 'all 0.2s ease',
+                                transition: 'background 0.2s ease, border-left-color 0.2s ease',
                               }}
                               onMouseEnter={(e) => {
                                 e.currentTarget.style.background = 'rgba(0,140,140,0.14)';
@@ -358,9 +358,9 @@ export default function Navigation() {
           aria-label="Toggle menu"
           aria-expanded={mobileOpen}
         >
-          <div style={{ width: '20px', height: '2px', background: '#FFFFFF', transition: 'all 0.3s ease', transform: mobileOpen ? 'rotate(45deg) translateY(5px)' : 'none' }} />
-          <div style={{ width: '20px', height: '2px', background: '#FFFFFF', margin: '5px 0', transition: 'all 0.3s ease', opacity: mobileOpen ? 0 : 1 }} />
-          <div style={{ width: '20px', height: '2px', background: '#FFFFFF', transition: 'all 0.3s ease', transform: mobileOpen ? 'rotate(-45deg) translateY(-5px)' : 'none' }} />
+          <div style={{ width: '20px', height: '2px', background: '#FFFFFF', transition: 'opacity 0.3s ease, transform 0.3s ease', transform: mobileOpen ? 'rotate(45deg) translateY(5px)' : 'none' }} />
+          <div style={{ width: '20px', height: '2px', background: '#FFFFFF', margin: '5px 0', transition: 'opacity 0.3s ease, transform 0.3s ease', opacity: mobileOpen ? 0 : 1 }} />
+          <div style={{ width: '20px', height: '2px', background: '#FFFFFF', transition: 'opacity 0.3s ease, transform 0.3s ease', transform: mobileOpen ? 'rotate(-45deg) translateY(-5px)' : 'none' }} />
         </button>
       </nav>
 

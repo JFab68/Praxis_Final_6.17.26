@@ -1,4 +1,5 @@
 import { useState, useRef, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import {
@@ -821,9 +822,9 @@ export default function EventsPage() {
                 >
                   <Mail size={16} /> Contact Events Coordinator
                 </a>
-                <a href="/action" className="btn-praxis">
+                <Link to="/action" className="btn-praxis">
                   View Action Center Petitions
-                </a>
+                </Link>
               </div>
             </div>
 

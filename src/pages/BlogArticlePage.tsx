@@ -282,7 +282,7 @@ export default function BlogArticlePage() {
                   cursor: 'pointer',
                   fontSize: '12px',
                   fontFamily: 'Inter, sans-serif',
-                  transition: 'all 0.3s ease',
+                  transition: 'background 0.3s ease, border-color 0.3s ease, transform 0.3s ease',
                 }}
               >
                 <Share2 size={12} /> Share
@@ -565,7 +565,7 @@ export default function BlogArticlePage() {
                       border: '1px solid rgba(255,255,255,0.1)',
                       borderRadius: '6px',
                       textDecoration: 'none',
-                      transition: 'all 0.3s ease',
+                      transition: 'background 0.3s ease, border-color 0.3s ease, transform 0.3s ease',
                     }}
                     onMouseEnter={(e) => {
                       e.currentTarget.style.background = 'rgba(0,140,140,0.08)';
