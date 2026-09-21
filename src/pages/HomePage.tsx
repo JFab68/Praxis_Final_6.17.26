@@ -783,6 +783,22 @@ export default function HomePage() {
         title="Arizona Criminal Legal System Reform"
         description="Praxis Initiative is a 100% system-impacted Arizona nonprofit advancing independent prison oversight, criminal legal system reform, skills training for returning citizens, and arts in prison programming."
         path="/"
+        schema={{
+          '@context': 'https://schema.org',
+          '@type': 'NGO',
+          name: 'Praxis Initiative',
+          url: 'https://praxisinitiative.org',
+          description: 'Praxis Initiative is a 100% system-impacted Arizona nonprofit advancing independent prison oversight, criminal legal system reform, skills training for returning citizens, and arts in prison programming.',
+          email: 'info@praxisinitiative.org',
+          address: { '@type': 'PostalAddress', addressLocality: 'Phoenix', addressRegion: 'AZ', addressCountry: 'US' },
+          sameAs: [
+            'https://www.facebook.com/profile.php?id=61570241575216',
+            'https://www.instagram.com/praxis_in_az/',
+            'https://x.com/PraxisInAZ',
+            'https://www.linkedin.com/company/praxis-initiative-az',
+          ],
+          nonprofitStatus: 'Nonprofit501c3',
+        }}
       />
       <HeroSection />
       <PageQuote
