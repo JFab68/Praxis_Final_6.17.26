@@ -83,6 +83,15 @@ export default function ActionCenterPage() {
         title="Action Center"
         description="Take action with Praxis Initiative. Sign petitions, attend events, and join the movement for independent prison oversight and criminal legal system reform in Arizona."
         path="/action"
+        schema={{
+          '@context': 'https://schema.org',
+          '@type': 'FAQPage',
+          mainEntity: [
+            { '@type': 'Question', name: 'How can I support independent prison oversight in Arizona?', acceptedAnswer: { '@type': 'Answer', text: 'You can support independent prison oversight by signing our petitions, contacting your state legislators, attending legislative hearings, donating to support the campaign, and spreading awareness about the importance of transparency and accountability in corrections.' } },
+            { '@type': 'Question', name: 'What petitions are currently active at Praxis Initiative?', acceptedAnswer: { '@type': 'Answer', text: 'Praxis Initiative runs petitions through Action Network on issues including funding for the Office of Correctional Oversight, expanding home confinement eligibility, and protecting arts programming in Arizona prisons. Visit our Action Center to see and sign current petitions.' } },
+            { '@type': 'Question', name: 'How do I join the Praxis Initiative coalition?', acceptedAnswer: { '@type': 'Answer', text: 'Organizations and individuals can join the coalition by contacting Praxis Initiative through our website, signing up for our newsletter, attending events, and participating in legislative working groups. We welcome partners who share our commitment to system-impacted leadership and criminal legal system reform.' } },
+          ],
+        }}
       />
       <PageHero
         eyebrow="Take Action"

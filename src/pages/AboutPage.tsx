@@ -82,11 +82,28 @@ export default function AboutPage() {
         title="About Us"
         description="Praxis Initiative is built by people who know the system firsthand. Learn about our origin, leadership, values, and the meaning of Praxis — turning lived experience into reform."
         path="/about"
+        schema={{
+          '@context': 'https://schema.org',
+          '@type': 'Organization',
+          name: 'Praxis Initiative',
+          url: 'https://praxisinitiative.org',
+          description: 'A 100% system-impacted Arizona nonprofit advancing independent prison oversight, criminal legal system reform, skills training for returning citizens, and arts in prison programming.',
+          email: 'info@praxisinitiative.org',
+          address: { '@type': 'PostalAddress', addressLocality: 'Phoenix', addressRegion: 'AZ', addressCountry: 'US' },
+          nonprofitStatus: 'Nonprofit501c3',
+          foundingDate: '2023',
+          sameAs: [
+            'https://www.facebook.com/profile.php?id=61570241575216',
+            'https://www.instagram.com/praxis_in_az/',
+            'https://x.com/PraxisInAZ',
+            'https://www.linkedin.com/company/praxis-initiative-az',
+          ],
+        }}
       />
       <PageHero
         eyebrow="About Us"
         title="Praxis Initiative Is Built by People Who Know the System Firsthand"
-        backgroundImage="/images/arizona-landscape.webp"
+        backgroundImage="/images/coalition-puzzle-pieces.webp"
         gradientAccent="#008C8C"
       />
       <PageQuote

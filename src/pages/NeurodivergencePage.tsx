@@ -381,6 +381,15 @@ export default function NeurodivergencePage() {
         title="Neurodivergence & Criminal Justice Reform"
         description="A Praxis Initiative legislative white paper on the systemic criminalization of neurodivergence, intellectual disability, and developmental disability across the criminal legal system."
         path="/neurodivergence"
+        schema={{
+          '@context': 'https://schema.org',
+          '@type': 'FAQPage',
+          mainEntity: [
+            { '@type': 'Question', name: 'What is the relationship between neurodivergence and the criminal legal system?', acceptedAnswer: { '@type': 'Answer', text: 'Neurodivergent individuals — including people with intellectual disabilities, developmental disabilities, autism, ADHD, and acquired brain injuries — are disproportionately arrested, charged, convicted, and incarcerated. The criminal legal system was not designed for neurodivergent cognition and communication, creating systemic failures at every stage from arrest through reentry.' } },
+            { '@type': 'Question', name: 'What policy changes does Praxis Initiative propose for neurodivergence in the justice system?', acceptedAnswer: { '@type': 'Answer', text: 'Praxis Initiative advocates for mandatory screening at intake, neurodivergence-informed training for law enforcement and corrections staff, diversion programs as the default for non-violent offenses involving neurodivergent defendants, reasonable accommodations throughout court proceedings, and specialized reentry services.' } },
+            { '@type': 'Question', name: 'How common is neurodivergence in prisons?', acceptedAnswer: { '@type': 'Answer', text: 'Studies estimate that 30-50% of incarcerated individuals have some form of neurodivergence, intellectual disability, or acquired brain injury — rates far higher than in the general population. Many were never identified or accommodated before entering the system.' } },
+          ],
+        }}
       />
       <PageHero
         eyebrow="Legislative White Paper"

@@ -66,7 +66,17 @@ export default function ResourcesPage() {
 
   return (
     <div style={{ position: 'relative', zIndex: 2, background: '#050A0F' }}>
-      <SEOHead title="Resources Hub" description="Access public education materials, research, advocacy toolkits, and community resources from Praxis Initiative — Arizona's system-impacted criminal legal reform organization." path="/resources" />
+      <SEOHead title="Resources Hub" description="Access public education materials, research, advocacy toolkits, and community resources from Praxis Initiative — Arizona's system-impacted criminal legal reform organization." path="/resources"
+        schema={{
+          '@context': 'https://schema.org',
+          '@type': 'FAQPage',
+          mainEntity: [
+            { '@type': 'Question', name: 'What resources does Praxis Initiative provide for criminal legal system reform?', acceptedAnswer: { '@type': 'Answer', text: 'Praxis Initiative provides public education materials, research reports, advocacy toolkits, policy briefs, legislative trackers, and community guides covering independent prison oversight, sentencing reform, reentry support, and criminal legal system transparency in Arizona.' } },
+            { '@type': 'Question', name: 'Where can I find Arizona prison oversight reports?', acceptedAnswer: { '@type': 'Answer', text: 'Praxis Initiative publishes reports on Arizona prison conditions, oversight legislation, and ADCRR accountability on our Resources Hub. We also track and publish analysis of Office of Correctional Oversight reports and legislative developments.' } },
+            { '@type': 'Question', name: 'Are Praxis Initiative resources available to the public?', acceptedAnswer: { '@type': 'Answer', text: 'Yes. All Praxis Initiative resources, reports, toolkits, and guides are freely available to the public, advocates, lawmakers, families, journalists, and community members. Visit our Resources Hub to download and share.' } },
+          ],
+        }}
+      />
       <PageHero
         eyebrow="Resource Hub"
         title="Resources"

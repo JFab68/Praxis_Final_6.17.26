@@ -76,6 +76,19 @@ export default function ContactPage() {
         title="Contact Us"
         description="Contact Praxis Initiative for media inquiries, coalition partnerships, training requests, speaking engagements, or general information about our work."
         path="/contact"
+        schema={{
+          '@context': 'https://schema.org',
+          '@type': 'Organization',
+          name: 'Praxis Initiative',
+          url: 'https://praxisinitiative.org',
+          email: 'info@praxisinitiative.org',
+          address: { '@type': 'PostalAddress', addressLocality: 'Phoenix', addressRegion: 'AZ', addressCountry: 'US' },
+          contactPoint: {
+            '@type': 'ContactPoint',
+            email: 'info@praxisinitiative.org',
+            contactType: 'general inquiries',
+          },
+        }}
       />
       <PageHero
         eyebrow="Get in Touch"
