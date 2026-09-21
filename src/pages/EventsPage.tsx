@@ -917,6 +917,7 @@ export default function EventsPage() {
             <img
               src={selectedPoster}
               alt="Minds, Justice, and the Law Event Flyer"
+              loading="lazy"
               style={{
                 display: 'block',
                 maxHeight: '90vh',

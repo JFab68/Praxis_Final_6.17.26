@@ -33,6 +33,22 @@ export default function PrivacyPolicyPage() {
               </p>
             </div>
             <div>
+              <h2 className="font-serif-display" style={{ fontSize: '22px', fontWeight: 400, color: '#ffffff', marginBottom: '16px' }}>Third-Party Services</h2>
+              <p className="font-sans-body" style={{ fontSize: '15px', lineHeight: 1.9, color: 'rgba(255,255,255,0.72)' }}>
+                We use the following third-party services to operate our website and programs:
+              </p>
+              <ul style={{ listStyle: 'disc', paddingLeft: '24px', marginTop: '12px', display: 'flex', flexDirection: 'column', gap: '8px' }}>
+                <li style={{ fontSize: '15px', lineHeight: 1.9, color: 'rgba(255,255,255,0.72)' }}><strong>Web3Forms</strong> — processes contact form and newsletter signup submissions.</li>
+                <li style={{ fontSize: '15px', lineHeight: 1.9, color: 'rgba(255,255,255,0.72)' }}><strong>Feathr</strong> — provides digital outreach analytics and engagement tracking.</li>
+                <li style={{ fontSize: '15px', lineHeight: 1.9, color: 'rgba(255,255,255,0.72)' }}><strong>Givebutter</strong> — processes online donations.</li>
+                <li style={{ fontSize: '15px', lineHeight: 1.9, color: 'rgba(255,255,255,0.72)' }}><strong>Action Network</strong> — hosts petitions and advocacy actions.</li>
+                <li style={{ fontSize: '15px', lineHeight: 1.9, color: 'rgba(255,255,255,0.72)' }}><strong>Vercel</strong> — hosts the website and provides anonymous performance analytics.</li>
+              </ul>
+              <p className="font-sans-body" style={{ fontSize: '15px', lineHeight: 1.9, color: 'rgba(255,255,255,0.72)', marginTop: '12px' }}>
+                Each of these services has its own privacy policy governing how it handles data. We encourage you to review their policies as well.
+              </p>
+            </div>
+            <div>
               <h2 className="font-serif-display" style={{ fontSize: '22px', fontWeight: 400, color: '#ffffff', marginBottom: '16px' }}>Data Security</h2>
               <p className="font-sans-body" style={{ fontSize: '15px', lineHeight: 1.9, color: 'rgba(255,255,255,0.72)' }}>
                 We implement reasonable security measures to protect your personal information from unauthorized access, alteration, disclosure, or destruction. All donation transactions are processed through secure, encrypted connections (HTTPS) through our payment processing partners.

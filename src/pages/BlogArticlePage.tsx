@@ -422,6 +422,7 @@ export default function BlogArticlePage() {
                   key={i}
                   src={img}
                   alt={`${article.title} — image ${i + 2}`}
+                  loading="lazy"
                   style={{
                     width: '100%',
                     aspectRatio: '16/10',
@@ -515,6 +516,7 @@ export default function BlogArticlePage() {
             <img
               src="/images/john-fabricius.webp"
               alt="Praxis Initiative"
+              loading="lazy"
               style={{ width: '64px', height: '64px', borderRadius: '50%', objectFit: 'cover', flexShrink: 0, filter: 'brightness(1.2) contrast(1.05)' }}
             />
             <div>
@@ -579,6 +581,7 @@ export default function BlogArticlePage() {
                     <img
                       src={related.image}
                       alt={related.title}
+                      loading="lazy"
                       style={{ width: '100%', aspectRatio: '16/9', objectFit: 'cover', borderRadius: '4px', marginBottom: '12px' }}
                     />
                     <span className="font-mono-data" style={{ fontSize: '10px', letterSpacing: '0.15em', color: '#008C8C', textTransform: 'uppercase' }}>

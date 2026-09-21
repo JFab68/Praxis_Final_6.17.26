@@ -341,6 +341,7 @@ export default function Footer() {
                   <p className="font-sans-body" style={{ fontSize: '12px', color: '#E05555', marginBottom: '8px' }}>{newsletterError}</p>
                 )}
                 <form onSubmit={handleNewsletterSubmit} style={{ display: 'flex', gap: '8px' }}>
+                  <label htmlFor="newsletter-email" className="sr-only">Email address</label>
                   <input
                     id="newsletter-email"
                     type="email"

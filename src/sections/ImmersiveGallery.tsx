@@ -98,6 +98,7 @@ export default function ImmersiveGallery({ onSelect }: Props) {
                   <img
                     src={project.image}
                     alt={project.title}
+                    loading="lazy"
                     style={{
                       width: '100%',
                       height: '100%',
@@ -105,7 +106,6 @@ export default function ImmersiveGallery({ onSelect }: Props) {
                       display: 'block',
                       transition: 'transform 0.6s ease',
                     }}
-                    loading="lazy"
                     onMouseEnter={(e) => {
                       e.currentTarget.style.transform = 'scale(1.03)';
                     }}
