@@ -167,7 +167,7 @@ Each article includes: slug, title, headline, subheadline, date, category, featu
 - Arnold Ventures — gold-accent featured card, 2024-2026
 
 ### Active Coalition (7)
-Dream.Org, FAMM, Justice Action Network, Right on Crime, Stand With Children Arizona, Nolan Center for Justice (ACU/CPAC), Arizonans for Effective Public Safety
+Dream.Org, FAMM, Justice Action Network, Right on Crime, Stand for Children Arizona, Nolan Center for Justice (ACU/CPAC), Arizonans for Effective Public Safety
 
 ### Allied Organizations — We Support (6)
 Arizona Justice Project, Crossroads Programs, FWD.us, Phoenix Indian Center, ACESDV, Reframe Reentry

@@ -47,9 +47,9 @@ const coalitionPartners: Partner[] = [
     relationship: 'partner',
   },
   {
-    name: 'Stand With Children Arizona',
-    description: 'Stand With Children Arizona advocates for policies that protect and support Arizona children and families impacted by the criminal legal system. Their work focuses on keeping families connected and ensuring children\'s needs are centered in reform efforts.',
-    website: 'https://standwithchildren.org',
+    name: 'Stand for Children Arizona',
+    description: 'Stand for Children Arizona advocates for policies that protect and support Arizona children and families impacted by the criminal legal system. Their work focuses on keeping families connected and ensuring children\'s needs are centered in reform efforts.',
+    website: 'https://stand.org/arizona/',
     focus: 'Children and families, family unity, advocacy',
     relationship: 'partner',
   },
